@@ -1,0 +1,954 @@
+\documentclass[a4paper,11pt]{article}
+
+%
+% Do not change
+\textheight = 220mm
+\textwidth  = 150mm
+\topmargin  = 10mm
+\oddsidemargin  = 5.0mm
+\evensidemargin = 5.0mm
+\unitlength = 1mm
+
+
+\usepackage[T1]{fontenc} % Use latin1 font encoding, permits the direct use of åäöÅÄÖ in the text
+
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+%
+% Choose if you write in Swedish or English. (Don't write in English!)
+\usepackage[swedish]{babel} % If in Swedish
+%\usepackage[english]{babel} % If in English
+
+\begin{document}
+%
+% Do not change
+\let\rempage=\thepage
+{
+\renewcommand{\thepage}{\relax}
+\begin{picture}(44,0)(15,10)%
+\special{psfile=mahlogo-name.eps}%
+\includegraphics[width=4cm]{mahlogo-name.eps}
+\end{picture}%
+
+\vspace*{-30mm}
+\hfill\begin{minipage}[t]{16em}\large
+Fakulteten för teknik och samhälle\\
+Datavetenskap
+\end{minipage}
+
+\vspace*{45mm}
+\begin{center}
+{\bf\large
+Examensarbete 
+
+\small
+15 högskolepoäng, grundnivå
+}
+
+\vspace*{25mm}
+\LARGE
+%
+% Put your title here
+Trackers och rekommendationer: datainsamling och transparens
+
+\vspace*{8mm}
+\large
+%
+% Translated title 
+Trackers and recommendations: data collection and transparence
+
+\vspace*{12mm}
+\Large
+%
+% Author names
+Victor Axelsson\\
+Felix Ruponen
+
+\vspace*{30mm}
+\large
+%
+% Picture if you want
+
+\end{center}
+
+\vfill
+\hspace*{-10mm}%
+\begin{minipage}[t]{20em}
+%
+% Fill in correct data for you
+Examen: Kanditatexamen 180hp
+\\
+Huvudområde: Datavetenskap
+%
+% Huvudområden är:
+% Affärssystem
+% Data och informationsvetenskap (IA och IS)
+% Datavetenskap (Övriga)
+\\
+Program: Systemutvecklare
+\\
+Datum för slutseminarium: 2015-06-01
+\end{minipage}
+%
+\hfill
+%
+\begin{minipage}[t]{15em}
+%
+% Fill in supervisor and second reader
+Handledare: Bengt J. Nilsson 
+\\
+Andrabedömare: Kristina von Hauswolff
+\end{minipage}
+
+\newpage
+
+\mbox{}
+
+\newpage
+
+\section*{Resumé}
+
+Vid sökning på internet via en webbläsare finns en mängd tredjepartsaktörer aktiva som samlar in information om användarens beteende. Det saknas idag en transparens gentemot användaren om vilka aktörer, vilken information och vad informationen används till. I denna studie undersöks de i dagsläget största aktörerna och deras respektive informationshantering. Studien visade på fem stora tjänster inom rekommenderat material och data-analys varav två företag undersöks vidare. Dessa analyseras i artikeln utifrån respektive företags sekretess och användaravtal för att sedan dra slutsatser kring  transparens och datahantering. 
+
+\newpage
+
+\mbox{}
+
+\newpage
+
+\section*{Abstract}
+
+When searching on the Internet via a web browser there is a variety of third-party actors active that collects information about the user's behavior. Today, there is a missing transparency for the user about the actors, what information is gathered and what the information is used for. This study examines the current situation of major actors and their respective information. The study revealed five major services within recommended materials and data analysis. Two companies were investigated further. These companies are analyzed in the article based on each company's privacy and user agreement and then conclusions are drawn about the transparency and data management.
+
+\newpage
+\mbox{}
+\newpage
+\begin{huge}
+Ordlista \\\\
+\end{huge}
+
+\begin{tabular}{l p{12cm} }
+	API & Gränssnitt mellan programmoduler kallas ofta API (engelskaapplication programming interface). Likt fallet med hårdvara vill man kunna använda programkomponenter från olika tillverkare, det vill säga utnyttja olika implementationer av ett visst gränssnitt. \\ \\
+	
+	HTTP & hypertext transfer protocol, kommunikationsprotokoll som används på World Wide Web för överföring av bl.a. HTML-dokument och bildfiler.	 \\\\
+	
+	Open Source & öppen källkod, princip för datorprogram där användaren har fri tillgång till programmets källkod och därför kan förstå, korrigera och modifiera programmet. \\\\
+	
+	PHP & Ursprungligen förkortning för Personal Home Pages, senare PHP Hypertext Preprocessor, skriptspråk för hantering av webbsidor, skapat 1995 av grönländaren Rasmus Lerdorf (född 1968). \\\\
+	
+	Proxy & Proxyserver, mellanserver, proxy, server som skickar vidare ett anrop från en klient och därefter skickar ett svar tillbaka till klienten. \\\\
+	
+	Relationsdatabas &  Databas i vilken data representeras i form av tabeller.  \\\\
+	
+	Black box & Blackbox-metoden [blæk-], indirekt metod att kartlägga processer som inte kan studeras direkt.I?t.ex. naturvetenskaplig forskning måste ibland ett komplext system betraktas som en ?svart låda?, en black box. \\\\
+	
+\end{tabular}
+
+
+
+\newpage
+\mbox{}
+\newpage
+\tableofcontents
+\newpage
+\ifodd\value{page}\else\mbox{}\newpage\fi
+\setcounter{page}{1}
+\renewcommand{\thepage}{\rempage}
+%
+
+
+\section{Inledning}
+
+Rekommendationssystem är verktyg som förenklat informationssökning och dagliga uppgifter som användare utför på sina datorer. Syftet med rekommendationssystem är att ge vägledning till användare som saknar personlig erfarenhet inom ett specifikt område [25]. Då vi ska gå ut och äta på restaurang kan vi till exempel med fördel fråga bekanta som kanske har en bättre kännedom om området, eller fråga någon som vi vet känner till mycket om en viss typ av mat.
+
+
+Inom marknadsföringsområdet har detta tänk, att underlätta för människor, utvecklats naturligt eftersom att det kan ge stora fördelar för potentiella kunder som har ett behov av att konsumera och företag som kan erbjuda varor till dessa kunder.
+
+
+Användare som besöker en webbplats blir utsatt för dessa rekommendationer i form av reklamplatser, banners och andra former av reklam. För att ge användare så relevant reklam som möjligt finns det därför olika metoder för att åstadkomma detta.
+
+\subsection{Definitioner}
+Rekommendationsystem (eng. Recommender systems) är system som har syftet att presentera meningsfulla rekommendationer för användaren [ref].
+
+\begin{quote}
+The goal of a Recommender System is to generate meaningful recommendations to a collection of users for items or products that might interest them. Suggestions for books on Amazon, or movies on Netflix, are real world examples of the operation of industry- strength recommender systems. [...]  [ref]
+\end{quote}
+Designen kring exakt hur rekommendationer ska designas beror på kontexten och domänen av systemet. Givetvis passar det t.ex. inte att rekommendera böcker i domänen av en hemsida för filmer. Om rekommendationerna baseras/filtreras på liknande innehåll som användaren tidigare gillat används termen \textit{content based filtering}. Om Rekommendationerna baseras på röstningar från andra användare används termen \textit{collaborative filtering} och termen \textit{hybrid approches} används för hybrider av filtreringsmetoder.
+
+Trackers är en metod för att identifiera en webbläsare mellan webbsidor och över tid. Ordet trackers syftar i denna uppsats till det längre ordet \textit{tracker cookies}.
+
+[x] Melville P, Sindhwani V. Recommender Systems. IBM T.J. Watson Research Center, Yorktown Heights, NY 10598. 2010
+
+\begin{quote}
+The most common way to track web browsers (by ?track? we mean associate the browser?s activities at different times and with different websites) is via HTTP cookies, often set by with 3rd party analytics and advertising domains? [ref]
+\end{quote}
+
+[x] Eckersley, P. How unique is your web browser? EFF report, Electronic Frontier Foundation. 2009
+
+Transparens i nationalencyklopedin beskrivs ordet transparent som synonym till genomskinlig [http://www.ne.se/uppslagsverk/ordbok/svensk/transparent]. Distribuerade system förklaras ha en transparent understruktur.
+
+\begin{quote}
+Distribuerade system för databehandling består av flera parallellt arbetande delsystem som under utbyte av meddelanden utför en gemensam uppgift utan att användaren behöver vara medveten om understrukturen (systemet är transparent). [http://www.ne.se/uppslagsverk/encyklopedi/l%C3%A5ng/distribuerade-system] 
+\end{quote}
+
+I politisk vetenskap går det att göra en mer generell definition på termen transparens. 
+
+\begin{quote}
+Transparency, capacity of outsiders to obtain valid and timely information about the activities of government or private organizations.
+[http://global.britannica.com/topic/transparency-government]
+\end{quote}
+I detta dokument är det den ovanstående definieringen som avses med termen \textit{transparens.}
+
+\subsection{Syfte}
+Eftersom rekommendationer kommer från automatiserade system kan det ibland vara svårt för användare att förstå vad rekommendationer grundar sig i. Denna uppsats syftar till att undersöka i vilken utsträckning datainsamling sker, vilka de största aktörerna är samt hur dessa aktörer kommunicerar sin datainsamling till sina användare.
+
+\subsection{Avgränsningar}
+Undersökningen som utförs syftar till att avhandla aspekter som rör privatpersoner. I omfattningen av företag kan många andra aspekter, såsom ekonomisk hållbarhet,  företagspolicies och sekretesser, bli avgörande för andra utgångar. Detta avhandlas inte i denna undersökning. 
+
+Ingen undersökning kring hur företagen följer sina sekretesspolicies har gjorts. I omfattningen av undersökningen har antagandet gjorts att företagen följer de publika avtal som skrivits. 
+
+Det finns ingen avsikt att metodiskt undersöka integritetsaspekter. I diskussioner kring områden, såsom transparens och öppenhet, kan däremot en kortare diskussion kring ämnet föras.
+
+\subsection{Frågeställning}
+
+\begin{quote}
+\textit{Vilka aktörer samlar information om surfande användare?} \\
+
+\textit{Hur uppenbar är datainsamlingen som sker vid en surfsession på webben?}
+\end{quote}
+
+\section{Bakgrund}
+I denna del av dokumentet presenteras begrepp och bakgrundsfakta inom området rekommendationssystem. Även reklam och generell datahantering diskuteras. Denna del ligger som bas för vidare presentation inom området. 
+\subsection{Transparens}
+Det finns i dagsläget metodiker som kan implementeras i företag och statliga myndigheters dagliga arbete som kan höja transparensen av datahantering gentemot användaren avsevärt. I artikeln \textit{Distributed privacy-preserving transparency logging} presenterar Pulls et. al. [24] en teknik som med hjälp av ett kryptografiskt schema som ökar transparensen av datahantering. I artikeln nämns också aspekter såsom ett ökat förtroende för myndigheten som hanterar den känsliga datan. Pulls et. al. [24] presenterar fyra krav för ett implementerat system. 
+
+\begin{quote}
+
+
+The adversary should not be able to make undetectable modifications to logged data (committed prior to com- promise), i.e., the integrity of the data should be ensured once stored.?
+?Only the user should be able to read the data logged for him, i.e., the data should be confidential (secrecy). \\
+
+
+From the log and the state, it should not be possible for an adversary to determine if two log entries (committed prior to compromise) are related to the same user or not, i.e., user log entries should be unlinkable. \\
+
+User identifiers (setup prior to compromise) across multiple data processors or log servers should be unlinkable.
+\end{quote}
+Exempel kring hur denna implementation kan distribueras över flera noder presenteras som ett mål i att möta allt fler molnbaserade tjänster. Det som är viktigt att nämna är också att detta inte är endast en teoretisk modell utan en faktisk genomförbarhetsstudie har utförts som visar att metoden är genomförbar även i praktiken. 
+
+\subsection{Trackers}
+Genom att skapa nätverk av webbsidor som vill visa reklam går det att ge bättre reklamrekommendationer för slutanvändare genom att besökare till dessa sidor indirekt medverkar till att förbättra reklamen som visas inom dessa nätverk av webbsidor [26]. Detta sker genom att datainsamling utförs på besökare av dessa webbsidor med hjälp utav trackers. Det som är intressant att samla in är användarbeteenden och preferenser som hela nätverket sedan i förlängning kan ta del av. 
+
+Ett exempel på detta är DoubleClick [14] som är en tjänst som erbjuder skapande, transaktioner och hantering av digitalreklam för köpare, skapare och säljare. 
+
+För att kunna spåra användare över tid krävs det att reklamföretag kan identifiera användare på ett sådant sätt att det går att koppla till ett användarbeteende. Då en given sida är med i ett så kallat reklamnätverk och genom att visa reklam på webbsidan kan dessa nätverk enligt Gomer et. al. [26] också spara en cookie som identifierar användare som besöker webbsidan med hjälp av en unik identifierare. När samma användare sedan besöker webbsidor som är med i samma reklamnätverk kommer dessa cookies ge utslag och identifiera användaren. 
+
+\begin{quote}
+As the user visits other sites associated with the same ad network, this third party cookie is used by the ad network to identify the user pseudonymously. In this way the ad network obtains, processes, and accumulates data about the user?s online activity in real time [26]
+\end{quote}
+Webbplatser som använder sig av reklamnätverk för att visa relevant reklam agerar också producent av det dataunderlag som nätverken använder för att förutse köpbeteende. Detta sker genom att webbplatsen är värd för inbäddad kod som kopplas upp mot reklamnätverken och visar reklam då webbsidan renderas. Detta ger webbplatserna möjlighet att använda information som lagras på klientens dator [26].
+
+\subsection{Algoritmisk reklam}
+En metod som används inom e-reklam för att ge bra rekommendationer är att analysera hemsidors innehåll [19] vilket speglar preferenser som användare har eftersom användaren genom ett aktivt val besöker hemsidan. Detta innebär att korrekt reklam i denna kontext i många fall är lätt att förutse. 
+
+För att reklam som erbjuds ska bli ännu bättre på att förutse de individuella användarnas behov går det med fördel att använda andra rekommendationskoncept. Enligt Garcia-Molina et al. [12] går det att kombinera sökresultat, rekommendationssystem och reklam eftersom att dessa tre informationsflöden har många likheter. Genom att förbättra en av dessa tre går det att samtidigt förbättra alla tre former av flöden.
+
+Ett relativt nytt koncept inom algoritmisk reklam är Behavioral Targeting [33] som kan definieras som en metod för att ge relevant reklam som grundar sig i vilka sökningar en användare gjort tidigare och analys av dessa. 
+
+\subsection{Do not track signal}
+Det finns ett försök att införa en standard för integritetshantering på webben. På W3Cs hemsida [9] går det att läsa ett förslag på en HTTP-header som kan användas för att meddela mottagaren om att avsändaren inte ska spåras för informationsinsamlingssyften. Denna header kallas för Do Not Track Signal. 
+
+Problematiken med standarden ligger i att avsändaren ofta inte har någon möjlighet att kontrollera ifall mottagaren faktisk följer anvisningen. 
+
+\subsection{Kallstart}
+Ett av problemen med rekommendationssystem a?r hur nya anva?ndare hanteras utan tidigare registrerat beteende och hur det går att ge dessa anva?ndare relevanta resultat. Enligt Braunhofer [2] ger olika rekommendationsalgoritmer varierande resultat i detta avseende och underso?kningen fo?r denna artikel handlar om hur det går att kombinera olika algoritmer fo?r att na? ba?st resultat.
+
+
+Metoden som Braunhofer använder a?r att analysera tre datasamlingar med olika sorters kontextuell hantering av inneha?ll. Genom att utfo?ra tre separata test: ett fo?r nya anva?ndare, ett fo?r nya fo?rema?l och ett fo?r nya kontextuella situationer, drogs i artikeln slutsatser kring vilka hybridtekniker som kan antas vara bra att anva?nda. Slutsatsen som Braunhofer kommer fram till a?r att i samtliga tre situationer presterade ett demografiskt baserat rekommendationssystem bra. I dessa rekommendationssystem tas fo?rutom prioritering ocksa? ha?nsyn till ka?nda anva?ndarattribut.
+
+Anga?ende hybridiseringstekniker framgick det i artikeln att dessa presterar ba?ttre a?n de demografiska algoritmerna vilket visar att detta kan fo?rba?ttra resultaten ytterligare, men poängterar att ytterligare forskning kra?vs inom omra?det.
+
+\subsection{Kontextbaserad kallstart}
+Vanchinathan et. al. [31] beskriver en algoritm som författarna kallar CGPRank. Denna algoritm har som syfte att skapa listor av rekommenderat material. Detta material ligger som grund för tjänsterna Yahoo! och Google Books i omfattningen av den forskning som utförts inom området.
+
+Det som skiljer just denna artikel gentemot de existerande bästa metoderna är med hur listorna kan korreleras mellan olika användare. I en implementation kan rekommenderat material presenteras för användaren, som i jämförelse med existerande metoder, där antalet klick har ökat med 18\%.
+
+Först skapas en profil av användaren som används i förlängningen av algoritmen. Olika kontexter används för att beskriva det material som ska presenteras. De olika artiklarna som ska presenteras analyseras i förhållande till de olika kontexterna. Om en artikel får bra feedback i en given kontext normaliseras de additiva data som insamlats i samband med klick. 
+
+Ett stort problem vid kontextbaserat material är den så kallade kallstartsproblematiken. Det innebär att det inte går att definiera någon kontext eftersom ingen tillgänglig data att basera den på finns. En fördel med CGPRank, som framhävs med artikeln vid kallstart, är att listor av rekommenderat material finns tillgängligt för andra, nya, användare. Med detta sagt går det att skapa relativt pålitliga nya listor med väldigt lite data genom att basera valet genom redan existerande listor som grundar sig på mycket mer data. Med detta hjälpmedel kan en större konvergens skapas relativt tidigt i en bas av data [31].
+
+\subsection{Filtrering}
+I innehållsbaserade rekommendationssystem används attributen som beskriver ett föremål tillsammans med en profil för användarens preferenser för att skapa rekommendationer. Syftet är att använda attribut, såsom ranking på tidigare besökt material, för att förutspå och filtrera ut innehåll som användaren kan vara intresserad av. Dessa typer av filtrering kallas innehållsbaserade filtreringar [1].
+
+Goldberg et. al. [18] skriver i sin artikel redan 1992 om ett system som skapas för att ta emot, filtrera, lagra och bläddra bland elektroniska dokument. För att förbättra användarupplevelsen används samarbetsbaserad filtrering där användarna uppmuntras till att kategorisera dokumenten, något som sedan används för att filtrering.
+
+Genom att utveckla ett liknande samarbetsbeteende för filtrering går det att dra slutsatser om användarbeteende, aktiviteter och preferenser för att förutse vad liknande användare har för preferenser i framtiden. 
+
+\subsection{Kontextuell relevans}
+Limbu et. al. [20] framlägger en modell av datahantering, som i de preliminära experiments som utförts, medför en förbättrad datahämtning i webbinformationssystem.
+
+Data-användningen kategoriseras i explicit och implicit data. Implicit data består av användarens tidigare sökhistorik och den explicita data består av en databas av kontextbaserad kategorisering av domänspecifika beskrivningar. Ett antal existerande sökoptimeringar presenteras och som beskrivs som de bästa nuvarande, eng. state-of-art. Dessa metoder för att bygga en söksträng beskrivs som inkrementell och när ny data finns tillgänglig så adderas denna till söksträngen men där istället Limbu et. al [20] startar om från början och bygger en söksträng från den, just nu, bästa tillgängliga data.
+
+Mer i detalj byggs söksträngen upp genom en kombination av data som genererats av användarens beteende, sökhistorik som ger meta-nyckelord, som bildar en del de kallar kontextuell användarprofil, eng. contextual user profile, och preferenser. Preferens-insamlingen är något mer komplex än beteendeinsamlingen. Preferensinsamlingen innehåller tre datakällor. Input kommer från användaren och består av den söksträng användaren producerat i deras existerande gränssnitt. Denna söksträng filtreras mot ett lexikon för att åtgärda stavfel. Därefter används den skapade användarprofilen för att korrelera meta nyckelord. Slutligen används en databas för att skapa rekommenderade koncept. I detta skede är en optimerad söksträng skapad som kan användas för att söka kontextbaserat.
+
+Nedan visas ett utdrag från texten som väl illustrerar tre exempel på söksträngar som satts samman med tidigare beskriven metodik. \\
+
+\includegraphics[width=10cm]{img1.png} \\\\
+Det som är viktigt att ta med sig från illustrationen är att söksträngarna inte är additiva. Detta innebär att söksträngarna inte adderas samman av nyckelord, koncept och termer efterhand de finns tillgängliga. Istället omvärderas söksträngen efterhand bättre data finns tillgänglig. Metoden kan likas vid ett top 10 lista. Denna typ av metodik är något som beskrivs redan i inledningen av artikeln som den största avvikelsen från andra nuvarande metodiker [20].
+
+
+\subsection{Sociala nätverk för positionering}
+Li et. al. [27] presenterar en modell för att positionera en användare geografiskt genom data som genereras på sociala nätverk. Tidigt i texten presenteras det sociala nätverket Twitter som utgångsläge för studierna. Modellen de presenterar ska enligt författarna vara 13% mer noggrann än dåvarande existerande bästa tekniker.
+
+De kallar modellen UDI för Universal Discriminative Influence model. På Twitter går det att ange sin bostadsplats men det är få användare som faktiskt gör detta. Istället, för att ha tillgång till denna data, kan sofistikerade gissningar om användarens position göras. De använder användarcentrerad data som skapas i samband med tweetes. I tweetsen kan det finnas positionsbaserat material, såsom städer eller butiker, som används i algoritmen. En annan källa för analys är också vilka följare en användare har.
+
+Genom att göra analyser av var en användares kontakter befinner sig, som ett sätt att komplettera data, går det att pejla in en position genom att göra jämförelser mellan olika följare som användaren har eller själv följer. En del av dessa kontakter beskrivs som brusiga eller högljudda. Ett exempel på en brusig kontakt kan vara om användaren följer en känd person som har många följare som de inte umgås med privat. En sådan kontakt kommer medföra ett störande brus i algoritmen eftersom denna person ofta inte befinner sig i samma geografiska kontext som följaren. Dessutom har dessa typer av användare också blandade följare från, ibland, hela världen.
+
+För att hantera problemet med brusig information presenteras en diskriminerande tillvägagångssätt där dessa typer av källor plockas bort. Detta bättrar på noggrannheten med 6\%.
+
+I undersökningen gjordes separata och integrerade test. I de separerade testen hämtades data endast från en källa, antingen följare eller tweets. I det integrerade höjdes noggrannheten avsevärt när det gick att samköra information. När den integrerade modellen användes gick det att placera 57\% korrekt inom en 25 amerikanska miles radie [27].   
+
+\subsection{Sammanfattning}
+I bakgrundsdelen har begreppen algoritmisk reklam och tracking beskrivits som metoder för att analysera webbsidors innehåll samt att skapa nätverk av webbsidor för att på så sätt  identifiera och spåra användarbeteenden inom dessa nätverk. Utöver det så har ett antal artiklar som behandlar rekommendationstekniker analyserats för att ge en överblick kring metoder som kan användas för att analysera data.
+
+Som det framgår i litteraturen som presenterats finns det tekniker som kan göra datahanteringen, i omfattningen av rekommenderingssystem, bättre. Det finns tekniker som använder data från sociala nätverk, i detta fall Twitter, som genom att använda information om användarens aktivitet kan bestämma hemmaposition. 
+
+Det finns olika typer av filtrering där två stora är innehållsbaserade filtreringar och sammarbetsbaserad filtrering. 
+
+När rekommenderingssystemen har lite information om användaren kan systemet få problem att skapa rekommendationer och just denna faktor, vilket ofta benämns som kallstart, nämns i de flesta artiklarna som något som försvårar bra rekommendationer. Det finns processer som kan förbättra kallstartsproblemet så att rekommendationer ändå kan ges. 
+
+Det finns två modeller av sammanställning av rekommendationer. En additiv och en summativ. Den additiva adderar information som kommer in efterhand och adderar den på rekommendationsalgoritmen. Den summativa omvärderar datan från början och plockar ut den nuvarande bästa för algoritmen. Den additiva kan liknas vid en hög som konstant växer medan den summativa kan liknas vid en topp 10 lista. 
+
+
+Ingen av artiklarna, undantaget Pulls et. al. [24], avhandlar integritetsproblem som kan uppstå. Många av artiklarna gör däremot avgränsningar mot området. Det finns exempel på hur data kan användas i andra syften än det ursprungliga. Ett exempel på obskyrt användande av data är twitterflödet, som går att använda för att positionera användarens hem. Ingen påpekan av försämrad transparens för användaren gentemot användargenererad data finns heller i artiklarna. 
+
+Det finns i dagsläget utvecklade tekniker som är genomförbara och möjliga att implementera för att förbättra transparensen för användaren. Tekniken som presenteras av Pulls et. al. [24] grundar sig i statliga myndigheter och känslig data, såsom läkarjournaler, med det finns ingen avgränsning eller indikation i artikeln att lösningarna inte är applicerbara även inom andra kontexter. 
+
+\subsection{Problemdiskussion}
+Som presenterats tidigare i bakgrundskapitlet framgår det att det går att göra sofistikerade gissningar om användares preferenser. Ett gemensamt problem är också att då det finns lite information tillgänglig om användaren får ofta rekommendationssystemet problem att profilera användaren. Som ett svar på detta finns det metoder som går att använda, såsom CGPrank som tidigare nämnts eller kontextbaserade additiva poängsystem. 
+
+Med detta sagt går det tydligt att se, ur rekommendationssystemens synvinkel, ett stort intresse att samla information om användaren. Det är inte orimligt att tänka sig att många företags primära inkomster är direkt korrelerande med hur väl material kan rekommenderas i deras webbsystem och onlinebutiker. Därför går det också att se att det är fokus på förbättrade tekniker som är drivkraften, eftersom det finns ett stort ekonomiskt intresse av att göra algoritmerna mer sofistikerade och därmed sälja mer produkter. 
+
+Det kan finnas problem med att hitta alla punkter för informationsinsamling eftersom internets natur inte ger alla åtkomst till allting. Därmed går det t.ex. inte att veta vilken information som sparas på servern utan endast vilken information som skickas från klienten. Det kan även finnas problem med att se exakt vad datan har för syfte. Även om information skickas från klienten är den i många fall lagrad som hashad eller krypterad data. Det är inte heller alltid heller tydligt för en användare vilket beteende som resulterar i datainsamling. 
+
+Problemet med rekommendationer i reklamsyfte blir därmed att användaren inte alltid görs uppmärksam på att data insamlas, vem som samlar, vad de samlar och i vilken omfattning. Att skapa en bättre transparens för användaren avseende datahantering verkar heller inte vara ett område som ges utrymme vid urformning av de basala element, såsom algoritmer och dess implementationer, som ligger till grund för rekommendationer. 
+
+\section{Metod}
+I denna del av dokumentet beskrivs tillvägagångssättet för undersökningen. Först beskrivs de delar som rör det kvantitativa experimentet, därefter presenteras en diskussion om de valda metodikernas för och nackdelar. 
+
+\subsection{Metodbeskrivning}
+I undersökningen krävs det en studie av vilka aktörer som är ändhållplatsen för dataunderlaget som insamlas för att sedan på ett objektivt sätt undersöka deras datahantering. För att undersöka vilka företag, och därmed vilka system som är ändhållplatser, har ett experiment utförts.
+
+I experimentet har ett enklare system som registrerar vilka tjänster som samlar in information byggts. Systemet består av två delar, en insamlare och  en analyserare. 
+
+En vidare analys på de största aktörerna har därefter gjorts för att undersöka deras arbete med transparens gentemot användaren och vad den officiella agendan avseende vilken data som insamlas är. 
+
+\subsubsection{Insamling}
+För att veta vilka tjänster som samlar information om användandet har ett open source alternativ valts som bas. Under den första delarna i förstudien användes ett tillägg till webbläsaren som heter Ghostery [13]. Efter förstudien drogs slutsatsen att det vore bättre med ett open source alternativ eftersom det därmed är möjligt att få en förståelse för hur webbläsartillägget fungerar. Därför gjordes valet att istället använda ett liknande webbläsartillägg som heter Disconnect [8]. Fördelen med Disconnect är att den är open source med MIT [23] licens vilket gör att vi i undersökningen lagligt kunde modifiera applikationen och skicka vidare information till vårt eget system. 
+
+Disconnect är ett tillägg som finns tillgängligt för bland annat webbläsaren Chrome. Dess funktionalitet går ut på att blockera sidor som försöker samla information om din surfaktivitet. I det grafiska gränssnittet finns det möjligheter att manuellt blockera vissa, så kallade, trackers och applikationen gör också indelningar i olika kategorier såsom advertising (reklam), analytics (analyser), social (sociala medier såsom Facebook, Google+ etc) och content (innehåll). 
+
+När svartlistningen av en tracker sker i Disconnect avbryts den normala exekveringen, information plockas ut om trackern och skickas därefter vidare till ett API. Datan formateras så att det är lättare att se vilken faktisk tjänst den tillhör. Sortering sker så att dubbletter tas bort. Kärnan i blockeringen som Disconnect utför ligger i en datakälla som består av en lista på kända trackers där varje rad innehåller: domänen som trackern är kopplad till och vilken kategori den tillhör. 
+
+För att samla in vilka cookies som sparas på respektive webbsida har ett eget Chrome-tillägg byggts som triggar ett event varje gång en cookie sparas och vilken domän som sparar cookien. Genom att använda samma datakälla som Disconnect använder sig utav, filtreras cookies som inte är relaterade till reklam bort och de som är relevanta skickas vidare till vårt API. Filtreringen sker genom att jämföra vilken domän som sparar cookien med de domäner som finns registrerade i datakällan som reklamrelaterade.
+
+\subsubsection{Analys}
+På en extern server byddges ett API i PHP. Det faktiska serverspråket är egentligen  ointressant och i detta fall valdes det alternativ som på enklaste vis kunde byggas ihop fortast. I botten valdes en MySQL databas för lagring. Eftersom det är just relationer av data som är intressant valdes därför en relationell databas i motsatts till andra alternativ såsom NoSQL, dokumentdatabaser etc. 
+
+Analyseraren har två egentliga huvuduppgifter: delge back-end till databasen och presentera data från databasen i mer lättsmält format. Med detta sagt valdes ett JavaScript bibliotek som heter Chart.js [10] för att presentera den insamlade datan. 
+
+\subsubsection{Personas och deras beteenden}
+För att samla in en ansenlig mängd data behöver många hemsidor besökas. Att besöka hemsidor på ren slump hade eventuellt också varit intressant för att skapa någon typ av objektivitet, men att skapa ett reellt slumpmässigt beteende är något som är väldigt svårt.
+
+Vid utformning av personas finns det olika tekniker som kan användas. I vissa fall kan personas bli stereotypiska och hårt fokuserade på att uppå ett mål. Detta är något som McGinn \& Kotamaraju [21] nämner som en respons på att personerna som skrivit personas har ett mål som vill uppnås. Detta kan få negativa följder för resultatet eftersom dessa personas inte är skapade på ett objektivt vis. Istället föreslår McGinn \& Kotamaraju [21] i sin artikel att personas kan grundas på statistisk data från riktiga användare för att undvika dessa problem för att på detta vis grunda personas i existerande data.
+
+Faily \& Flechais [11] föreslår en metodik där en summering av alla personaförslag ska framläggas, därefter diskuteras alla persondrag och hur dessa passar på personan. Därefter skrivs personan i en berättande form som baseras på tidigare nämnda punkter. Ett fokus på personlighetsdrag framläggs och flera gånger nämns att detta ska avhandlas väl. Just denna metodik är den som valts att användas i utvecklingen av personas. 
+
+Som en del av att samla data om trackers skrevs därmed åtta stycken personas med en kort tillhörande livshistoria. Varje persona fick också två till tre fritidsintressen. Därefter skrevs en mindre konsolapplikation i C\# som gör http-anrop till ett API från Google som heter Custom Search [15]. Custom Search API:et fungerar som en vanlig googling fast där svaret kommer tillbaka som JSON istället för i en webbläsare med HTML. De personas som användes i undersökningen går att återfinna i \textit{Bilaga} 1.
+
+För att inte störa sökningarna med svenska resultat användes en proxy i landet där personan uppges komma från och det bör nämnas att det i detta skede inte är uppenbart vilken information som samlas in om personan. Med detta sagt användes också en separat virtuell maskin med Windows 8 och webbläsaren Google Chrome. 
+
+Applikationen sökte därefter på de intressen som personan uppges ha och resultatet, i form av http-länkar, sparades ner i en logg fil. På varje persona samlades tre sidor, innehållande 10 sökresultat vardera, in och sparas ner på respektive intresse. Så om en persona har tre intressen medför detta 90 länkar som användaren ska besöka. 
+
+När länkarna sparats ner i loggfilen startar C\# applikationen upp flikar i Chrome som besöker dessa hemsidor. För att dels efterlikna ett mer normalt sökbeteende, men också för att inte webbläsaren ska krascha, ställs en timer in på några sekunder mellan varje googling. 
+
+I webbläsaren på den virtuella maskinen finns också vår modifierade version av Disconnect installerad som gör att alla sidor som personan besöker analyseras av webbläsartillägget som skickar vidare all information om trackers till vår analys API. 
+
+\subsection{Metoddiskussion}
+Syftet med experimentet är att skapa en bas för analys över internetanvändning. För att göra detta skulle det bästa vara att antingen anställa en stor mängd personer som googlar eller att köpa deras internetinformation. Eftersom resurserna av denna undersökning inte har denna budget är båda metoderna uteslutna. 
+
+Som svar på detta försöker vi istället utföra kvalificerade gissningar över hur en person använder internet genom Googles sökmotor. Detta beteende försöks sedan efterliknas i applikationer genom simulering. Detta medför också att undersökningen inte blir mer sofistikerad än de gissningar om hur en användare söker på Google. 
+
+En annan aspekt med metodiken som beskrivits är med hänvisning till testbarhet. Eftersom Google är ett företag som inte tillhandahar fri dataåtkomst kommer detta medföra att all testning av respons kommer vara blackboxtestning. I Googles sekretesspolicy [16] går det att läsa om vilken data de uppger samlas in. Det går naturligtvis inte att, från undersökningens håll, bevisa att inte mer data insamlas men i omfattningen av undersökningen har antagandet gjorts att Google följer sin sekretesspolicy.
+
+De faktiska skripten som samlar information om användaren finns tillgängliga för analys. Detta grundar sig i det faktum av hur webben fungerar med hänsyn till klient/server arkitekturen [32]. All JavaScript på en hemsida körs på klientens egen dator. Detta medför att det är möjligt att analysera tracker-skripten eftersom de fysiskt befinner sig på personans dator. Problemet med dessa skript är att de är minfierade och obfuskerade på grund av prestanda och eventuellt också för att de inte ska vara lättlästa och väl dokumenterade/kommenterade av den anledningen med vilka intressen för denna undersökning omfattar; nämligen analys av vilken data de samlar in. 
+
+Ett annat problem är också mängden skript. I teorin skulle en analys av ett antal skript var möjlig men för att ge en mer rättvis helhetsbild skulle en större mängd behöva analyseras. Detta innebär att det i praktiken inte är genomförbart eftersom det finns  enskilda sidor med omkring sextio olika trackers.
+
+Eftersom experimentet utförs med en datakälla bestående av kända trackers och reklamföretag är också resultaten begränsade till hur korrekt och uppdaterad denna datakälla är.
+
+Insamlingen av cookies som utförs genom det modifierade Chrome-tillägget baseras helt utifrån datakällan som Disconnect använder. Eftersom denna datakälla är uppbyggd utifrån trackers innebär detta att resultaten för cookies bara ger utslag om domänerna i datakällan matchar de cookies som sparas på respektive webbplats. Om till exempel DoubleClick använder en domän för sina trackers och en annan för sina cookies så kommer denna reklam företag helt att uteslutas ur resultatet då deras cookies aldrig kommer att passera filtreringen.  
+
+Ett exempel då detta sker är i GoogleAnalytics tjänst då ett besök på www.aftonbladet.se görs sparar följande cookies:\verb|__utma|, \verb|__utmb|,\verb| __utmc|,\verb| __utmt|,\verb| __utmz| och \verb|__ga|. Detta visar alltså att GoogleAnalytics sparar sina cookies på samma domän dvs. www.aftonbladet.se istället för sin egen (se Fig 2) [17].  \\\\
+
+[Figur fattas] \\\\
+
+\subsection{Valda metoders för- och nackdelar}
+De metoder som valts har utformats för att analysera den information som finns tillgänglig på ett enkelt vis. Den faktiska data som det rör sig om är uteslutande från användarens dator. En nackdel med denna metod är att det inte är möjligt att veta exakt vad som händer i andra delar av systemet. Det går till exempel inte att veta hur företagen som äger tjänsterna hanterar datan som kommer från klienterna. Detta är naturligtvis en nackdel för undersökningen. Samtidigt är det också så att det inte finns möjligheter att få ut samtlig data från dessa tjänster för eget bruk. Därmed vet heller inte tjänsterna att en analys på deras datahantering sker vilket kan ses som en fördel eftersom de då inte heller har någon möjlighet att hantera den annorlunda och påverka undersökningen. 
+
+För att finna ändhållplatsen för datan har en analys av företagens sekretesspolicys gjorts. Detta är deras officiella agenda om vilken data som insamlas och hur den används. Det finns i undersökningen inget sätt att bekräfta att detta överensstämmer med verkligheten eftersom vi, som tidigare nämnt, inte har åtkomst till deras servrar. I undersökningen har antagandet gjorts att företagen har möjlighet att insamla allt som står i deras sekretesspolicies. Istället för att se detta som en svaghet för undersökningen går det också att se detta som ett bra underlag för fortsatta studier. Om annan forskning inom området visar att annan data hanteras, kommer den att avvika från vår undersökning. Om detta skulle vara fallet kommer det också innebära att tjänsterna inte följer sina sekretesspolicies vilket i sin tur tyder på dålig transparens och integritetshantering, vilket denna undersökningen också undersöker. 
+
+De metoder som använts är en blandning av kvantitativa och kvalitativa. Creswell [6] definierar denna typ av blandad metodik som mixed methodology som översätts direkt till ?blandad metod? på svenska. Creswell [6] nämner också att det med fördel går att blanda metoder som ett komplement till varandra. Just i vårt  fall hamnar våra metoder under en så kallad sekventiell blandning där vår kvantitativa undersökning följs av en kvalitativ. Detta korrelerar också bra med vad undersökningen syfar till. Cresswell [6] visar tydligt fördelarna med en mixad metodologi: 
+
+\begin{quote}
+A mixed methods design is useful to capture the best of both quantitative and qualitative approaches. For example, a researcher may want to both generalize the findings to a population and develop a detailed view of the meaning of a phenomenon or concept for individuals. [?] 
+\end{quote}
+
+Som tydligt går att utläsa är den mixade motodologin effektiv för att utföra det som vår undersökning syftar till, det vill säga: generalisera fynden från en population och använda dessa fynd för en mer detaljerad analys. 
+
+\section{Resultat}
+I denna del av dokumentet presenteras resultatet av det experiment som utförts. Sammanlagt har 720 hemsidor besökts. Dessa 720 sidor är kopplade till privata intressen av de personas som definierats. En lista på de 30 största trackersen går att finna i \textit{Bilaga 2} och om samtliga cookies som återfanns i undersökningen går att finna i \textit{Bilaga 3}.
+
+\subsection{Trackers}
+Nedanstående diagram (se Fig 3) visar antal förekomster av trackers på individuella sidor. Dvs hur många gånger trackers dök upp på de undersökta sidorna. \\\\
+
+[missing image]\\\\
+
+
+Det fanns totalt 225 unika trackers över alla sidor som besöktes i experimentet. Av dessa unika trackers togs de fem största ut för att vidare analysera dessa. Värdet som visas bredvid trackernamnet indikerar hur många unika gånger per hemsida trackern observerades bland de 720 sidor som besöktes i experimentet. Detta innebär till exempel att GoogleAnalytics förekom på cirka 50\% av de besökta sidorna (se Tabell 1). Det som bör nämnas är att de fyra största trackersen ägs av Google. 
+
+\begin{table}
+\begin{center}
+    \caption{Tabell över 5 största trackers}
+   \begin{tabular}{| l | l |}
+   \hline
+   Tracker & Procent av 720 \\ \hline
+   GoogleAnalytics & circa 53\% \\ \hline
+   GoogleAdServices & cirka 25\% \\ \hline
+    DoubleClick & cirka 45\% \\ \hline
+    ComScore & cirka 22\% \\ \hline
+    GoogleSyndication & cirka 25\% \\ \hline
+   \end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Cookies}
+Nedanstående diagram (se Fig 4) visar hur många cookies som sparades till tjänsten på de besökta hemsidorna. \\\\
+
+[Missing image] \\\\
+
+Vid undersökningen av cookies framgår det att de största fem tjänsterna inte fanns med bland resultaten. De fem största resultaten bland cookies är istället Spotxchange, Adnxs, Bluekai, Casaledia och Rubiconprojekt.  Alla dessa fem är reklamföretag som inriktar sig på automatiserad reklam och big data analysering. Adnxs är den ända företaget av dessa fem som förekommer bland de 10 största trackersen. Detta reklamföretag är ett dotterföretag till AppNexus som är en stor aktör inom reklammarknaden [29].
+
+\subsection{Personas}
+I undersökningen besöktes 90 sidor per persona vilket simluerade en 45 minuters surfperiod. Utslaget på alla 8 personas registrerade 603 trackers i genomsnitt per surfperiod. Dessa registrerade trackers är inte unika tjänster utan visar på hur många trackers totalt som registrerats.
+
+Samma resultat för cookies var i genomsnitt per surfperiod 4456 stycken som sparats i webbläsaren. Den genomsnittliga storleken på dessa cookies var, per surfperiod, 817 kilobyte stor förutsatt att varje tecken tar upp en byte i minnet.
+
+\subsection{Google}
+Som det tydligt framgår av de fem största trackers i undersökningen är Google den största aktören. I Googles sekretess och användaravtal går det att läsa om vilken data som samlas in och vad som sker med den [16].
+
+Dessa är de uppgifter som Google samlar in om du anger de i någon av Googles tjänster: 
+
+\begin{itemize}
+ \item Namn
+ \item E-postadress
+ \item Kreditkortuppgifter
+ \item Profilbild
+\end{itemize}
+
+
+Dessa uppgifter är information som kan finnas som ett resultat av användning av Google tjänster: 
+
+\begin{itemize}
+ \item Enhetsinformation
+ \begin{itemize}
+   \item Maskinvarumodell
+   \item Operativsystemets version 
+   \item Unikt enhets ID
+   \item Information om nätverk
+   \item Telefonnummer
+ \end{itemize}
+ \item Logginformation från serverloggar
+ \begin{itemize}
+     \item Sökfrågor och övrig användarinformation
+     \item Information om telefoni
+     \begin{itemize}
+       \item Ditt telefonnummer
+      \item Den uppringdes nummer
+      \item Vidarekopplingsnummer
+      \item Samtalslängder
+      \item SMS routing
+      \item Samtalstyper
+     \end{itemize}
+     \item IP-adress
+     \item Enhetshändelser
+    \begin{itemize}
+      \item Krascher
+      \item Systemaktivitet
+      \item Maskinvaruinställningar
+      \item Webbläsartyp
+      \item Datum och tid för begäran    
+    \end{itemize}
+    \item Cookies för identifiering av webbläsare till Google+ konto
+ \end{itemize}
+ \item Platsinformation
+ \begin{itemize}
+    \item Var du befinner dig
+    \item IP-adress
+    \item GPS-data
+    \item Alla sensordata
+    \item Wifi åtkomst på din position 
+ \end{itemize}
+ \item Unika programnummer
+ \item Lokal lagring
+ \begin{itemize}
+    \item Bland annat personuppgifter
+    \item Programkrascher
+    \item Webbläsarens lagringsutrymme 
+ \end{itemize}   
+ \item Cookies och anonyma identifierare \ldots
+\end{itemize}
+
+\subsection{ComScore}
+Den fjärde största aktören i experimentet är ComScore som enligt företaget är ?ett ledande internet företag som mäter vad människor gör då de navigerar i den digitala världen? [3]. I experimentet är därför ComScore klassade som ett analytics-verktyg som analyserar internettrafik.
+
+Enligt ComScore?s sekretesspolicy [4] delar de inte insamlad information med tredje part om användaren inte gett samtycke till detta. Undantag finns för statliga organisationer. De tar inte heller hänsyn till Do Not Track signaler eftersom att en tillräckligt etablerad standard inte har utvecklats för att sända sådana signaler. 
+
+ComScore samarbetar också enligt deras certifikationsutvärdering [7] med flertalet tredje-partsgranskningsorgan för att  säkerställa att deras mätningsmetoder är transperenta och sunda. 
+
+\begin{quote}
+comScore is committed to providing the market with transparency into the methods, methodologies, practices and techniques we use in our measurement. To do so, we continuously engage with third-party auditors around the world to prove the soundness of our measurement methods. [7]
+\end{quote}
+
+Förutom samarbeten med granskningsorgan samarbetar ComScore också med andra aktörer inom reklambranschen. Enligt ett pressutlåtande [5] inleddes 2014 ett samarbete med Google kring ComScores tjänst vCE (Validated Campaign Essentials) som är en tjänst som erbjuder en djupare inblick i kundens reklamkampanj. Enligt pressutlåtandet  innebär samarbetet att användare utav Googles DoubleClick får ta del utav data från vCE för att förbättra mätbarhet kring DoubleClicks reklamkampanjer.
+
+\section{Analys}
+Valet har gjorts att fokusera på de 5 största tjänsterna. Detta innebär att det är företagen Google och ComScore som har fått fokus. I följande del av dokumentet presenteras en analys av deras metodiker av datainsamling. Fokus i analysen kommer ligga på trackers och datahantering. Cookies har medvetet fått mindre fokus för analys med hänvisning till det stora bortfallet av tjänster som skett som tidigare nämnts.
+
+
+\subsection{Trackers}
+Vid undersökning av de fem största trackers som fanns i experimentet framgår det att fyra av dessa tjänster ägs av Google. Detta är tjänsterna: Google Analytics, Google Ad Services, Double Click och Google Syndication. Dessa fyra tjänster ger Google en andel av ca 25\% av marknaden. Den fjärde stora aktören är ComScore som ligger på ca 3\%.
+
+Med anledning av uppsatsens omfång och storlek har valet gjorts att inte utföra en ytterligare analys kring resterande trackers. Då totalt 225 stycken unika trackers registrerats i undersökningen skulle analys av dessa vara både tidskrävande och svårt att genomföra. Då uppsatsen i första hand inte är en jämförelse mellan olika trackers har beslutet tagits att endast analysera Google och ComScore.
+
+\subsection{Cookies}
+Den främsta slutsatsen som går att dra från resultatet är mängden cookies som sparas vid en 45 minuters surfperiod. Då det genomsnittliga antalet låg på 4456 stycken ges en indikation på mängden information som tredjepartsaktörer sparar.
+
+Varför de fem största trackers inte förekom bland resultaten av cookies, då åtminstone DoubleClick använder sig utav cookies [30], kan förklaras på flera sätt. Dels är cookies inte den ända tekniken för att spara begränsad data på en klientdator. Local storage är till exempel en teknik som finns i modernare webbläsare och har en lagringskapacitet som är större än cookies [22]. Eftersom vi utförde experimentet i Google Chrome v. 42.0.2311.90 där local storage är tillgängligt skulle dessa företag kunna använda sig utav local storage istället.
+
+En annan, troligare förklaring till bortfallet, är att dessa företag sparar cookies på samma domän som den sida som tracking utförs på som nämns i metoddisskusionen. Detta innebär i förlängningen att chrometillägget som används för filtrering av relevanta cookies som är reklamrelaterade inte fångar upp dessa cookies.
+
+Eftersom resultaten för cookies i experimentet haft ett väsentligt bortfall har vi i den kvalitativa analysen  valt att fokusera på de största aktörerna för trackers istället.  
+
+\subsection{Jämförelse med liknande studier}
+I ett studie utförd av Gomer et al. [26] framgick det av experimentet som utförts att en användare kommer med en sannolikhet på 99.5\% att stöta på cookies från någon av de 10 största tredjepartsdomänerna (läs trackers).
+
+\begin{quote}
+We find that after visiting just 30 search results, the probability of getting cookies from all top 10 third party domains is 99.5\%. [...]
+\end{quote}
+Enligt studien var de 10 största tredjepartsdomäner som ej är kategoriserade i gruppen behavioral targeting:
+
+\begin{quote}
+Among the top 10 such domains are: googleadservices.com, google-analytics.com, facebook.net, truste.com, zenfs.com, scorecardresearch.com, quantserve.com, newrelic.com, google.co.uk, and adobe.com [...]
+\end{quote}
+
+Enligt Scorecard Research [28] är denna tjänst en del utav ComScore och återfinns bland de 10 högsta resultaten. De 10 största trackers som är kategoriserade som behavourial trageting var i studien:
+
+\begin{quote}
+Top 10 companies in this category include: doubleclick.net, googlesyndication.com, gstatic.com, fbcdn.net, tfd.com, invitemedia.com, atdmt.com, ajax.googleapis.com, pinterest.com, and 2mdn.net. [...]
+\end{quote}
+I experimentet utförd i vår undersökning framgår det att de fem högsta resultaten för trackers finns med i dessa två kategorier. Dock så har Gomer et al. [26] använt sig utav en något annorlunda kategorisering än den som används i vår undersökning. 
+
+\subsection{ComScore}
+I ComScores sekretesspolicy framgår det inte vilken typ av data som samlas in utan de poängterar endast att data inte är personligt identifierbar. Vid jämförelse med Googles sekretesspolicy går det tydligt att se att ComScore har betydligt mindre transparens kring sin insamling. Googles sekretesspolicy är väldigt explicit medan ComScores är mer abstrakt. ComScore är också väldigt måna om att poängtera att de samarbetar med granskningsorgan och att de upprätthåller transparens och sundhet (eng. soundness) kring sina mätningar.
+
+Vid en djupare analys framgår det att ComScore inlett ett samarbete med DoubleClick där de delar insamlad data. Eftersom att det i sekretesspolicyn inte framgår vilken data som samlas in kan frågeställningen kring vilken data ComScore tillhandahar som visar sig attraktiv för Google vara intressant.
+
+Dessutom går det att ifrågasätta om den personliga identifierbarheten, som ComScore anger att datan ej är, blir lidande av ett sådant samarbete. Då samarbetet i praktiken antagligen innebär att två system samkörs krävs en samkörning av DoubleClicks data och ComScores analytiska information.
+
+\subsection{Google}
+Det framgår inte i Googles sekretess och användarvillkor [16] i vilken utsträckning den insamlade datan används. Det finns till exempel inget som bevisar att all information som insamlas faktiskt används. Det som anges är ett ställningstagande till vilken information som kommer kunna användas om Google får åtkomst till den via användande av deras tjänster.  
+
+Följande delar kan vara speciellt intressanta ur integritetshänsyn: 
+
+\begin{itemize}
+	\item Den du ringers telefonnummer kommer kunna sparas. 
+	\item Ditt personnummer kan komma att sparas på en server utomlands. Detta innebär att t.ex. ditt personnummer eventuellt inte hanteras enligt PUL, personuppgiftslagen.
+\end{itemize}
+
+Det går också i sekrestesspolicyn att läsa: 
+
+\begin{quote}
+Vi kombinerar inte information från DoubleClick-cookien med personligt identifierbar information om vi inte har fått ditt samtycke till detta.
+\end{quote}
+
+Det finns inte angivet vad samtycke innebär i sammanhanget. Det skulle kunna vara explicit accepterande av användaren men det skulle också kunna vara ett accepterande genom att användaren använder vissa tjänster, vilket inte framgår av dokumentet. 
+
+Enligt Googles sekretesspolicy [16] används informationen för att förbättra andra Google tjänster. Det som är intressant ur detta dokuments synvinkel är speciellt rekommend-ationer. Det går tydligt att se att informationen används för rekommendationer och direktriktad reklam: 
+
+\begin{quote}
+Vi använder också informationen för att ge dig anpassat innehåll, till exempel sökresultat och annonser som är mer relevanta för dig.
+\end{quote}
+
+Informationen används också för annat syfte såsom Google Analytics och spamdetektering med hjälp av bland annat pixeltaggar.
+
+\section{Diskussion}
+Eftersom JavaScript körs på klienten finns skripten tillgängliga att undersöka. Det skulle vara av intresse att göra en noggrann analys av vad som händer i skripten. Problemet med denna analys är att skripten är minifierade och obfuskerade, dels för optimeringändamål men även för att göra det svårare att analysera dem. I sammanhanget syftar minifieringen till att skriptfilerna har slagits samman på samma rad och namn gjorts om för att göra filen mindre. Obfuskeringen syftar till att göra om filerna så att koden blir mer svårläst. Detta innebär att det blir väldigt svårt att veta exakt vad som sker när de exekveras. Mängden skript gör det också oerhört svårt att dels undersöka alla, men även att bara hitta  några stycken i mängden som är värda att undersöka är svårt. Därför är istället utgångsläget att hitta företagens officiella uppgifter om vilken data de insamlar. Alla företag delger inte heller på ett enkelt sätt vilken information som används eller sparas. Den största aktören, Google med sin 25\% av alla trackers, har en tydlig sekretesspolicy som visar vad som insamlas även om alla punkter kanske inte gäller alla klienter.
+
+Spårbarhet avseende den insamlade datans ursprung blir problematisk eftersom det finns många aktörer. I undersökningen besöktes 720 hemsidor. Detta motsvarade åtta personer som vardera besökte 90 sidor, eller de första tre sidorna på en googling av tre intressen. Detta resulterade i en stor mängd trackers. Även om Google står för 25\% av de registrerade trackers finns det fortfarande en uppsjö av andra mindre verksamheter som har de resterande 75 procenten. Det är troligt att dessa mindre aktörer över tid kommer att variera och skapa en mängd verksamheter med varierande grad av oklara agendor. Ett intressant exempel på oklar agenda gick att återfinna i källkoden på orginalkoden till Disconnect. Det fanns i svartlistningen vissa hårdkodade undantag för specifika sidor som därmed inte blockeras från tracking även om användaren av Disconnect har detta påslaget. Med detta sagt finns det en uppsjö av mindre aktörer som går i varierande mängd ogranskade förbi. 
+
+När en användare besöker en hemsida finns det ingenting som visar, som standard, vem som hämtar information om användaren. Det går att använda verktyg som kan ge indikationer på om besökta sidor är aggressiva i inhämtandet och var informationen skickas. Problematiken är att den stereotypa internetanvändaren inte har kännedom om varken informationen som insamlas eller vilka program eller mekanismer som ligger bakom insamlandet. Undersökningen syftar inte till att, i första hand, begränsa insamlandet utan snarare identifiera metoder för att skapa bättre mekanismer för användaren att se vilka aktörer, mängden information och vilken information som hanteras. Det finns i dagsläget en typ av falsk marknadsföring där ett klick inte bara betyder ett klick utan även informationsläckage.  
+
+Anva?ndare kan begra?nsa rekommendationernas underlag genom att utnyttja problemet med kallstart. Det avhandlas tydligt i litteraturdelen av detta dokument som ett genomga?ende problem fo?r rekommendationer med att ha tillga?ng till lite information. Mekanismer fo?r att utnyttja detta till anva?ndarens fo?rdel kommer inte avhandlas vidare.
+
+För att svara på frågan om vad insamlad data kan användas till är det i sin ordning att återkoppla till de rekommendationstekniker som tidigare presenterats. Som visat i artikeln som handlar om positionering av användaren genom analys av tweets går det att använda data om användaren på ett okonventionellt vis. Med okonventionellt menas här att data används på ett sätt med vilken syftet av insamlingen inte överensstämmer med användandet. Det är inte uppenbart för användaren att ett antal tweets kan medföra att dess hem positioneras. 
+
+Något som heller inte är uppenbart är att väldigt lite information behövs om en användare för att en rekommendation ska kunna göras. Även om inte data insamlats om användaren kan relativt träffsäkra rekommendationer göras, vilket kan medföra att användaren upplever ett obehag eller ett professionellt förtroende för tjänsten på grund utav en träffsäker rekommendation beroende på kontexten. 
+
+\subsection{Återkoppling till frågeställning}
+Den frågeställning som tidigare gjorts är: 
+
+\begin{quote}
+	\textit{När en användare surfar på webben, hur medveten är användaren om datainsamling som sker?}\\\\
+	\textit{Vilka faktiska aktörer samlar information och hur väl tillhandahåller de transparens gentemot användaren?}
+\end{quote}
+
+För att besvara detta går det att, efter undersökningen, dra slutsatsen att transparensen är dålig. Över 35 tusen cookies sparades sammanlagt genom att besöka 720 hemsidor. Det finns ingenting i ett normalt surf-användande som visar för användaren att detta kommer hända. I undersökningen går detta att observera efter att en modifierad programvara installerats, vilket få användare har möjlighet och förmåga att göra. 
+
+De största aktörerna är Google och ComScore. Just Google är extra väntat eftersom deras tjänster och program har använts i undersökningen. Då syftat på t.ex. Google Chrome webbläsaren, Google Custom search API. En lista över de 30 största aktörerna går att finna i \textit{Bilaga 2} och \textit{Bilaga 3}. 
+
+Många av problemen med dålig transparens är att användaren inte kan granska datan som insamlas för att se om den används på ett samtyckade vis. Eftersom transparens saknas kan rekommendationer kännas hotfulla eftersom de baseras på information som användaren inte är medveten om har insamlats. Detta i sig gör också tjänsterna sämre eftersom förtroendet för tjänsten och företaget minskar.
+
+En aspekt som försämrar transparensen för användaren är att sekretesspolicies syftar till att juridiskt informera användaren snarare än tekniskt upplysa. Därmed går det heller inte att se hur mycket av den data som kan insamlas faktiskt gör det, vilket försvårar en bra transparens. Därutöver är det också tveksamt hur många användare som är medvetna om sekretesspolicies för de tjänster de använder direkt eller indirekt. 
+
+\subsection{Framtiden}
+Det finns inga indikationer på att insamlandet av användardata kommer att minska i framtiden. Detta innebär i förlängningen också att behovet av användarintegritets-mekanismer troligtvis kommer att öka. Det optimala för integriteten av användare skulle vara att implementera standarder som automatiskt har skyddsåtgärder på basal nivå som skyddar de användare som är okunniga eller ointresserade. Det bör och andra sidan inte begränsa användare som har andra typer av behov. För att åstadkomma detta framlägger vi följande förslag på förbättringsfokus: 
+
+\begin{itemize}
+	\item Bättre verktyg för att se trackers och cookies. Gärna integrerade i generiska mjukvaror såsom de största operativsystemen eller webbläsarna.
+	\item Öka användarnas möjligheter att granska tredjeparts datainsamling.
+	\item Stora datakällor har bättre transparens med tekniker liknande de Pulls et. al. [24] presenterar.
+	\item Standardiserade mekanismer för högre användarintegritet.
+	\item Bättre användning av de standarder som redan finns, huvudsakligen Do Not Track Signal.
+\end{itemize}
+
+Om dessa punkter skulle följas skulle också transparensen bli bättre för slutanvändaren. Slutresultaten skulle inte nödvändigtvis heller innebära att mindre underlag för rekommendationer skulle inhämtas, utan istället skulle användaren, på ett tydligare sätt, veta vad rekommendationen grundas på. Detta i sin tur kan också innebära att träffsäkra rekommendationer skulle kännas professionella istället för hotande eller integritets-kränkande, något som många företag också skulle tjäna på långsiktigt som ett resultat av etiskt ställningstagande och tillförlit. 
+
+\subsection{Framtida forskning}
+Efter att ha utfört kvalitativa och kvantitativa undersökningar har flera frågor som varit intressanta dykt upp och vidare forskningen inom detta område känns både relevant och nödvändig.
+
+En undersökning som hade varit väldigt intressant ur ett praktiskt perspektiv är att undersöka hur många aktörer inom rekommenderad reklam som följer Do Not Track Signaler. Detta skulle ge en indikation på i vilken utsträckning användare har möjlighet att signalera att de är måna om sin integritet till dessa aktörer.
+
+Ett annat intressant område att forska kring, ur ett samhällsperspektiv, är hur begreppet SpyWare har förändrats och om en större tolerans existerar då tjänster idag benämns som analyticsverktyg när de förr kanske hade benämnts som SpyWare.
+
+För att komplettera emot de avgränsningar som gjorts i denna uppsatsen hade det varit intressant att undersöka hur mycket av den insamlade datan som faktiskt används samt till vilken grad dessa företag samlar in data som de har möjlighet att samla in.
+
+\section{Slutsats}
+Som tydligt framgår i det kvantitativa experimentet finns det oerhört många aktörer som är intresserad av användarens beteende på webben. Av dessa finns det en stor mängd mindre aktörer som ofta går omärkt förbi. Den kvantitativa undersökningen som baserats på experimentet visade på två stora aktörer, Google och ComScore, som stod för en majoritet av marknaden.
+
+
+I den kvalitativa analysen som utförts på dessa två aktörers sekretessavtal framgår det att de samlar in en stor del information om användare, som förutom att förhöja kvalitet på sina tjänster, också tillhandahåller dålig transparens för användaren. Det som är oklart är i vilken utsträckning denna data att används för att förbättra användbarheten i olika tjänster. Detta är också någonting som är svårt att undersöka eftersom företagen har slutna system av sekretess skäl som inte tillåter utomstående att granska dataanvändningen som företagen gör.
+
+För att undersöka hur data kan användas gjordes en analys på ett antal artiklar inom området rekommendationssystem som visade på trender där data som samlats in i ett specifikt syfte får ett helt annat syfte då större datamängder kan kombineras. Många artiklar och de sekretesspolicies som undersökts försöker att behandla integritetsaspekter så lite som möjligt och istället fokusera på hur datan kan användas för att höja kvaliteten på tjänster. Det finns dock inga belägg som visar att en tjänst skulle bli sämre eller sälja mindre genom att ha hög transparens för användaren.
+
+För att öka transparens och trygghet gentemot användaren krävs det i framtiden flera förbättringar och ytterligare forskning kring området. Flera förslag läggs i uppsatsen fram för att åstadkomma detta. Till exempel så behövs bättre verktyg för att se vilka trackers och cookies som är aktiva för användare som surfar. Detta kombinerat med en större tillgänglighet kring dessa verktyg skulle sätta en större press på företag att ha en större transparens. 
+
+
+
+
+
+
+\newpage
+
+\newpage
+\subsection{Bakgrund och tidigare forskning}
+
+I dagens samhälle\ldots
+
+\vdots
+
+\ldots\ Lenhart~{\em m.fl.}~\cite{rectlinkfirst} visar en
+kvadratisk algoritm för problemet. Det förbättras senare till $O(n\log n)$ tid av
+Djidjev~{\em m.fl.}~\cite{rectlinkopt1} och Ke~\cite{rectlinkopt2} oberoende av varandra.~\ldots
+
+Notera att inledningen skrivs i presens, den visar en nulägessituation.
+
+
+\subsection{Frågeställning}
+
+\section{Metod}
+
+\subsection{Metodbeskrivning}
+
+\subsection{Metoddiskussion}
+
+\section{Resultat}
+
+\section{Analys}
+
+\section{Diskussion}
+
+\section{Slutsatser och vidare forskning}
+
+
+%
+% Do not change
+\newpage
+\addcontentsline{toc}{section}{Referenser}
+\begin{thebibliography}{888}
+%
+% Referenserna ordnade i bokstavsordning efter försteförfattaren
+
+\bibitem{Basilico} Basilico J, Hoffman T. Unifying collaborative and content based filtering. Proceedings of the twenty-first international conference on Machine learning. 2004;4:9. 
+
+\bibitem{Braunhofer} Braunhofer M. Hybridisation Techniques for Cold-Starting Context-Aware Recommender Systems. Proceedings of the 8th ACM Conference on Recommender systems. 2014;14:405-408.
+
+\bibitem{ComScoreAnalytics} ComScore Inc. Analytics for a digital world [Internet] 2015 [citerad 2015-04-17] Hämtad från: \url{http://www.comscore.com/}
+
+\bibitem{ComScorePrivacy} ComScore Inc. Privacy Policy. [Internet] 2015 [citerad 2015-04-17] Hämtad från: \url{http://www.comscore.com/About-comScore/Privacy-Policy}
+
+\bibitem{ComScorePartner} ComScore Inc. comScore and Google Partner to Offer Actionable Audience Metric for Brands [Internet] 2014 [uppdaterad: 2014-02-10; citerad: 2015-05-12] Hämtad från: \url{http://www.comscore.com/Insights/Press-Releases/2014/2/comScore_and_Google_Partner}
+
+\bibitem{Creswell} Creswell J. W. Research design: Qualitative, Quantitative, and Mixed Methods Approaches. University of Nebraska, Lincoln: 2003.
+
+\bibitem{ComScoreThirdParty} ComScore Inc. Third-Party Accreditation, Certification and Review. [Internet] 2015 [citerad: 2015-05-12] Hämtad från: \url{http://www.comscore.com/About-comScore/Third-Party-Review}
+
+\bibitem{Disconnect} Disconnect Inc. Online protection, simplified. [Internet] 2015 [citerad 2015-04-17] Hämtad från: \url{https://disconnect.me/}
+
+\bibitem{Doty} Doty N. Tracking Protection Working Group. [Internet] Beihang:W3C;2015 [citerad 2015-04-17]. Hämtad från: \url{http://www.w3.org/2011/tracking-protection/}
+
+\bibitem{Downie}Downie N. Chart.js: Open Source HTML Charts for your website. [Internet] 2015 [citerad 2015-04-16] Hämtad från: \url{http://www.chartjs.org/}
+
+\bibitem{Faily}Faily S, Flechais I. Persona cases: a technique for grounding personas. Proceedings of the SIGCHI Conference on Human Factors in Computing Systems. 2011;2267-2270.
+
+\bibitem{Garcia}Garcia-Molina H, Koutrika G, Parameswaran Aditya. Information Seeking: Convergence of Search, Recommendations, and Advertising. Communications of the ACM. 2011;54(11):121-130.
+
+\bibitem{Ghostery}Ghostery Inc. Ghostery. [Internet] 2015. [citerad 2015-04-17] Hämtad från: \url{https://www.ghostery.com/sv/}
+
+\bibitem{DoubleClick} Google Inc. doubleclick.net [Internet] 2015 [citerad 2015-04-18] Hämtad från: \url{http://www.google.com/doubleclick/}
+
+\bibitem{CustomSearch} Google Inc. Custom Search JSON/Atom API. [Internet] 2015 [citerad 2015-05-12] Hämtad från: \url{https://developers.google.com/custom-search/json-api/v1/overview}
+
+\bibitem{GooglePrivacyPolicy}Google Inc. Sekretess och användarvillkor. [Internet] 2015 [citerad 2015-04-17] Hämtad från: \url{http://www.google.com/policies/privacy/}
+
+\bibitem{GoogleAnalytics}Google Inc. Google Analytics Cookie Usage on Websites. [Internet] 2015 [citerad 2015-04-17] Hämtad från: \url{https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage}
+
+\bibitem{Goldberg}Goldberg D, Nichols D, Oki B M, Terry D. Using collaborative filtering to weave an information tapestry. Communications of the ACM. 1992;35(12):61-70.
+
+\bibitem{Kushal}Kushal D, Vasudeva V. Computational Advertising: Techniques for Targeting Relevant Ads. Foundations and Trends in Information Retrieval. 2014;8(4-5):263-418.
+
+\bibitem{Limbu}Limbu D K, Connor A, Pears R, MacDonell S. Contextual relevance feedback in web information retrieval. Proceedings of the 1st international conference on Information interaction in context. 2006;138-143
+
+\bibitem{McGinn}McGinn J, Kotamaraju N. Data-driven persona development. Proceedings of the SIGCHI Conference on Human Factors in Computing Systems. 2008;1521-1524.
+
+\bibitem{MDN}MDN. DOM storage guide [Internet] 2015 [uppdaterad: 2015-01-22; citerad: 2015-04-17] Hämtad från: \url{https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage}
+
+\bibitem{MIT}Open source intiative Org. The MIT License (MIT). [Internet] 2015 [citerad 2015-04-17] Hämtad från: \url{http://opensource.org/licenses/MIT}
+
+\bibitem{Pulls}Pulls T, Peeters R, Wouters K. Distributed privacy-preserving transparency logging. 2013. Proceedings of the 12th ACM workshop on Workshop on privacy in the electronic society. 2013;83-94. 
+
+\bibitem{Resnick}Resnick P, Hill M, Varian H R. Recommender systems. Communications of the ACM. 1997;40(3):56-58.
+
+\bibitem{Gomer}Gomer R, Mendes Rodrigues E, Milic-Frayling E, M. C. Schraefel. Network Analysis of Third Party Tracking: User Exposure to Tracking Cookies through Search. Proceedings of the 2013 IEEE/WIC/ACM International Joint Conferences on Web Intelligence (WI) and Intelligent Agent Technologies (IAT). 2013;1:549-556.
+
+
+\bibitem{Rui}Rui Li, Shengjie Wang,Hongbo Deng, Rui Wang, Kevin Chen-Chuan Chang. Towards social user profiling: unified and discriminative influence model for inferring home locations. Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining. 2012;1023-1031.
+
+\bibitem{Scorecard} Scorecard Research [Internet] 2015 [citerad: 2015-04-18] Hämtad från: \url{http://scorecardresearch.com/}
+
+\bibitem{Guardian}The Guardian Inc. Adnxs (AppNexus): What is it and what does it do? [Internet] 2012 [citerad 2015-04-17] Hämtad från: \url{http://www.theguardian.com/technology/2012/apr/23/adnxs-tracking-trackers-cookies-web-monitoring}
+
+\bibitem{GuardianDoubleClick}The Guardian Inc. DoubleClick (Google): What is it and what does it do? [Internet] 2012 [citerad 2015-04-17] Hämtad från: \url{http://www.theguardian.com/technology/2012/apr/23/doubleclick-tracking-trackers-cookies-web-monitoring}
+
+\bibitem{Vanchinathan}Vanchinathan H P, Nikolic I, De Bona F, Krause A. Explore-exploit in top-N recommender systems via Gaussian processes. Proceedings of the 8th ACM Conference on Recommender systems. 2014;225-232.
+
+\bibitem{Dale} Dale NB, Lewis J. Computer science illuminated. 4th ed. Sudbury, Mass.: Jones and Bartlett Publishers; 2011.
+
+\bibitem{Yan}Yan J, Liu N, Wang G, Zhang W, Jiang Y, Chen Z. How much can behavioral targeting help online advertising? Proceedings of the 18th international conference on World wide web. 2009;261-270. 
+
+\newpage
+
+\section{Bilaga 1}
+Följande bilaga är de personas som användes i undersökningen som underlag för simulerat surfbeteende. Bilderna kopplade till varje persona har tagits bort av utrymmesskäl. \\
+
+\textbf{Amelia Kessler}\\
+Ålder: 55\\
+Kön: Kvinna\\
+Geo: Australien\\
+Intressen: Segling, Kajak och Friluftsliv \\
+Arbete: DHL paket chaufför \\
+Om Amelia:\\
+
+Amelia arbetar som paketchaufför på DHL. Hon arbetar många timmar och tar många obekväma arbetstider för att kunna lägga undan lite pengar till hennes relativt dyra hobbies. Hon bor vid kusten och är en friluftsänniska. Hon har en mindre segelbåt som hon ibland åker iväg med familjen med på kortare turer. I övrigt tycker hon också om att paddla kajak och att vara ute i friska luften. \\
+
+Sökord: sailing, kayak, hiking\\\\
+
+
+\textbf{Luiz gonzales} \\
+Ålder: 25\\
+Kön: man \\
+Geo: Mexico\\
+Intressen: Musik, kläder och mode, volleyboll \\
+Arbete: Butiksbiträde i klädaffär \\
+
+Luiz en storstadskille som arbetar som butiksbiträde i en hipp klädaffär. Han är intresserad av kläder och att klä sig snyggt och försöker att följa med i modetrender. Han är relativt sportig av sig och tycker om att titta på och spela volleyboll med sina kompisar. \\
+
+Sökord: music festivals, fashion shows, volley boll \\\\
+
+\textbf{Glen Gagner} \\
+Ålder: 35 \\
+Kön: man \\
+Geo: Canada\\
+Intressen: ölbryggning, snowboard \\
+Arbete: Skadedjursbekämpare \\
+
+Glen arbetar som skadedjursbekämpningar och detta är endast ett arbete för honom. Hans egentliga intresse är att bygga öl och han är medlem i ett mikrobryggeri. På semestrar och långhelger åker han gärna iväg och åker snowboard med sin flickvän och kompisar.  \\
+
+Sökord: snowboarding, beer brewing, snowboard resorts \\\\
+
+\textbf{Eacnong Eadlin}\\
+Ålder: 45 \\
+Kön: Kvinna\\
+Geo: Indien\\
+Intressen: Handarbeten och Film \\
+Arbete: Sekreterare \\
+Om Eacnong: \\
+
+Eacnong är en familjemänniska som tycker om att umgås med familjen. Hon är väldigt intresserad av handarbeten och spenderar många kreativa timmar av sin fritid med handarbeten såsom sömnad och mindre smyckestillverkning. På kvällarna tycker hon om att titta på filmer, gärna klassiker, både inom den indiska filmindustrin men även västerländsk filmindustri. Hon arbetar 8h per veckadag på ett kontor som sekreterare på ett byggföretag. \\
+
+Sökord: movies now playing, knitting shops, sewing patterns \\\\
+
+\textbf{Christine Adams} \\
+Ålder: 15 \\
+Kön: Kvinna \\
+Geo: England \\
+Intressen: Social networking, smink, serietidningar \\
+Arbete: student \\
+Om Christine: \\
+
+Christine en typisk brittisk tonåring. Hon tycker om att umgås med sina kompisar på fritiden och via Facebook, Twitter och Instagram. Hon håller på att utveckla sitt nyfunna intresse för smink och makeup. Övriga intressen hon har är att läsa serietidningar.  \\
+
+Sökord: instagram top, make up, comic con  \\\\
+
+\textbf{Steve Rogers} \\
+Ålder: 78 \\
+Kön: Man \\
+Geo: USA \\
+Intressen: Jordbruksredskap, Vapen och Mecka med bilar\\
+Arbete: Pensionär\\
+Om Steve: \\
+
+Steve är en konservativ före detta lantbrukare. Han är intresserad av lantbruksredskap från 1800 talet. I övrigt tycker Steve om att mecka med bilar och även intresserad av vapen, moderna som klassiska. Han har själv spenderat många timmar på bakgården med ett gevär över axeln och då och då skjutit en och annan räv som smugit sig in på gården för att knipa en höna. \\
+
+Sökord: farming tools, guns and ammo, car shows \\\\
+
+\textbf{Anna Claasen} \\
+Ålder: 36 \\
+Kön: Kvinna\\
+Geo: Sydafrika \\
+Intressen: Cykling, Tour ?d france, Kosttillskott  \\
+Arbete: Undersköterska\\
+
+Annas stora passion i livet är cyklar och sportcykling. Hon åker varje år på långfärder med sin sportcykel och följer årligen Tour d? France på plats i Frankrike. Förutom cyklingen så tränar Anna ofta och är en stor användare av olika kosttillskott för att maximera träningen. Till vardags arbetar Anna på Johannesburgs största sjukhus som undersköterska. \\
+
+Sökord: Sport cycling, protein shakes, bike shops \\\\
+
+\textbf{Manfred Hansen} \\
+Ålder: 47 \\
+Kön: Man \\
+Geo: Nya Zeeland \\
+Intressen: Kretskort, Elektroniska komponenter, Gadgets\\
+Arbete: Elektroingenjör\\
+
+Manfred arbetar till vardags för ett företag som tillverkar inbyggda system för larmlösningar. Han älskar allt som har med elektronik att göra och är ständigt på jakt efter de nyaste elektriska prylarna på marknaden. Han letar också ständigt efter kretskort och andra elektroniska prylar som han kan använda till sina hobby projekt där hemma. \\
+
+Sökord: circuits, smartwatch, activity band
+
+
+\newpage
+
+\section{Bilaga 2}
+Följande bilaga visar de trackers som återfanns i undersökningen. Siffran anger hur många gånger trackern påträffades i experimentet. Underlaget är begränsat till de 30 största resultaten. \\\\
+
+\begin{tabular}{l c r}
+	
+	\textbf{Tjänst} & \textbf{Webbadress} & \textbf{Antal}  \\
+	\hline
+	GoogleAnalytics & google-analytics.com & 386 \\
+	DoubleClick	& doubleclick.net &	327 \\
+	GoogleAdservices & googleadservices.com & 184 \\
+	GoogleSyndication & googlesyndication.com & 184 \\
+	comScore	& \url{http://www.comscore.com/} & 160\\
+	AppNexus	 &\url{http://www.appnexus.com/} & 150 \\
+	GoogleTagservices & googletagservices.com & 127 \\
+	Quantcast	 & \url{http://www.quantcast.com/} & 100 \\
+	Adobe & \url{http://www.adobe.com/} & 85 \\
+	OpenX	& \url{http://openx.com/} & 80 \\
+	Neustar & \url{http://www.neustar.biz/} & 79 \\
+	BlueKai	& \url{http://www.bluekai.com/} & 77 \\
+	AK & \url{http://www.aggregateknowledge.com/} & 76 \\
+	Fox One Stop Media & \url{http://www.foxonestop.com/} & 76 \\
+	Rapleaf	 & \url{http://www.rapleaf.com/} & 76 \\
+ 	PubMatic	& \url{http://www.pubmatic.com/} & 75 \\
+	AOL	& \url{http://www.aol.com/} & 74 \\
+	New Relic	& \url{http://newrelic.com/} & 70 \\
+	Chartbeat	& \url{http://chartbeat.com/} & 67 \\
+	Moat	 & \url{http://www.moat.com / } & 67 \\
+	MediaMath & \url{http://www.mediamath.com/} & 66 \\
+	Datalogix	& \url{http://www.datalogix.com/} & 65 \\
+	eXelate	& \url{http://exelate.com/} & 63 \\
+	The Trade Desk & \url{http://thetradedesk.com/} & 61 \\
+	Nielsen	& \url{http://www.nielsen.com/} & 56 \\
+	Amazon.com & \url{http://www.amazon.com/} & 52 \\
+	Casale Media & \url{http://www.casalemedia.com/} & 52 \\
+	DataXu	& \url{http://www.dataxu.com/} & 52 \\
+	AudienceScience	& \url{http://www.audiencescience.com/} & 48 \\
+	Rocket Fuel	& \url{http://rocketfuel.com/} & 47 \\
+\end{tabular}
+
+\newpage
+
+\section{Bilaga 3}
+Följande bilaga visar de tjänster som sparade cookies i undersökningen. Siffran anger det totala antalet cookies som sparades under experimentet. Underlaget är begränsat till de 30 största resultaten. \\\\
+
+\begin{tabular}{l r}
+\textbf{Tjänst} & \textbf{Antal} \\
+\hline \\
+spotxchange.com	 & 6122  	  	  \\
+rubiconproject.com	& 4415\\
+bluekai.com	& 2939\\
+adnxs.com & 2891\\
+casalemedia.com	& 2037\\
+pubmatic.com	& 1436\\
+rfihub.com & 1158\\
+revsci.net	& 880\\
+rlcdn.com	 & 870\\
+krxd.net & 801\\
+agkn.com	& 687\\
+adsrvr.org & 656\\
+outbrain.com & 501\\
+crwdcntrl.net & 489\\
+openx.net	 & 424\\
+exelator.com & 408\\
+lijit.com & 375\\
+forbes.com & 363\\
+everesttech.net	 & 351\\
+advertising.com & 336\\
+chango.com & 327\\
+mookie1.com & 299\\
+w55c.net	& 298\\
+media6degrees.com & 292 \\
+nexac.com & 291 \\
+wtp101.com	 & 274 \\
+mathtag.com & 266\\
+tubemogul.com & 244\\
+ru4.com & 230\\
+visualdna.com	& 230\\
+\end{tabular}
+
+
+
+\end{thebibliography}
+
+\end{document}
