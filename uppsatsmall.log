@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.9.3)  13 SEP 2015 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.9.3)  13 SEP 2015 19:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -302,36 +302,27 @@ name{page.}) has been already used, duplicate ignored
                    \relax 
 l.127 \newpage
                [6]
-Underfull \hbox (badness 10000) in paragraph at lines 129--131
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--131
-
- []
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 132.
+(Font)              <10.95> on input line 130.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 132.
+(Font)              <8> on input line 130.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 132.
+(Font)              <6> on input line 130.
 
-Overfull \hbox (36.97061pt too wide) in paragraph at lines 132--148
-[][] 
+Overfull \hbox (19.97061pt too wide) in paragraph at lines 130--146
+[] 
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.151 \newpage
+l.149 \newpage
                [7]pdfTeX warning (ext4): destination with the same identifier (
 name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.153 \newpage
+l.151 \newpage
                [8] (./uppsatsmall.tocpdfTeX warning (ext4): destination with th
 e same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
@@ -345,69 +336,77 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.155 \newpage
+l.153 \newpage
                [10]
-Overfull \hbox (4.30557pt too wide) in paragraph at lines 190--191
+Overfull \hbox (4.30557pt too wide) in paragraph at lines 188--189
 \T1/cmr/m/n/10.95 nom-skin-lig [http://www.ne.se/uppslagsverk/ordbok/svensk/tra
 nsparent]. Dis-tri-bu-e-ra-de sy-
  []
 
 [1]
-Overfull \hbox (144.16164pt too wide) in paragraph at lines 199--201
+Overfull \hbox (144.16164pt too wide) in paragraph at lines 197--199
 \T1/cmr/m/n/10.95 about the ac-ti-vi-ti-es of go-vern-ment or pri-va-te or-ga-n
 i-za-tions. [http://global.britannica.com/topic/transparency-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 230--232
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
 
  []
 
-<images/img1.png, id=346, 1076.02pt x 277.035pt>
+<images/img1.png, id=378, 1076.02pt x 277.035pt>
 File: images/img1.png Graphic file (type png)
  <use images/img1.png>
-Package pdftex.def Info: images/img1.png used on input line 297.
+Package pdftex.def Info: images/img1.png used on input line 295.
 (pdftex.def)             Requested size: 284.52756pt x 73.25328pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--299
+Underfull \hbox (badness 10000) in paragraph at lines 295--297
 
  []
 
-[6 <./images/img1.png (PNG copy)>] [7] [8] [9] [10]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 393.
+[6 <./images/img1.png (PNG copy)>]
 
+LaTeX Warning: Citation `?' on page 7 undefined on input line 324.
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1cmtt.fd
+[7] [8] [9] [10]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 391.
+
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (5.12125pt too wide) in paragraph at lines 393--394
+Overfull \hbox (5.12125pt too wide) in paragraph at lines 391--392
 []\T1/cmr/m/n/10.95 Ett ex-em-pel då det-ta sker är i Goog-le-A-na-ly-tics tjän
 st då ett be-sök på www.aftonbladet.se
  []
 
 
-Overfull \hbox (2.11975pt too wide) in paragraph at lines 393--394
+Overfull \hbox (2.11975pt too wide) in paragraph at lines 391--392
 \T1/cmr/m/n/10.95 sar allt-så att Goog-le-A-na-ly-tics spa-rar si-na coo-ki-es 
 på sam-ma do-män dvs. www.aftonbladet.se
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--394
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 
  []
 
@@ -417,17 +416,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 393--394
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 414--415
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
 
  []
 
@@ -437,17 +436,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 414--415
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
 
  []
 
@@ -457,276 +456,271 @@ Underfull \hbox (badness 10000) in paragraph at lines 437--438
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--440
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 439--440
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 454.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 452.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 454.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 452.
  [13] [14]
 [15]
-Overfull \hbox (5.13249pt too wide) in paragraph at lines 553--554
+Overfull \hbox (5.13249pt too wide) in paragraph at lines 551--552
 []\T1/cmr/m/n/10.95 Among the top 10 such do-mains are: goog-le-adser-vices.com
 , google-analytics.com,
  []
 
 [16]
-Overfull \hbox (62.72935pt too wide) in paragraph at lines 559--560
+Overfull \hbox (62.72935pt too wide) in paragraph at lines 557--558
 \T1/cmr/m/n/10.95 tion.com, gsta-tic.com, fbcdn.net, tfd.com, in-vi-te-me-dia.c
 om, at-dmt.com, ajax.googleapis.com,
  []
 
 [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 613--615
+Underfull \hbox (badness 10000) in paragraph at lines 611--613
 
  []
 
 [19] [20] [21]
 
-LaTeX Warning: Citation `rectlinkfirst' on page 22 undefined on input line 671.
+LaTeX Warning: Citation `rectlinkfirst' on page 22 undefined on input line 669.
 
 
 
-LaTeX Warning: Citation `rectlinkopt1' on page 22 undefined on input line 673.
+LaTeX Warning: Citation `rectlinkopt1' on page 22 undefined on input line 671.
 
 
-LaTeX Warning: Citation `rectlinkopt2' on page 22 undefined on input line 673.
+LaTeX Warning: Citation `rectlinkopt2' on page 22 undefined on input line 671.
 
 [22]
-Underfull \hbox (badness 1571) in paragraph at lines 711--712
+Underfull \hbox (badness 1571) in paragraph at lines 714--715
 []\T1/cmr/m/n/10.95 ComScore Inc. comSco-re and Goog-le Part-ner to Of-fer Ac-t
 io-nab-le Au-di-ence
  []
 
 
-Underfull \hbox (badness 1496) in paragraph at lines 711--712
+Underfull \hbox (badness 1496) in paragraph at lines 714--715
 \T1/cmr/m/n/10.95 Metric for Brands [In-ter-net] 2014 [upp-da-te-rad: 2014-02-1
 0; ci-te-rad: 2015-05-
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 731--732
+Underfull \hbox (badness 1199) in paragraph at lines 744--745
 []\T1/cmr/m/n/10.95 Google Inc. Custom Se-arch JSON/Atom API. [In-ter-net] 2015
  [ci-te-rad 2015-
  []
 
 [23]
-Underfull \hbox (badness 1867) in paragraph at lines 735--736
+Underfull \hbox (badness 1867) in paragraph at lines 750--751
 \T1/cmr/m/n/10.95 te-rad 2015-04-17] Häm-tad från: []$\T1/cmtt/m/n/10.95 https 
 : / / developers . google . com / analytics /
  []
 
 [24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 773--774
+Underfull \hbox (badness 10000) in paragraph at lines 804--805
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 775--782
+Underfull \hbox (badness 10000) in paragraph at lines 806--813
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 783--784
+Underfull \hbox (badness 10000) in paragraph at lines 814--815
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 785--786
+Underfull \hbox (badness 10000) in paragraph at lines 816--817
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 785--786
+Underfull \hbox (badness 10000) in paragraph at lines 816--817
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--794
+Underfull \hbox (badness 10000) in paragraph at lines 819--825
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 795--796
+Underfull \hbox (badness 10000) in paragraph at lines 826--827
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 797--798
+Underfull \hbox (badness 10000) in paragraph at lines 828--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 797--798
+Underfull \hbox (badness 10000) in paragraph at lines 828--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 799--805
+Underfull \hbox (badness 10000) in paragraph at lines 830--836
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 806--807
+Underfull \hbox (badness 10000) in paragraph at lines 837--838
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 808--809
+Underfull \hbox (badness 10000) in paragraph at lines 839--840
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 808--809
+Underfull \hbox (badness 10000) in paragraph at lines 839--840
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 810--817
+Underfull \hbox (badness 10000) in paragraph at lines 841--848
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--819
+Underfull \hbox (badness 10000) in paragraph at lines 849--850
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 820--821
+Underfull \hbox (badness 10000) in paragraph at lines 851--852
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 820--821
+Underfull \hbox (badness 10000) in paragraph at lines 851--852
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--829
+Underfull \hbox (badness 10000) in paragraph at lines 853--860
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 830--831
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 832--833
+Underfull \hbox (badness 10000) in paragraph at lines 863--864
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 832--833
+Underfull \hbox (badness 10000) in paragraph at lines 863--864
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 834--841
+Underfull \hbox (badness 10000) in paragraph at lines 865--872
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 842--843
+Underfull \hbox (badness 10000) in paragraph at lines 873--874
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--845
+Underfull \hbox (badness 10000) in paragraph at lines 875--876
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--845
+Underfull \hbox (badness 10000) in paragraph at lines 875--876
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--852
+Underfull \hbox (badness 10000) in paragraph at lines 877--883
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 853--854
+Underfull \hbox (badness 10000) in paragraph at lines 884--885
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 855--856
+Underfull \hbox (badness 10000) in paragraph at lines 886--887
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 855--856
+Underfull \hbox (badness 10000) in paragraph at lines 886--887
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 857--863
+Underfull \hbox (badness 10000) in paragraph at lines 888--894
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 864--865
+Underfull \hbox (badness 10000) in paragraph at lines 895--896
 
  []
 
 [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 872--873
+Underfull \hbox (badness 10000) in paragraph at lines 904--905
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 872--873
+Underfull \hbox (badness 10000) in paragraph at lines 904--905
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
+Underfull \hbox (badness 10000) in paragraph at lines 946--947
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
+Underfull \hbox (badness 10000) in paragraph at lines 946--947
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 954.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 987.
 [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 954.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 987.
  (./uppsatsmall.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 954.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 954.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 987.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 987.
 Package rerunfilecheck Info: File `uppsatsmall.out' has not changed.
-(rerunfilecheck)             Checksum: 6A38D79BCA8D7ADE10E8F4379B53160D;3220.
+(rerunfilecheck)             Checksum: A70BDBDBD2EDA30435457C16EE1754C4;3220.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 954.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 987.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 28 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5954 strings out of 493089
- 86527 string characters out of 6134843
+ 5953 strings out of 493089
+ 86509 string characters out of 6134843
  176023 words of memory out of 5000000
- 9270 multiletter control sequences out of 15000+600000
- 14333 words of font info for 34 fonts, out of 8000000 for 9000
+ 9269 multiletter control sequences out of 15000+600000
+ 13561 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,8n,28p,1163b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,8n,28p,1163b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -739,13 +733,12 @@ b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></
 usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></us
 r/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on uppsatsmall.pdf (41 pages, 360810 bytes).
+local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on uppsatsmall.pdf (41 pages, 354554 bytes).
 PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 559 compressed objects within 6 object streams
- 124 named destinations out of 1000 (max. 500000)
+ 675 PDF objects out of 1000 (max. 8388607)
+ 609 compressed objects within 7 object streams
+ 125 named destinations out of 1000 (max. 500000)
  443 words of extra memory for PDF output out of 10000 (max. 10000000)
 
