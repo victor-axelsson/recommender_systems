@@ -22,34 +22,34 @@
 \contentsline {subsubsection}{\numberline {3.1.2}Analys}{9}{subsubsection.3.1.2}
 \contentsline {subsubsection}{\numberline {3.1.3}Personas och deras beteenden}{9}{subsubsection.3.1.3}
 \contentsline {subsection}{\numberline {3.2}Metoddiskussion}{10}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Valda metoders för- och nackdelar}{11}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.3}Valda metoders för- och nackdelar}{12}{subsection.3.3}
 \contentsline {section}{\numberline {4}Resultat}{12}{section.4}
-\contentsline {subsection}{\numberline {4.1}Trackers}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.1}Trackers}{13}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Cookies}{13}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Personas}{13}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Google}{13}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}ComScore}{15}{subsection.4.5}
-\contentsline {section}{\numberline {5}Analys}{15}{section.5}
+\contentsline {subsection}{\numberline {4.3}Personas}{14}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Google}{14}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}ComScore}{16}{subsection.4.5}
+\contentsline {section}{\numberline {5}Analys}{16}{section.5}
 \contentsline {subsection}{\numberline {5.1}Trackers}{16}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Cookies}{16}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Jämförelse med liknande studier}{16}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}ComScore}{17}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Google}{17}{subsection.5.5}
-\contentsline {section}{\numberline {6}Diskussion}{18}{section.6}
-\contentsline {subsection}{\numberline {6.1}Återkoppling till frågeställning}{19}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Framtiden}{20}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Framtida forskning}{20}{subsection.6.3}
-\contentsline {section}{\numberline {7}Slutsats}{21}{section.7}
-\contentsline {subsection}{\numberline {7.1}Bakgrund och tidigare forskning}{22}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Frågeställning}{22}{subsection.7.2}
-\contentsline {section}{\numberline {8}Metod}{22}{section.8}
-\contentsline {subsection}{\numberline {8.1}Metodbeskrivning}{22}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Metoddiskussion}{22}{subsection.8.2}
-\contentsline {section}{\numberline {9}Resultat}{22}{section.9}
-\contentsline {section}{\numberline {10}Analys}{22}{section.10}
-\contentsline {section}{\numberline {11}Diskussion}{22}{section.11}
-\contentsline {section}{\numberline {12}Slutsatser och vidare forskning}{22}{section.12}
-\contentsline {section}{Referenser}{23}{section.12}
-\contentsline {section}{Bilaga 1}{26}{section*.6}
-\contentsline {section}{Bilaga 2}{30}{section*.7}
-\contentsline {section}{Bilaga 3}{31}{section*.8}
+\contentsline {subsection}{\numberline {5.2}Cookies}{17}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Jämförelse med liknande studier}{17}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}ComScore}{18}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Google}{18}{subsection.5.5}
+\contentsline {section}{\numberline {6}Diskussion}{19}{section.6}
+\contentsline {subsection}{\numberline {6.1}Återkoppling till frågeställning}{20}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Framtiden}{21}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Framtida forskning}{21}{subsection.6.3}
+\contentsline {section}{\numberline {7}Slutsats}{22}{section.7}
+\contentsline {subsection}{\numberline {7.1}Bakgrund och tidigare forskning}{23}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Frågeställning}{23}{subsection.7.2}
+\contentsline {section}{\numberline {8}Metod}{23}{section.8}
+\contentsline {subsection}{\numberline {8.1}Metodbeskrivning}{23}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Metoddiskussion}{23}{subsection.8.2}
+\contentsline {section}{\numberline {9}Resultat}{23}{section.9}
+\contentsline {section}{\numberline {10}Analys}{23}{section.10}
+\contentsline {section}{\numberline {11}Diskussion}{23}{section.11}
+\contentsline {section}{\numberline {12}Slutsatser och vidare forskning}{23}{section.12}
+\contentsline {section}{Referenser}{24}{section.12}
+\contentsline {section}{Bilaga 1}{27}{section*.6}
+\contentsline {section}{Bilaga 2}{31}{section*.7}
+\contentsline {section}{Bilaga 3}{32}{section*.8}
