@@ -203,11 +203,11 @@ I detta dokument är det den ovanstående definieringen som avses med termen \te
 Eftersom rekommendationer kommer från automatiserade system kan det ibland vara svårt för användare att förstå vad rekommendationer grundar sig i. Denna uppsats syftar till att undersöka i vilken utsträckning datainsamling sker, vilka de största aktörerna är samt hur dessa aktörer kommunicerar sin datainsamling till sina användare.
 
 \subsection{Avgränsningar}
-Undersökningen som utförs syftar till att avhandla aspekter som rör privatpersoner. I omfattningen av företag kan många andra aspekter, såsom ekonomisk hållbarhet,  företagspolicies och sekretesser, bli avgörande för andra utgångar. Detta avhandlas inte i denna undersökning. 
-
 Ingen undersökning kring hur företagen följer sina sekretesspolicies har gjorts. I omfattningen av undersökningen har antagandet gjorts att företagen följer de publika avtal som skrivits. 
 
 Det finns ingen avsikt att metodiskt undersöka integritetsaspekter. I diskussioner kring områden, såsom transparens och öppenhet, kan däremot en kortare diskussion kring ämnet föras.
+
+Undersökningen syftar inte till att jämföra hur företagen utför datainsamling utan endast att jämföra hur de kommunicerar denna insamling gentemot användare.
 
 \subsection{Frågeställning}
 
@@ -330,7 +330,7 @@ Med detta sagt går det tydligt att se, ur rekommendationssystemens synvinkel, e
 
 Det kan finnas problem med att hitta alla punkter för informationsinsamling eftersom internets natur inte ger alla åtkomst till allting. Därmed går det t.ex. inte att veta vilken information som sparas på servern utan endast vilken information som skickas från klienten. Det kan även finnas problem med att se exakt vad datan har för syfte. Även om information skickas från klienten är den i många fall lagrad som hashad eller krypterad data. Det är inte heller alltid heller tydligt för en användare vilket beteende som resulterar i datainsamling. 
 
-Problemet med rekommendationer i reklamsyfte blir därmed att användaren inte alltid görs uppmärksam på att data insamlas, vem som samlar, vad de samlar och i vilken omfattning. Att skapa en bättre transparens för användaren avseende datahantering verkar heller inte vara ett område som ges utrymme vid urformning av de basala element, såsom algoritmer och dess implementationer, som ligger till grund för rekommendationer. 
+Problemet med rekommendationer i reklamsyfte blir därmed att användaren inte alltid görs uppmärksam på att data insamlas, vem som samlar, vad de samlar och i vilken omfattning. 
 
 \section{Metod}
 I denna del av dokumentet beskrivs tillvägagångssättet för undersökningen. Först beskrivs de delar som rör det kvantitativa experimentet, därefter presenteras en diskussion om de valda metodikernas för och nackdelar. 
@@ -351,8 +351,8 @@ När svartlistningen av en tracker sker i Disconnect avbryts den normala exekver
 
 För att samla in vilka cookies som sparas på respektive webbsida har ett eget Chrome-tillägg byggts som triggar ett event varje gång en cookie sparas och vilken domän som sparar cookien. Genom att använda samma datakälla som Disconnect använder sig utav, filtreras cookies som inte är relaterade till reklam bort och de som är relevanta skickas vidare till vårt API. Filtreringen sker genom att jämföra vilken domän som sparar cookien med de domäner som finns registrerade i datakällan som reklamrelaterade.
 
-\subsubsection{Analys}
-På en extern server byddges ett API i PHP. Det faktiska serverspråket är egentligen  ointressant och i detta fall valdes det alternativ som på enklaste vis kunde byggas ihop fortast. I botten valdes en MySQL databas för lagring. Eftersom det är just relationer av data som är intressant valdes därför en relationell databas i motsatts till andra alternativ såsom NoSQL, dokumentdatabaser etc. 
+\subsubsection{Data Analys}
+På en extern server byggdes ett API i PHP. Det faktiska serverspråket är egentligen  ointressant och i detta fall valdes det alternativ som på enklaste vis kunde byggas ihop fortast. I botten valdes en MySQL databas för lagring. Eftersom det är just relationer av data som är intressant valdes därför en relationell databas i motsatts till andra alternativ såsom NoSQL, dokumentdatabaser etc. 
 
 Analyseraren har två egentliga huvuduppgifter: delge back-end till databasen och presentera data från databasen i mer lättsmält format. Med detta sagt valdes ett JavaScript bibliotek som heter Chart.js \cite{Downie} för att presentera den insamlade datan. 
 
@@ -376,6 +376,8 @@ I webbläsaren på den virtuella maskinen finns också vår modifierade version 
 \subsection{Metoddiskussion}
 Syftet med experimentet är att skapa en bas för analys över internetanvändning. För att göra detta skulle det bästa vara att antingen anställa en stor mängd personer som googlar eller att köpa deras internetinformation. Eftersom resurserna av denna undersökning inte har denna budget är båda metoderna uteslutna. 
 
+För att undersöka hur medvetna användare är kring datainsamling är metoder baserade på enkäter alternativt observationer intressanta. Valet att inte använda denna metod som komplement till de valda metoderna har gjorts utifrån omfattning och tid. Eftersom att en sådan undersökning är tidskrävande valdes det att inte gå vidare med dessa metoder.
+
 Som svar på detta försöker vi istället utföra kvalificerade gissningar över hur en person använder internet genom Googles sökmotor. Detta beteende försöks sedan efterliknas i applikationer genom simulering. Detta medför också att undersökningen inte blir mer sofistikerad än de gissningar om hur en användare söker på Google. 
 
 En annan aspekt med metodiken som beskrivits är med hänvisning till testbarhet. Eftersom Google är ett företag som inte tillhandahar fri dataåtkomst kommer detta medföra att all testning av respons kommer vara blackboxtestning. I Googles sekretesspolicy \cite{GooglePrivacyPolicy} går det att läsa om vilken data de uppger samlas in. Det går naturligtvis inte att, från undersökningens håll, bevisa att inte mer data insamlas men i omfattningen av undersökningen har antagandet gjorts att Google följer sin sekretesspolicy.
@@ -397,13 +399,15 @@ De metoder som valts har utformats för att analysera den information som finns 
 
 För att finna ändhållplatsen för datan har en analys av företagens sekretesspolicys gjorts. Detta är deras officiella agenda om vilken data som insamlas och hur den används. Det finns i undersökningen inget sätt att bekräfta att detta överensstämmer med verkligheten eftersom vi, som tidigare nämnt, inte har åtkomst till deras servrar. I undersökningen har antagandet gjorts att företagen har möjlighet att insamla allt som står i deras sekretesspolicies. Istället för att se detta som en svaghet för undersökningen går det också att se detta som ett bra underlag för fortsatta studier. Om annan forskning inom området visar att annan data hanteras, kommer den att avvika från vår undersökning. Om detta skulle vara fallet kommer det också innebära att tjänsterna inte följer sina sekretesspolicies vilket i sin tur tyder på dålig transparens och integritetshantering, vilket denna undersökningen också undersöker. 
 
-De metoder som använts är en blandning av kvantitativa och kvalitativa. Creswell \cite{Creswell} definierar denna typ av blandad metodik som mixed methodology som översätts direkt till ?blandad metod? på svenska. Creswell \cite{Creswell} nämner också att det med fördel går att blanda metoder som ett komplement till varandra. Just i vårt  fall hamnar våra metoder under en så kallad sekventiell blandning där vår kvantitativa undersökning följs av en kvalitativ. Detta korrelerar också bra med vad undersökningen syfar till. Cresswell \cite{Creswell} visar tydligt fördelarna med en mixad metodologi: 
+De metoder som använts är en blandning av kvantitativa och kvalitativa. Creswell \cite{Creswell} definierar denna typ av blandad metodik som mixed methodology som översätts direkt till ?blandad metod? på svenska. Creswell \cite{Creswell} nämner också att det med fördel går att blanda metoder som ett komplement till varandra. Just i vårt  fall hamnar våra metoder under en så kallad sekventiell blandning där vår kvantitativa undersökning följs av en kvalitativ. Då den kvalitativa undersökningen i denna uppsats syftar till att undersöka kommunikationen mellan datainsamlande företag gentemot användare komplementeras detta utav en kvantitativ undersökning som syftar till att samla in rådata om vilka företag som samlar in data vid surfning.
+
+Cresswell \cite{Creswell} visar tydligt fördelarna med en mixad metodologi: 
 
 \begin{quote}
 A mixed methods design is useful to capture the best of both quantitative and qualitative approaches. For example, a researcher may want to both generalize the findings to a population and develop a detailed view of the meaning of a phenomenon or concept for individuals. [?] 
 \end{quote}
 
-Som tydligt går att utläsa är den mixade motodologin effektiv för att utföra det som vår undersökning syftar till, det vill säga: generalisera fynden från en population och använda dessa fynd för en mer detaljerad analys. 
+Som tydligt går att utläsa är den mixade motodologin effektiv för att utföra det som vår undersökning syftar till, det vill säga: generalisera fynden från en population genom en kvantitativ undersökning och använd dessa fynd för att utföra mer detaljerad analys. I denna undersökningen generaliseras fynden utifrån de trackers som är mest aktiva vid simulerad surfning för att göra en detaljerad analys. 
 
 \section{Resultat}
 I denna del av dokumentet presenteras resultatet av det experiment som utförts. Sammanlagt har 720 hemsidor besökts. Dessa 720 sidor är kopplade till privata intressen av de personas som definierats. En lista på de 30 största trackersen går att finna i \textit{Bilaga 2} och om samtliga cookies som återfanns i undersökningen går att finna i \textit{Bilaga 3}.
@@ -522,7 +526,7 @@ comScore is committed to providing the market with transparency into the methods
 Förutom samarbeten med granskningsorgan samarbetar ComScore också med andra aktörer inom reklambranschen. Enligt ett pressutlåtande \cite{ComScorePartner} inleddes 2014 ett samarbete med Google kring ComScores tjänst vCE (Validated Campaign Essentials) som är en tjänst som erbjuder en djupare inblick i kundens reklamkampanj. Enligt pressutlåtandet  innebär samarbetet att användare utav Googles DoubleClick får ta del utav data från vCE för att förbättra mätbarhet kring DoubleClicks reklamkampanjer.
 
 \section{Analys}
-Valet har gjorts att fokusera på de 5 största tjänsterna. Detta innebär att det är företagen Google och ComScore som har fått fokus. I följande del av dokumentet presenteras en analys av deras metodiker av datainsamling. Fokus i analysen kommer ligga på trackers och datahantering. Cookies har medvetet fått mindre fokus för analys med hänvisning till det stora bortfallet av tjänster som skett som tidigare nämnts.
+Valet har gjorts att fokusera på de 5 största tjänsterna. Detta innebär att det är företagen Google och ComScore som har fått fokus då det är dessa företag som tillhandahåller de 5 tjänsterna. I följande del av dokumentet presenteras en analys av deras metodiker av datainsamling. Fokus i analysen kommer ligga på trackers och datahantering. Cookies har medvetet fått mindre fokus för analys med hänvisning till det stora bortfallet av tjänster som skett som tidigare nämnts.
 
 
 \subsection{Trackers}
