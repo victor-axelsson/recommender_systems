@@ -158,13 +158,13 @@ When searching on the Internet via a web browser there is a variety of third-par
 
 \section{Inledning}
 
-Rekommendationssystem är verktyg som förenklat informationssökning och dagliga uppgifter som användare utför på sina datorer. Syftet med rekommendationssystem är att ge vägledning till användare som saknar personlig erfarenhet inom ett specifikt område \cite{Resnick}. Då vi ska gå ut och äta på restaurang kan vi till exempel med fördel fråga bekanta som kanske har en bättre kännedom om området, eller fråga någon som vi vet känner till mycket om en viss typ av mat.
+Rekommendationssystem är verktyg som förenklat informationssökning och dagliga uppgifter som användare utför på sina datorer. Syftet med rekommendationssystem är att ge vägledning till användare som saknar personlig erfarenhet inom ett specifikt område \cite{Resnick}. Om vi ska gå ut och äta på restaurang kan vi till exempel fråga bekanta som kanske har en bättre kännedom om området, eller fråga någon som vi vet känner till mycket om en viss typ av mat.
 
 
-Inom marknadsföringsområdet har detta tänk, att underlätta för människor, utvecklats naturligt eftersom att det kan ge stora fördelar för potentiella kunder som har ett behov av att konsumera och företag som kan erbjuda varor till dessa kunder.
+Inom marknadsföringsområdet har detta tänk, att underlätta för människor, utvecklats eftersom att det kan ge stora fördelar för potentiella kunder som har ett behov av att konsumera och företag som kan erbjuda varor till dessa kunder.
 
 
-Användare som besöker en webbplats blir utsatt för dessa rekommendationer i form av reklamplatser, banners och andra former av reklam. För att ge användare så relevant reklam som möjligt finns det därför olika metoder för att åstadkomma detta.
+Användare som besöker en webbplats blir utsatta för dessa rekommendationer i form av reklamplatser, banners och andra former av reklam. För att ge användare så relevant reklam som möjligt finns det därför olika metoder för att åstadkomma detta.
 
 \subsection{Definitioner}
 Rekommendationsystem (eng. Recommender systems) är system som har syftet att presentera meningsfulla rekommendationer för användaren [ref].
@@ -199,14 +199,14 @@ Transparency, capacity of outsiders to obtain valid and timely information about
 I detta dokument är det den ovanstående definieringen som avses med termen \textit{transparens.}
 
 \subsection{Syfte}
-Eftersom rekommendationer kommer från automatiserade system kan det ibland vara svårt för användare att förstå vad rekommendationer grundar sig i. Denna uppsats syftar till att undersöka i vilken utsträckning datainsamling sker, vilka de största aktörerna är samt hur dessa aktörer kommunicerar sin datainsamling till sina användare.
+Eftersom rekommendationer kommer från automatiserade system kan det ibland vara svårt för användare att förstå vad rekommendationerna grundas på. Denna uppsats syftar till att undersöka i vilken utsträckning datainsamling sker, vilka de största aktörerna är samt hur dessa aktörer kommunicerar sin datainsamling till sina användare.
 
 \subsection{Avgränsningar}
-Ingen undersökning kring hur företagen följer sina sekretesspolicies har gjorts. I omfattningen av undersökningen har antagandet gjorts att företagen följer de publika avtal som skrivits. 
+Ingen undersökning kring hur företagen följer sina sekretesspolicies har gjorts. I undersökningen har antagandet gjorts att företagen följer de publika avtal som skrivits. 
 
-Det finns ingen avsikt att metodiskt undersöka integritetsaspekter. I diskussioner kring områden, såsom transparens och öppenhet, kan däremot en kortare diskussion kring ämnet föras.
+Det finns ingen avsikt att metodiskt undersöka integritetsaspekter. I diskussioner kring transparens och öppenhet kan däremot en kortare diskussion kring ämnet föras.
 
-Undersökningen syftar inte till att jämföra hur företagen utför datainsamling utan endast att jämföra hur de kommunicerar denna insamling gentemot användare.
+Undersökningen syftar inte till att jämföra hur företagen utför datainsamling utan endast att jämföra hur de kommunicerar insamlingen till sina användare.
 
 \subsection{Frågeställning}
 
@@ -217,9 +217,9 @@ Undersökningen syftar inte till att jämföra hur företagen utför datainsamling ut
 \end{quote}
 
 \section{Bakgrund}
-I denna del av dokumentet presenteras begrepp och bakgrundsfakta inom området rekommendationssystem. Även reklam och generell datahantering diskuteras. Denna del ligger som bas för vidare presentation inom området. 
+I denna del av dokumentet presenteras begrepp och bakgrundsfakta inom området rekommendationssystem. Även reklam och generell datahantering diskuteras. 
 \subsection{Transparens}
-Det finns i dagsläget metodiker som kan implementeras i företag och statliga myndigheters dagliga arbete som kan höja transparensen av datahantering gentemot användaren avsevärt. I artikeln \textit{Distributed privacy-preserving transparency logging} presenterar Pulls et. al. \cite{Pulls} en teknik som med hjälp av ett kryptografiskt schema som ökar transparensen av datahantering. I artikeln nämns också aspekter såsom ett ökat förtroende för myndigheten som hanterar den känsliga datan. Pulls et. al. \cite{Pulls} presenterar fyra krav för ett implementerat system. 
+Det finns i dagsläget motoder som kan implementeras i företag och statliga myndigheters dagliga arbete som kan höja transparensen av datahantering gentemot användaren. I artikeln \textit{Distributed privacy-preserving transparency logging} presenterar Pulls et. al. \cite{Pulls} en teknik som med hjälp av ett kryptografiskt schema som ökar transparensen av datahantering. I artikeln nämns också aspekter såsom ett ökat förtroende för myndigheten som hanterar den känsliga datan. Pulls et. al. \cite{Pulls} presenterar fyra krav för ett implementerat system. 
 
 \begin{quote}
 
@@ -235,11 +235,11 @@ User identifiers (setup prior to compromise) across multiple data processors or 
 Exempel kring hur denna implementation kan distribueras över flera noder presenteras som ett mål i att möta allt fler molnbaserade tjänster. Det som är viktigt att nämna är också att detta inte är endast en teoretisk modell utan en faktisk genomförbarhetsstudie har utförts som visar att metoden är genomförbar även i praktiken. 
 
 \subsection{Trackers}
-Genom att skapa nätverk av webbsidor som vill visa reklam går det att ge bättre reklamrekommendationer för slutanvändare genom att besökare till dessa sidor indirekt medverkar till att förbättra reklamen som visas inom dessa nätverk av webbsidor \cite{Gomer}. Detta sker genom att datainsamling utförs på besökare av dessa webbsidor med hjälp utav trackers. Det som är intressant att samla in är användarbeteenden och preferenser som hela nätverket sedan i förlängning kan ta del av. 
+Genom att skapa nätverk av webbsidor som vill visa reklam går det att ge bättre reklamrekommendationer för användare genom att besökare indirekt medverkar till att förbättra reklamen som visas i nätverket av webbsidor \cite{Gomer}. Detta sker genom att datainsamling utförs på besökare av webbsidor med hjälp av trackers. Det som är intressant att samla in är användarbeteende och preferenser som nätverket sedare kan använda som underlag. 
 
 Ett exempel på detta är DoubleClick \cite{DoubleClick} som är en tjänst som erbjuder skapande, transaktioner och hantering av digitalreklam för köpare, skapare och säljare. 
 
-För att kunna spåra användare över tid krävs det att reklamföretag kan identifiera användare på ett sådant sätt att det går att koppla till ett användarbeteende. Då en given sida är med i ett så kallat reklamnätverk och genom att visa reklam på webbsidan kan dessa nätverk enligt Gomer et. al. \cite{Gomer} också spara en cookie som identifierar användare som besöker webbsidan med hjälp av en unik identifierare. När samma användare sedan besöker webbsidor som är med i samma reklamnätverk kommer dessa cookies ge utslag och identifiera användaren. 
+För att kunna spåra användare över tid krävs det att reklamföretag kan identifiera användare på ett sådant sätt att det går att koppla till ett användarbeteende. Om en given sida är med i ett reklamnätverk, och genom att visa reklam på webbsidan, kan dessa nätverk enligt Gomer et al. \cite{Gomer} också spara en cookie som identifierar användare som besöker webbsidan med hjälp av ett unikt id. När samma användare besöker webbsidor som är en del av samma reklamnätverk kommer dessa cookies identifiera användaren. 
 
 \begin{quote}
 As the user visits other sites associated with the same ad network, this third party cookie is used by the ad network to identify the user pseudonymously. In this way the ad network obtains, processes, and accumulates data about the user's online activity in real time \cite{Gomer}.
@@ -247,11 +247,11 @@ As the user visits other sites associated with the same ad network, this third p
 Webbplatser som använder sig av reklamnätverk för att visa relevant reklam agerar också producent av det dataunderlag som nätverken använder för att förutse köpbeteende. Detta sker genom att webbplatsen är värd för inbäddad kod som kopplas upp mot reklamnätverken och visar reklam då webbsidan renderas. Detta ger webbplatserna möjlighet att använda information som lagras på klientens dator \cite{Gomer}.
 
 \subsection{Algoritmisk reklam}
-En metod som används inom e-reklam för att ge bra rekommendationer är att analysera hemsidors innehåll \cite{Kushal} vilket speglar preferenser som användare har eftersom användaren genom ett aktivt val besöker hemsidan. Detta innebär att korrekt reklam i denna kontext i många fall är lätt att förutse. 
+En metod som används inom e-reklam för att ge bra rekommendationer är algoritmisk reklam. Algoritmisk reklam utförs genom att analysera hemsidors innehåll, vilket speglar preferenser som användare har eftersom användaren genom ett aktivt val besöker hemsidan \cite{Kushal}. Detta innebär att korrekt reklam i många fall är lätt att förutse. 
 
-För att reklam som erbjuds ska bli ännu bättre på att förutse de individuella användarnas behov går det med fördel att använda andra rekommendationskoncept. Enligt Garcia-Molina et al. \cite{Garcia} går det att kombinera sökresultat, rekommendationssystem och reklam eftersom att dessa tre informationsflöden har många likheter. Genom att förbättra en av dessa tre går det att samtidigt förbättra alla tre former av flöden.
+För att reklam som erbjuds ska bli bättre på att förutse individuella användares behov går det med att använda andra rekommendationskoncept. Enligt Garcia-Molina et al. \cite{Garcia} går det att kombinera sökresultat, rekommendationssystem och reklam eftersom att dessa tre informationsflöden har många likheter. Genom att förbättra en av dessa tre går det att samtidigt förbättra alla tre former av flöden.
 
-Ett relativt nytt koncept inom algoritmisk reklam är Behavioral Targeting \cite{Yan} som kan definieras som en metod för att ge relevant reklam som grundar sig i vilka sökningar en användare gjort tidigare och analys av dessa. 
+Ett relativt nytt koncept inom algoritmisk reklam är Behavioral Targeting \cite{Yan}. Behavioral Targeting kan definieras som en metod för att ge relevant reklam. Den grundar sig i vilka sökningar en användare gjort tidigare och analys av dessa. 
 
 \subsection{Do not track signal}
 Det finns ett försök att införa en standard för integritetshantering på webben. På W3Cs hemsida \cite{Doty} går det att läsa ett förslag på en HTTP-header som kan användas för att meddela mottagaren om att avsändaren inte ska spåras för informationsinsamlingssyften. Denna header kallas för Do Not Track Signal. 
@@ -259,7 +259,7 @@ Det finns ett försök att införa en standard för integritetshantering på webben. 
 Problematiken med standarden ligger i att avsändaren ofta inte har någon möjlighet att kontrollera ifall mottagaren faktisk följer anvisningen. 
 
 \subsection{Kallstart}
-Ett av problemen med rekommendationssystem är hur nya användare hanteras utan tidigare registrerat beteende och hur det går att ge dessa användare relevanta resultat. Enligt Braunhofer \cite{Braunhofer} ger olika rekommendationsalgoritmer varierande resultat i detta avseende och undersökningen för denna artikel handlar om hur det går att kombinera olika algoritmer för att nå bäst resultat.
+Ett problem med rekommendationssystem är hur nya användare hanteras utan tidigare registrerat beteende och hur det går att ge dessa användare relevanta resultat. Enligt Braunhofer \cite{Braunhofer} ger olika rekommendationsalgoritmer varierande resultat i detta avseende och undersökningen för artikeln handlar om hur det går att kombinera olika algoritmer för att nå bäst resultat.
 
 
 Metoden som Braunhofer använder är att analysera tre datasamlingar med olika sorters kontextuell hantering av innehåll. Genom att utföra tre separata test: ett för nya användare, ett för nya föremål och ett för nya kontextuella situationer, drogs i artikeln slutsatser kring vilka hybridtekniker som kan antas vara bra att använda. Slutsatsen som Braunhofer kommer fram till är att i samtliga tre situationer presterade ett demografiskt baserat rekommendationssystem bra. I dessa rekommendationssystem tas förutom prioritering också hänsyn till kända användarattribut.
