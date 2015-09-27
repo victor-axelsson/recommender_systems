@@ -167,34 +167,35 @@ Inom marknadsföringsområdet har detta tänk, att underlätta för människor, utveck
 Användare som besöker en webbplats blir utsatta för dessa rekommendationer i form av reklamplatser, banners och andra former av reklam. För att ge användare så relevant reklam som möjligt finns det därför olika metoder för att åstadkomma detta.
 
 \subsection{Definitioner}
-Rekommendationsystem (eng. Recommender systems) är system som har syftet att presentera meningsfulla rekommendationer för användaren [ref].
+Nedan definieras begrepp som är viktiga för att förstå innehållet av uppsatsen.
+\subsubsection{Rekommendationssystem}
+Rekommendationsystem (eng. Recommender systems) är system som har syftet att presentera meningsfulla rekommendationer för användaren Melville et al. \cite{Melville}.
 
 \begin{quote}
-The goal of a Recommender System is to generate meaningful recommendations to a collection of users for items or products that might interest them. Suggestions for books on Amazon, or movies on Netflix, are real world examples of the operation of industry- strength recommender systems. [...]  [ref]
+The goal of a Recommender System is to generate meaningful recommendations to a collection of users for items or products that might interest them. Suggestions for books on Amazon, or movies on Netflix, are real world examples of the operation of industry- strength recommender systems [...] \cite[p. 1]{Melville}.
 \end{quote}
-Designen kring exakt hur rekommendationer ska designas beror på kontexten och domänen av systemet. Givetvis passar det t.ex. inte att rekommendera böcker i domänen av en hemsida för filmer. Om rekommendationerna baseras/filtreras på liknande innehåll som användaren tidigare gillat används termen \textit{content based filtering}. Om Rekommendationerna baseras på röstningar från andra användare används termen \textit{collaborative filtering} och termen \textit{hybrid approches} används för hybrider av filtreringsmetoder.
+Designen kring exakt hur rekommendationer ska designas beror på kontexten och domänen av systemet. Givetvis passar det t.ex. inte att rekommendera böcker i domänen av en hemsida för filmer. Om rekommendationerna baseras/filtreras på liknande innehåll som användaren tidigare gillat används termen \textit{content based filtering}. Om Rekommendationerna baseras på röstningar från andra användare används termen \textit{collaborative filtering} och termen \textit{hybrid approches} används för hybrider av filtreringsmetoder Melville et al. \cite{Melville}.
 
-Trackers är en metod för att identifiera en webbläsare mellan webbsidor och över tid. Ordet trackers syftar i denna uppsats till det längre ordet \textit{tracker cookies}.
+\subsubsection{Trackers}
+Trackers är en metod för att identifiera en webbläsare mellan webbsidor och över tid. Ordet trackers syftar i denna uppsats till det längre ordet \textit{tracker cookies} Eckersley et al. \cite{Eckersley}.
 
-[x] Melville P, Sindhwani V. Recommender Systems. IBM T.J. Watson Research Center, Yorktown Heights, NY 10598. 2010
 
 \begin{quote}
-The most common way to track web browsers (by ``track'' we mean associate the browser's activities at different times and with different websites) is via HTTP cookies, often set by with 3rd party analytics and advertising domains? [ref]
+The most common way to track web browsers (by ``track'' we mean associate the browser's activities at different times and with different websites) is via HTTP cookies, often set by with 3rd party analytics and advertising domain  \cite[p. 3]{Eckersley}.
 \end{quote}
 
-[x] Eckersley, P. How unique is your web browser? EFF report, Electronic Frontier Foundation. 2009
 
-Transparens i nationalencyklopedin beskrivs ordet transparent som synonym till genomskinlig [http://www.ne.se/uppslagsverk/ordbok/svensk/transparent]. Distribuerade system förklaras ha en transparent understruktur.
+\subsubsection{Transparens}
+Transparens i nationalencyklopedin beskrivs ordet transparent som synonym till genomskinlig \cite{Transparent}. Distribuerade system förklaras ha en transparent understruktur.
 
 \begin{quote}
-Distribuerade system för databehandling består av flera parallellt arbetande delsystem som under utbyte av meddelanden utför en gemensam uppgift utan att användaren behöver vara medveten om understrukturen (systemet är transparent). [http://www.ne.se/uppslagsverk/encyklopedi/l%C3%A5ng/distribuerade-system] 
+Distribuerade system för databehandling består av flera parallellt arbetande delsystem som under utbyte av meddelanden utför en gemensam uppgift utan att användaren behöver vara medveten om understrukturen (systemet är transparent) \cite{DistribueradeSystem}. 
 \end{quote}
 
 I politisk vetenskap går det att göra en mer generell definition på termen transparens. 
 
 \begin{quote}
-Transparency, capacity of outsiders to obtain valid and timely information about the activities of government or private organizations.
-[http://global.britannica.com/topic/transparency-government]
+Transparency, capacity of outsiders to obtain valid and timely information about the activities of government or private organizations \cite{Transparency}.
 \end{quote}
 I detta dokument är det den ovanstående definieringen som avses med termen \textit{transparens.}
 
@@ -223,14 +224,12 @@ Det finns i dagsläget motoder som kan implementeras i företag och statliga myndi
 
 \begin{quote}
 
-
 The adversary should not be able to make undetectable modifications to logged data (committed prior to com- promise), i.e., the integrity of the data should be ensured once stored.
-Only the user should be able to read the data logged for him, i.e., the data should be confidential (secrecy). \\
+Only the user should be able to read the data logged for him, i.e., the data should be confidential (secrecy) \cite[p. 3]{Pulls}. \\
 
+From the log and the state, it should not be possible for an adversary to determine if two log entries (committed prior to compromise) are related to the same user or not, i.e., user log entries should be unlinkable \cite[p. 3]{Pulls}. \\
 
-From the log and the state, it should not be possible for an adversary to determine if two log entries (committed prior to compromise) are related to the same user or not, i.e., user log entries should be unlinkable. \\
-
-User identifiers (setup prior to compromise) across multiple data processors or log servers should be unlinkable.
+User identifiers (setup prior to compromise) across multiple data processors or log servers should be unlinkable \cite[p. 3]{Pulls}.
 \end{quote}
 Exempel kring hur denna implementation kan distribueras över flera noder presenteras som ett mål i att möta allt fler molnbaserade tjänster. Det som är viktigt att nämna är också att detta inte är endast en teoretisk modell utan en faktisk genomförbarhetsstudie har utförts som visar att metoden är genomförbar även i praktiken. 
 
@@ -242,7 +241,7 @@ Ett exempel på detta är DoubleClick \cite{DoubleClick} som är en tjänst som erbj
 För att kunna spåra användare över tid krävs det att reklamföretag kan identifiera användare på ett sådant sätt att det går att koppla till ett användarbeteende. Om en given sida är med i ett reklamnätverk, och genom att visa reklam på webbsidan, kan dessa nätverk enligt Gomer et al. \cite{Gomer} också spara en cookie som identifierar användare som besöker webbsidan med hjälp av ett unikt id. När samma användare besöker webbsidor som är en del av samma reklamnätverk kommer dessa cookies identifiera användaren. 
 
 \begin{quote}
-As the user visits other sites associated with the same ad network, this third party cookie is used by the ad network to identify the user pseudonymously. In this way the ad network obtains, processes, and accumulates data about the user's online activity in real time \cite{Gomer}.
+As the user visits other sites associated with the same ad network, this third party cookie is used by the ad network to identify the user pseudonymously. In this way the ad network obtains, processes, and accumulates data about the user's online activity in real time \cite[p. 549]{Gomer}.
 \end{quote}
 Webbplatser som använder sig av reklamnätverk för att visa relevant reklam agerar också producent av det dataunderlag som nätverken använder för att förutse köpbeteende. Detta sker genom att webbplatsen är värd för inbäddad kod som kopplas upp mot reklamnätverken och visar reklam då webbsidan renderas. Detta ger webbplatserna möjlighet att använda information som lagras på klientens dator \cite{Gomer}.
 
@@ -404,7 +403,7 @@ De metoder som använts är en blandning av kvantitativa och kvalitativa. Creswell
 Cresswell \cite{Creswell} visar tydligt fördelarna med en mixad metodologi: 
 
 \begin{quote}
-A mixed methods design is useful to capture the best of both quantitative and qualitative approaches. For example, a researcher may want to both generalize the findings to a population and develop a detailed view of the meaning of a phenomenon or concept for individuals. [?] 
+A mixed methods design is useful to capture the best of both quantitative and qualitative approaches. For example, a researcher may want to both generalize the findings to a population and develop a detailed view of the meaning of a phenomenon or concept for individuals \cite[p. 22]{Creswell}.
 \end{quote}
 
 Som tydligt går att utläsa är den mixade motodologin effektiv för att utföra det som vår undersökning syftar till, det vill säga: generalisera fynden från en population genom en kvantitativ undersökning och använd dessa fynd för att utföra mer detaljerad analys. I denna undersökningen generaliseras fynden utifrån de trackers som är mest aktiva vid simulerad surfning för att göra en detaljerad analys. 
@@ -549,18 +548,18 @@ Eftersom resultaten för cookies i experimentet haft ett väsentligt bortfall har 
 I ett studie utförd av Gomer et al. \cite{Gomer} framgick det av experimentet som utförts att en användare kommer med en sannolikhet på 99.5\% att stöta på cookies från någon av de 10 största tredjepartsdomänerna (läs trackers).
 
 \begin{quote}
-We find that after visiting just 30 search results, the probability of getting cookies from all top 10 third party domains is 99.5\%. [...]
+We find that after visiting just 30 search results, the probability of getting cookies from all top 10 third party domains is 99.5\% [...] \cite[p. 553]{Gomer}.
 \end{quote}
 Enligt studien var de 10 största tredjepartsdomäner som ej är kategoriserade i gruppen behavioral targeting:
 
 \begin{quote}
-Among the top 10 such domains are: googleadservices.com, google-analytics.com, facebook.net, truste.com, zenfs.com, scorecardresearch.com, quantserve.com, newrelic.com, google.co.uk, and adobe.com [...]
+Among the top 10 such domains are: googleadservices.com, google-analytics.com, facebook.net, truste.com, zenfs.com, scorecardresearch.com, quantserve.com, newrelic.com, google.co.uk, and adobe.com [...] \cite[p. 553]{Gomer}.
 \end{quote}
 
 Enligt Scorecard Research \cite{Scorecard} är denna tjänst en del utav ComScore och återfinns bland de 10 högsta resultaten. De 10 största trackers som är kategoriserade som behavourial trageting var i studien:
 
 \begin{quote}
-Top 10 companies in this category include: doubleclick.net, googlesyndication.com, gstatic.com, fbcdn.net, tfd.com, invitemedia.com, atdmt.com, ajax.googleapis.com, pinterest.com, and 2mdn.net. [...]
+Top 10 companies in this category include: doubleclick.net, googlesyndication.com, gstatic.com, fbcdn.net, tfd.com, invitemedia.com, atdmt.com, ajax.googleapis.com, pinterest.com, and 2mdn.net [...] \cite[p. 553]{Gomer}.
 \end{quote}
 I experimentet utförd i vår undersökning framgår det att de fem högsta resultaten för trackers finns med i dessa två kategorier. Dock så har Gomer et al. \cite{Gomer} använt sig utav en något annorlunda kategorisering än den som används i vår undersökning. 
 
@@ -584,14 +583,14 @@ Följande delar kan vara speciellt intressanta ur integritetshänsyn:
 Det går också i sekrestesspolicyn att läsa: 
 
 \begin{quote}
-Vi kombinerar inte information från DoubleClick-cookien med personligt identifierbar information om vi inte har fått ditt samtycke till detta.
+Vi kombinerar inte information från DoubleClick-cookien med personligt identifierbar information om vi inte har fått ditt samtycke till detta \cite{GooglePrivacyPolicy}.
 \end{quote}
 Det finns inte angivet vad samtycke innebär i sammanhanget. Det skulle kunna vara explicit accepterande av användaren men det skulle också kunna vara ett accepterande genom att användaren använder vissa tjänster, vilket inte framgår av dokumentet. 
 
 Enligt Googles sekretesspolicy \cite{GooglePrivacyPolicy} används informationen för att förbättra andra Google tjänster. Det som är intressant ur detta dokuments synvinkel är speciellt rekommend-ationer. Det går tydligt att se att informationen används för rekommendationer och direktriktad reklam: 
 
 \begin{quote}
-Vi använder också informationen för att ge dig anpassat innehåll, till exempel sökresultat och annonser som är mer relevanta för dig.
+Vi använder också informationen för att ge dig anpassat innehåll, till exempel sökresultat och annonser som är mer relevanta för dig \cite{GooglePrivacyPolicy}.
 \end{quote}
 Informationen används också för annat syfte såsom Google Analytics och spamdetektering med hjälp av bland annat pixeltaggar.
 
@@ -694,6 +693,10 @@ För att öka transparens och trygghet gentemot användaren krävs det i framtiden f
 %10
 \bibitem{Downie}Downie N. Chart.js: Open Source HTML Charts for your website. [Internet] 2015 [citerad 2015-04-16] Hämtad från: \url{http://www.chartjs.org/}
 
+\bibitem{Eckersley}Eckersley, P. How unique is your web browser? EFF report, Electronic Frontier Foundation. 2009
+
+\bibitem{Transparency} Encyclopædia Britannica Online. transparency. [Internet] 2015  [citerad 2015-09-27] Hämtad från: \url{http://global.britannica.com/topic/transparency-government}
+
 %11
 \bibitem{Faily}Faily S, Flechais I. Persona cases: a technique for grounding personas. Proceedings of the SIGCHI Conference on Human Factors in Computing Systems. 2011;2267-2270.
 
@@ -729,6 +732,12 @@ För att öka transparens och trygghet gentemot användaren krävs det i framtiden f
 
 %22
 \bibitem{MDN}MDN. DOM storage guide [Internet] 2015 [uppdaterad: 2015-01-22; citerad: 2015-04-17] Hämtad från: \url{https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage}
+
+\bibitem{Melville}Melville P, Sindhwani V. Recommender Systems. IBM T.J. Watson Research Center, Yorktown Heights, NY 10598. 2010
+
+\bibitem{DistribueradeSystem}Nationalencyklopedin. distribuerade system [Internet] 2015 [citerad 2015-09-27] \url{http://www.ne.se/uppslagsverk/encyklopedi/lång/distribuerade-system} 
+
+\bibitem{Transparent}Nationalencyklopedin. transparent [Internet] 2015 [citerad 2015-09-27] Hämtad från: \url{http://www.ne.se/uppslagsverk/ordbok/svensk/transparent}
 
 %23
 \bibitem{MIT}Open source intiative Org. The MIT License (MIT). [Internet] 2015 [citerad 2015-04-17] Hämtad från: \url{http://opensource.org/licenses/MIT}
