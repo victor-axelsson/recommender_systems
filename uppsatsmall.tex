@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+	\documentclass[a4paper,11pt]{article}
 
 %
 % Do not change
@@ -230,11 +230,11 @@ User identifiers (setup prior to compromise) across multiple data processors or 
 Exempel kring hur denna implementation kan distribueras över flera noder presenteras som ett mål i att möta allt fler molnbaserade tjänster. Det som är viktigt att nämna är också att detta inte är endast en teoretisk modell utan en faktisk genomförbarhetsstudie har utförts som visar att metoden är genomförbar även i praktiken. 
 
 \subsection{Trackers}
-Genom att skapa nätverk av webbsidor som vill visa reklam går det att ge bättre reklamrekommendationer för användare genom att besökare indirekt medverkar till att förbättra reklamen som visas i nätverket av webbsidor \cite{Gomer}. Detta sker genom att datainsamling utförs på besökare av webbsidor med hjälp av trackers. Det som är intressant att samla in är användarbeteende och preferenser som nätverket sedare kan använda som underlag. 
+Genom att skapa nätverk av webbsidor som vill visa reklam går det att ge bättre reklamrekommendationer för användare genom att besökare indirekt medverkar till att förbättra reklamen som visas i nätverket av webbsidor \cite{Gomer}. Detta sker genom att datainsamling utförs på besökare av webbsidor med hjälp av trackers. Det som är intressant att samla in är användarbeteende och preferenser som nätverket senare kan använda som underlag för reklam. 
 
 Ett exempel på detta är DoubleClick \cite{DoubleClick} som är en tjänst som erbjuder skapande, transaktioner och hantering av digitalreklam för köpare, skapare och säljare. 
 
-För att kunna spåra användare över tid krävs det att reklamföretag kan identifiera användare på ett sådant sätt att det går att koppla till ett användarbeteende. Om en given sida är med i ett reklamnätverk, och genom att visa reklam på webbsidan, kan dessa nätverk enligt Gomer et al. \cite{Gomer} också spara en cookie som identifierar användare som besöker webbsidan med hjälp av ett unikt id. När samma användare besöker webbsidor som är en del av samma reklamnätverk kommer dessa cookies identifiera användaren. 
+För att kunna spåra användare över tid krävs det att reklamföretag kan identifiera användare på ett sådant sätt att det går att koppla till ett användarbeteende. Om en given sida är med i ett reklamnätverk, genom att visa reklam på webbsidan, kan dessa nätverk enligt Gomer et al. \cite{Gomer} också spara en cookie som identifierar användare som besöker webbsidan med hjälp av ett unikt id. När samma användare besöker webbsidor som är en del av samma reklamnätverk kommer dessa cookies identifiera användaren. 
 
 \begin{quote}
 As the user visits other sites associated with the same ad network, this third party cookie is used by the ad network to identify the user pseudonymously. In this way the ad network obtains, processes, and accumulates data about the user's online activity in real time \cite[p. 549]{Gomer}.
@@ -254,14 +254,14 @@ Det finns ett försök att införa en standard för integritetshantering på webben. 
 Problematiken med standarden ligger i att avsändaren ofta inte har någon möjlighet att kontrollera ifall mottagaren faktisk följer anvisningen. 
 
 \subsection{Kallstart}
-Ett problem med rekommendationssystem är hur nya användare hanteras utan tidigare registrerat beteende och hur det går att ge dessa användare relevanta resultat. Enligt Braunhofer \cite{Braunhofer} ger olika rekommendationsalgoritmer varierande resultat och undersökningen för artikeln handlar om hur det går att kombinera olika algoritmer för att nå bäst resultat.
+Ett problem med rekommendationssystem är hur nya användare hanteras utan tidigare registrerat beteende och hur det går att ge dessa användare relevanta resultat. Enligt Braunhofer \cite{Braunhofer} ger olika rekommendationsalgoritmer varierande resultat och i artikeln undersöks hur det går att kombinera olika algoritmer för att nå bäst resultat.
 
-Metoden som Braunhofer använder är att analysera tre datasamlingar med olika kontextuell hantering av innehåll. Genom att utföra tre separata test: ett för nya användare, ett för nya föremål och ett för nya kontextuella situationer, drogs i artikeln slutsatser kring vilka hybridtekniker som kan antas vara bra att använda. Slutsatsen kommer Braunhofer fram till att i samtliga tre situationer presterade ett demografiskt baserat rekommendationssystem bra. I de presenterade rekommendationssystemen tas prioritering, och kända användarattribut i beaktelse.
+Metoden som Braunhofer använder är att analysera tre datasamlingar med olika kontextuell hantering av innehåll. Genom att utföra tre separata test: ett för nya användare, ett för nya föremål och ett för nya kontextuella situationer, dras slutsatser kring vilka hybridtekniker som kan antas vara bra att använda. Slutsatsen som Braunhofer kommer fram till är att ett demografiskt baserat rekommendationssystem presterar bra i samtliga tre situationer. I samtliga rekommendationssystem tas prioritering och kända användarattribut i beaktelse.
 
-Angående hybridiseringstekniker framgick det i artikeln att dessa presterar bättre än de demografiska algoritmerna, vilket visar att detta kan förbättra resultaten ytterligare. Braunhofer poängterar dock att ytterligare forskning krävs inom området.
+Genom att använda hybridiseringstekniker går det enligt Braunhofer att prestera bättre än de demografiska algoritmerna, vilket visar att detta kan förbättra resultaten ytterligare. Braunhofer poängterar dock att ytterligare forskning krävs inom området.
 
 \subsection{Kontextbaserad kallstart}
-Vanchinathan et al. \cite{Vanchinathan} beskriver en algoritm som de kallar CGPRank. Denna algoritm har som syfte att skapa listor av rekommenderat material. Detta material ligger som grund för tjänsterna Yahoo! och Google Books i den forskning som utförts inom området.
+Vanchinathan et al. \cite{Vanchinathan} beskriver en algoritm som de kallar CGPRank. Denna algoritm har som syfte att skapa listor av rekommenderat material. Detta material ligger till grund för tjänsterna Yahoo! och Google Books i den forskning som utförts inom området.
 
 Det som skiljer just denna artikel gentemot de existerande bästa metoderna är hur listorna kan korreleras mellan olika användare. I en implementation kan rekommenderat material presenteras för användaren, som i jämförelse med existerande metoder, har ökat antalet klick med 18\%.
 
@@ -270,39 +270,39 @@ Först skapas en profil av användaren som används av algoritmen. Olika kontexter 
 Ett stort problem vid kontextbaserat material är den så kallade kallstartsproblematiken. Det innebär att det inte går att definiera någon kontext eftersom ingen tillgänglig data att basera den på finns. En fördel med CGPRank, som framhävs med artikeln vid kallstart, är att listor av rekommenderat material finns tillgängligt för andra, nya, användare. Med detta sagt går det att skapa relativt pålitliga nya listor med väldigt lite data genom att basera valet på redan existerande listor som grundar sig på mycket mer data. Med detta hjälpmedel kan en större konvergens skapas relativt tidigt i en bas av data \cite{Vanchinathan}.
 
 \subsection{Filtrering}
-I innehållsbaserade rekommendationssystem används attribut som beskriver ett föremål tillsammans med en profil för användarens preferenser för att skapa rekommendationer. Syftet är att använda attribut, såsom ranking på tidigare besökt material, för att förutspå och filtrera ut innehåll som användaren kan vara intresserad av. Dessa typer av filtrering kallas innehållsbaserade filtreringar \cite{Basilico}.
+I innehållsbaserade rekommendationssystem används attribut som beskriver ett föremål tillsammans med en profil för användarens preferenser för att skapa rekommendationer. Syftet är att använda attribut, såsom ranking på tidigare besökt material, för att förutspå och filtrera ut innehåll som användaren kan vara intresserad av. Dessa typer av filtrering kallas content based filtering \cite{Basilico}.
 
 Goldberg et. al. \cite{Goldberg} skriver i sin artikel redan 1992 om ett system som skapas för att ta emot, filtrera, lagra och bläddra bland elektroniska dokument. För att förbättra användarupplevelsen används samarbetsbaserad filtrering där användarna uppmuntras att kategorisera dokumenten, något som sedan används för att filtrering.
 
 Genom att utveckla ett liknande samarbetsbeteende för filtrering går det att dra slutsatser om användarbeteende, aktiviteter och preferenser för att förutse vad liknande användare har för preferenser i framtiden. 
 
 \subsection{Kontextuell relevans}
-Limbu et. al. \cite{Limbu} presenterar en modell av datahantering, som i de preliminära experiments som utförts, medför en förbättrad datahämtning i webbinformationssystem.
+Limbu et. al. \cite{Limbu} presenterar en modell av datahantering, som i de preliminära experiment som utförts, medför en förbättrad datahämtning i webbinformationssystem.
 
 Data-användningen kategoriseras i explicit och implicit data. Implicit data består av användarens sökhistorik och den explicita data består av en databas av kontextbaserad kategorisering av domänspecifika beskrivningar. Ett antal existerande sökoptimeringar presenteras och som beskrivs som de bästa nuvarande, eng. state-of-art. Dessa metoder för att bygga en söksträng beskrivs som inkrementell och när ny data finns tillgänglig så adderas denna till söksträngen men där istället Limbu et. al \cite{Limbu} startar om från början och bygger en söksträng från den, just nu, bästa tillgängliga data.
 
-Mer i detalj byggs söksträngen upp genom en kombination av data som genererats av användarens beteende, sökhistorik som ger meta-nyckelord, som bildar en del de kallar kontextuell användarprofil, eng. contextual user profile, och preferenser. Preferens-insamlingen är något mer komplex än beteendeinsamlingen. Preferensinsamlingen innehåller tre datakällor. Input kommer från användaren och består av den söksträng användaren producerat i deras existerande gränssnitt. Denna söksträng filtreras mot ett lexikon för att åtgärda stavfel. Därefter används den skapade användarprofilen för att korrelera meta nyckelord. Slutligen används en databas för att skapa rekommenderade koncept. I detta skede är en optimerad söksträng skapad som kan användas för att söka kontextbaserat.
+Mer i detalj byggs söksträngen upp genom en kombination av data som genererats av användarens beteende, sökhistorik som ger meta-nyckelord, som bildar en del de kallar kontextuell användarprofil, eng. contextual user profile, och preferenser. Preferens-insamlingen är något mer komplex än beteendeinsamlingen. Preferensinsamlingen görs från tre datakällor. Input kommer från användaren och består av den söksträng användaren producerat i deras existerande gränssnitt. Denna söksträng filtreras mot ett lexikon för att åtgärda stavfel. Därefter används den skapade användarprofilen för att korrelera meta nyckelord. Slutligen används en databas för att skapa rekommenderade koncept. I detta skede är en optimerad söksträng skapad som kan användas för att söka kontextbaserat.
 
 Detta innebär att söksträngarna inte adderas samman av nyckelord, koncept och termer efterhand de finns tillgängliga. Istället omvärderas söksträngen efterhand bättre data finns tillgänglig. Metoden kan likas vid ett top 10 lista. Denna typ av metodik är något som beskrivs redan i inledningen av artikeln som den största avvikelsen från andra nuvarande metodiker \cite{Limbu}.
 
 
 \subsection{Sociala nätverk för positionering}
-Li et. al. \cite{Rui} presenterar en modell för att positionera en användare geografiskt genom data som genereras på sociala nätverk. Tidigt i texten presenteras det sociala nätverket Twitter som utgångsläge för studierna. Modellen de presenterar ska enligt författarna vara 13% mer noggrann än dåvarande existerande bästa tekniker.
+Li et al. \cite{Rui} presenterar en modell för att positionera en användare geografiskt genom data som genereras på sociala nätverk. Tidigt i texten presenteras det sociala nätverket Twitter som utgångsläge för studierna. Modellen de presenterar ska enligt författarna vara 13% mer noggrann än dåvarande existerande bästa tekniker.
 
 De kallar modellen UDI för Universal Discriminative Influence model. På Twitter går det att ange sin bostadsplats men det är få användare som faktiskt gör detta. Istället, för att ha tillgång till denna data, kan sofistikerade gissningar om användarens position göras. De använder användarcentrerad data som skapas i samband med tweetes. I tweetsen kan det finnas positionsbaserat material, såsom städer eller butiker, som används i algoritmen. En annan källa för analys är också vilka följare en användare har.
 
 Genom att göra analyser av var en användares kontakter befinner sig, som ett sätt att komplettera data, går det att pejla in en position genom att göra jämförelser mellan olika följare som användaren har eller själv följer. En del av dessa kontakter beskrivs som brusiga eller högljudda. Ett exempel på en brusig kontakt kan vara om användaren följer en känd person som har många följare som de inte umgås med privat. En sådan kontakt kommer medföra ett störande brus i algoritmen eftersom denna person ofta inte befinner sig i samma geografiska kontext som följaren. Dessutom har dessa typer av användare också blandade följare från, ibland, hela världen.
 
-För att hantera problemet med brusig information presenteras en diskriminerande tillvägagångssätt där dessa typer av källor plockas bort. Detta bättrar på noggrannheten med 6\%.
+För att hantera problemet med brusig information presenteras ett diskriminerande tillvägagångssätt där dessa typer av källor plockas bort. Detta bättrar på noggrannheten med 6\%.
 
-I undersökningen gjordes separata och integrerade test. I de separerade testen hämtades data endast från en källa, antingen följare eller tweets. I det integrerade höjdes noggrannheten avsevärt när det gick att samköra information. När den integrerade modellen användes gick det att placera 57\% korrekt inom en 25 amerikanska miles radie \cite{Rui}.   
+I undersökningen gjordes separata och integrerade test. I de separerade testerna hämtades data endast från en källa, antingen följare eller tweets. I det integrerade höjdes noggrannheten avsevärt när det gick att samköra information. När den integrerade modellen användes gick det att placera 57\% korrekt inom en 25 amerikanska miles radie \cite{Rui}.   
 
 \subsection{Sammanfattning}
 I bakgrundsdelen har begreppen algoritmisk reklam och tracking beskrivits som metoder för att analysera webbsidors innehåll samt att skapa nätverk av webbsidor för att på så sätt  identifiera och spåra användarbeteenden inom nätverk. Utöver detta har även ett antal artiklar som behandlar rekommendationstekniker analyserats för att ge en överblick kring metoder som kan användas för att analysera data.
 
-Som det framgår i litteraturen som presenterats finns det tekniker som kan göra datahanteringen, i omfattningen av rekommenderingssystem, bättre. Det finns tekniker som använder data från sociala nätverk, i detta fall Twitter, som genom att använda information om användarens aktivitet kan bestämma hemmaposition. 
+Som framgår i litteraturen som presenterats finns det tekniker som kan förbättra rekommendationer. Det finns tekniker som använder data från sociala nätverk, i detta fall Twitter, som genom att använda information om användarens aktivitet kan bestämma en användares hemposition. 
 
-Det finns olika typer av filtrering där två stora är innehållsbaserade filtreringar och sammarbetsbaserad filtrering. 
+Det finns olika typer av filtrering där två stora är content based filtering och collaborative filtering. 
 
 När rekommenderingssystemen har lite information om användaren får systemet problem att skapa rekommendationer och just denna faktor, vilket ofta benämns som kallstart, nämns i de flesta artiklarna som något som försvårar bra rekommendationer. Det finns processer som kan förbättra kallstartsproblemet så att rekommendationer ändå kan ges. 
 
@@ -315,7 +315,7 @@ Det finns i dagsläget utvecklade tekniker som är genomförbara och möjliga att im
 \subsection{Problemdiskussion}
 Som presenterats tidigare i bakgrundskapitlet framgår det att det går att göra sofistikerade gissningar om användares preferenser. Ett gemensamt problem är också att om det finns lite information tillgänglig om användaren får ofta rekommendationssystemet problem att profilera användaren. Som ett svar på detta finns det metoder som går att använda, såsom CGPrank som tidigare nämnts eller kontextbaserade additiva poängsystem. 
 
-Med detta sagt går det tydligt att se, ur rekommendationssystemens synvinkel, ett stort intresse att samla information om användaren. Det är inte orimligt att tänka sig att många företags primära inkomster är direkt korrelerande med hur väl material kan rekommenderas i deras webbsystem och onlinebutiker. Därför går det också att se att det är fokus på förbättrade tekniker som är drivkraften, eftersom det finns ett stort ekonomiskt intresse av att göra algoritmerna mer sofistikerade och därmed sälja mer produkter. 
+Med detta sagt går det tydligt att se, ur rekommendationssystemens synvinkel, ett stort intresse att samla information om användaren. Det är inte orimligt att tänka sig att många företags primära inkomster är direkt korrelerande till hur väl material kan rekommenderas i deras webbsystem och onlinebutiker. Därför går det också att se att det är fokus på förbättrade tekniker som är drivkraften, eftersom det finns ett stort ekonomiskt intresse av att göra algoritmerna mer sofistikerade och därmed sälja mer produkter. 
 
 Det kan finnas problem med att hitta alla punkter för informationsinsamling eftersom internets natur inte ger alla åtkomst till allting. Därmed går det t.ex. inte att veta vilken information som sparas på servern utan endast vilken information som skickas från klienten. Det kan även finnas problem med att se exakt vad datan har för syfte. Även om information skickas från klienten är den i många fall lagrad som hashad eller krypterad data. Det är inte heller alltid tydligt för en användare vilket beteende som resulterar i datainsamling. 
 
@@ -325,20 +325,20 @@ Problemet med rekommendationer i reklamsyfte blir därmed att användaren inte all
 I denna del av dokumentet beskrivs tillvägagångssättet för undersökningen. Först beskrivs de delar som rör det kvantitativa experimentet, därefter presenteras en diskussion om de valda metodikernas för och nackdelar. 
 
 \subsection{Metodbeskrivning}
-I undersökningen krävs det en studie av vilka aktörer som är ändhållplatsen för dataunderlaget som insamlas för att sedan på ett objektivt sätt undersöka deras datahantering. För att undersöka vilka företag, och därmed vilka system som är ändhållplatser, har ett experiment utförts.
+I undersökningen krävs det en studie av vilka aktörer som är ändhållplatser för dataunderlaget som insamlas för att sedan på ett objektivt sätt undersöka deras datahantering. För att undersöka vilka företag, och därmed vilka system som är ändhållplatser, har ett experiment utförts.
 
-I experimentet har ett enklare system som registrerar vilka tjänster som samlar in information byggts. Systemet består av två delar, webbläsartillägg och en databas. 
+I experimentet används ett system som registrerar vilka tjänster som samlar in information. Systemet består av två delar, webbläsartillägg och en databas. 
 
-En vidare analys på de största aktörerna har därefter gjorts för att undersöka deras arbete med transparens gentemot användaren och vad den officiella agendan avseende vilken data som insamlas är. 
+En vidare analys utförs sedan på de största aktörerna för att undersöka vad deras officiella policies säger avseende vilken data som insamlas. 
 
 \subsubsection{Insamling}
-För att veta vilka tjänster som samlar information om användandet har ett open source alternativ valts som bas. Under de första delarna i förstudien användes ett tillägg till webbläsaren som heter Ghostery \cite{Ghostery}. Efter förstudien drogs slutsatsen att det vore bättre med ett open source alternativ eftersom det därmed är möjligt att få en förståelse för hur webbläsartillägget fungerar. Därför gjordes valet att istället använda ett liknande webbläsartillägg som heter Disconnect \cite{Disconnect}. Fördelen med Disconnect är att den är open source med MIT \cite{MIT} licens vilket gör att vi i undersökningen lagligt kunde modifiera applikationen och skicka vidare information till vårt eget system. 
+För att undersöka vilka tjänster som samlar information om användar beteende behövs en metod för att samla in rådata från webbläsaren. Genom att använda webbläsartillägg går det att logga all kommunikation som sker mellan webbläsare och internet oberoende från vilken webbsida som visas. Eftersom att det både är tidskrävande och svårt att implementera ett webbläsartillägg som utför denna uppgift, har valet gjorts att använda ett open source tillägg som heter Disconnect. Fördelen med Disconnect är att den är open source med MIT \cite{MIT} licens vilket gör att vi i undersökningen lagligt kan modifiera applikationen och skicka vidare information till vårt eget system. Flera alternativ till detta webbläsartillägg existerar, där Ghostery \cite{Ghostery} är ett av de största. Nackdelen med Ghostery är att produkten inte är licenserad under en open source licens vilket innebär att all modifikation av systemet sker utan lov.
 
 Disconnect är ett tillägg som finns tillgängligt för bland annat webbläsaren Chrome. Dess funktionalitet går ut på att blockera sidor som försöker samla information om din surfaktivitet. I det grafiska gränssnittet finns det möjligheter att manuellt blockera vissa, så kallade, trackers och applikationen gör också indelningar i olika kategorier såsom advertising (reklam), analytics (analyser), social (sociala medier såsom Facebook, Google+ etc) och content (innehåll). 
 
 När svartlistningen av en tracker sker i Disconnect avbryts den normala exekveringen, information plockas ut om trackern och skickas därefter vidare till databasen. Datan formateras så att det är lättare att se vilken faktisk tjänst den tillhör. Sortering sker så att dubbletter tas bort. Kärnan i blockeringen som Disconnect utför ligger i en datakälla som består av en lista på kända trackers där varje rad innehåller: domänen som trackern är kopplad till och vilken kategori den tillhör. 
 
-För att samla in vilka cookies som sparas på respektive webbsida har ett webbläsartillägg byggts som triggar ett event varje gång en cookie sparas och vilken domän som sparar cookien. Genom att använda samma datakälla som Disconnect använder sig utav, filtreras cookies som inte är relaterade till reklam bort och de som är relevanta skickas vidare till databasen. Filtreringen sker genom att jämföra vilken domän som sparar cookien med de domäner som finns registrerade i datakällan som reklamrelaterade.
+För att samla in vilka cookies som sparas på respektive webbsida har ytterliggare ett webbläsartillägg byggts som triggar ett event varje gång en cookie sparas tillsammans med vilken domän som sparar cookien. Genom att använda samma datakälla som Disconnect använder sig utav, filtreras cookies som inte är relaterade till reklam bort och de som är relevanta skickas vidare till en databas som vi tillhandahar. Filtreringen sker genom att jämföra vilken domän som sparar cookien med de domäner som finns registrerade i datakällan som reklamrelaterade.
 
 \subsubsection{Data Analys}
 På en extern server byggdes ett API i PHP. Det faktiska serverspråket är egentligen  ointressant och i detta fall valdes det alternativ som på enklaste vis kunde byggas ihop fortast. I botten valdes en MySQL databas för lagring.  
