@@ -325,14 +325,16 @@ Problemet med rekommendationer i reklamsyfte blir därmed att användaren inte all
 I denna del av dokumentet beskrivs tillvägagångssättet för undersökningen. Först beskrivs de delar som rör det kvantitativa experimentet, därefter presenteras en diskussion om de valda metodikernas för och nackdelar. 
 
 \subsection{Metodbeskrivning}
-I undersökningen krävs det en studie av vilka aktörer som är ändhållplatser för dataunderlaget som insamlas för att sedan på ett objektivt sätt undersöka deras datahantering. För att undersöka vilka företag, och därmed vilka system som är ändhållplatser, har ett experiment utförts.
+I undersökningen krävs det en studie av vilka aktörer som är ändhållplatser för dataunderlaget som insamlas för att sedan på ett objektivt sätt undersöka deras datahantering. För att undersöka vilka företag, och därmed vilka system som är ändhållplatser, har ett experiment utförts. Det är intessant att identifiera företagen för att se hur de kommunicerar sin datainsamling med sina användare.
 
 I experimentet används ett system som registrerar vilka tjänster som samlar in information. Systemet består av två delar, webbläsartillägg och en databas. 
 
 En vidare analys utförs sedan på de största aktörerna för att undersöka vad deras officiella policies säger avseende vilken data som insamlas. 
 
+Dessa metoder svarar därmed på vår frågeställning genom att identifiera aktörerna som insamlar information och hur uppenbar datainsamlingen är, genom analys av policies i jämförelse med resultaten av experimentet. 
+
 \subsubsection{Insamling}
-För att undersöka vilka tjänster som samlar information om användar beteende behövs en metod för att samla in rådata från webbläsaren. Genom att använda webbläsartillägg går det att logga all kommunikation som sker mellan webbläsare och internet oberoende från vilken webbsida som visas. Eftersom att det både är tidskrävande och svårt att implementera ett webbläsartillägg som utför denna uppgift, har valet gjorts att använda ett open source tillägg som heter Disconnect. Fördelen med Disconnect är att den är open source med MIT \cite{MIT} licens vilket gör att vi i undersökningen lagligt kan modifiera applikationen och skicka vidare information till vårt eget system. Flera alternativ till detta webbläsartillägg existerar, där Ghostery \cite{Ghostery} är ett av de största. Nackdelen med Ghostery är att produkten inte är licenserad under en open source licens vilket innebär att all modifikation av systemet sker utan lov.
+För att undersöka vilka tjänster som samlar information om användarbeteende behövs en metod för att samla in rådata från webbläsaren. Genom att använda webbläsartillägg går det att logga all kommunikation som sker mellan webbläsare och internet oberoende från vilken webbsida som visas. Eftersom det både är tidskrävande och svårt att implementera ett webbläsartillägg som utför denna uppgift, har valet gjorts att använda ett open source tillägg som heter Disconnect. Fördelen med Disconnect är att den är open source med MIT \cite{MIT} licens vilket gör att vi i undersökningen lagligt kan modifiera applikationen och skicka vidare information till vårt eget system. Flera alternativ till detta webbläsartillägg existerar, där Ghostery \cite{Ghostery} är ett av de största. Nackdelen med Ghostery är att produkten inte är licenserad under en open source licens vilket innebär att all modifikation av systemet sker utan lov.
 
 Disconnect är ett tillägg som finns tillgängligt för bland annat webbläsaren Chrome. Dess funktionalitet går ut på att blockera sidor som försöker samla information om din surfaktivitet. I det grafiska gränssnittet finns det möjligheter att manuellt blockera vissa, så kallade, trackers och applikationen gör också indelningar i olika kategorier såsom advertising (reklam), analytics (analyser), social (sociala medier såsom Facebook, Google+ etc) och content (innehåll). 
 
@@ -340,7 +342,7 @@ När svartlistningen av en tracker sker i Disconnect avbryts den normala exekveri
 
 För att samla in vilka cookies som sparas på respektive webbsida har ytterliggare ett webbläsartillägg byggts som triggar ett event varje gång en cookie sparas tillsammans med vilken domän som sparar cookien. Genom att använda samma datakälla som Disconnect använder sig utav, filtreras cookies som inte är relaterade till reklam bort och de som är relevanta skickas vidare till en databas som vi tillhandahar. Filtreringen sker genom att jämföra vilken domän som sparar cookien med de domäner som finns registrerade i datakällan som reklamrelaterade.
 
-\subsubsection{Data Analys}
+\subsubsection{Data-analys}
 För att lagra rådatan som webbläsartilläggen registrerar används ett API byggt i PHP. I botten finns en MySQL databas för lagring som API:et kommunicerar med.  
 
 För att kunna analysera data från databasen i mer lättsmält format behövs en bättre presentation. För att åstadkomma detta används ett JavaScript bibliotek som heter Chart.js \cite{Downie} som grafiskt presenterar rådata i diagram. 
