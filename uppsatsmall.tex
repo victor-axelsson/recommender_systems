@@ -187,7 +187,6 @@ Transparens i nationalencyklopedin beskrivs ordet transparent som synonym till g
 \begin{quote}
 Distribuerade system för databehandling består av flera parallellt arbetande delsystem som under utbyte av meddelanden utför en gemensam uppgift utan att användaren behöver vara medveten om understrukturen (systemet är transparent) \cite{DistribueradeSystem}. 
 \end{quote}
-
 I politisk vetenskap går det att göra en mer generell definition på termen transparens. 
 
 \begin{quote}
@@ -325,14 +324,16 @@ Problemet med rekommendationer i reklamsyfte blir därmed att användaren inte all
 I denna del av dokumentet beskrivs tillvägagångssättet för undersökningen. Först beskrivs de delar som rör det kvantitativa experimentet, därefter presenteras en diskussion om de valda metodikernas för och nackdelar. 
 
 \subsection{Metodbeskrivning}
-I undersökningen krävs det en studie av vilka aktörer som är ändhållplatser för dataunderlaget som insamlas för att sedan på ett objektivt sätt undersöka deras datahantering. För att undersöka vilka företag, och därmed vilka system som är ändhållplatser, har ett experiment utförts.
+I undersökningen krävs det en studie av vilka aktörer som är ändhållplatser för dataunderlaget som insamlas för att sedan på ett objektivt sätt undersöka deras datahantering. För att undersöka vilka företag, och därmed vilka system som är ändhållplatser, har ett experiment utförts. Det är intessant att identifiera företagen för att se hur de kommunicerar sin datainsamling med sina användare.
 
 I experimentet används ett system som registrerar vilka tjänster som samlar in information. Systemet består av två delar, webbläsartillägg och en databas. 
 
 En vidare analys utförs sedan på de största aktörerna för att undersöka vad deras officiella policies säger avseende vilken data som insamlas. 
 
+Dessa metoder svarar därmed på vår frågeställning genom att identifiera aktörerna som insamlar information och hur uppenbar datainsamlingen är, genom analys av policies i jämförelse med resultaten av experimentet. 
+
 \subsubsection{Insamling}
-För att undersöka vilka tjänster som samlar information om användar beteende behövs en metod för att samla in rådata från webbläsaren. Genom att använda webbläsartillägg går det att logga all kommunikation som sker mellan webbläsare och internet oberoende från vilken webbsida som visas. Eftersom det både är tidskrävande och svårt att implementera ett webbläsartillägg som utför denna uppgift, har valet gjorts att använda ett open source tillägg som heter Disconnect. Fördelen med Disconnect är att den är open source med MIT \cite{MIT} licens vilket gör att vi i undersökningen lagligt kan modifiera applikationen och skicka vidare information till vårt eget system. Flera alternativ till detta webbläsartillägg existerar, där Ghostery \cite{Ghostery} är ett av de största. Nackdelen med Ghostery är att produkten inte är licenserad under en open source licens vilket innebär att all modifikation av systemet sker utan lov.
+För att undersöka vilka tjänster som samlar information om användarbeteende behövs en metod för att samla in rådata från webbläsaren. Genom att använda webbläsartillägg går det att logga all kommunikation som sker mellan webbläsare och internet oberoende från vilken webbsida som visas. Eftersom det både är tidskrävande och svårt att implementera ett webbläsartillägg som utför denna uppgift, har valet gjorts att använda ett open source tillägg som heter Disconnect. Fördelen med Disconnect är att den är open source med MIT \cite{MIT} licens vilket gör att vi i undersökningen lagligt kan modifiera applikationen och skicka vidare information till vårt eget system. Flera alternativ till detta webbläsartillägg existerar, där Ghostery \cite{Ghostery} är ett av de största. Nackdelen med Ghostery är att produkten inte är licenserad under en open source licens vilket innebär att all modifikation av systemet sker utan lov.
 
 Disconnect är ett tillägg som finns tillgängligt för bland annat webbläsaren Chrome. Dess funktionalitet går ut på att blockera sidor som försöker samla information om din surfaktivitet. I det grafiska gränssnittet finns det möjligheter att manuellt blockera vissa, så kallade, trackers och applikationen gör också indelningar i olika kategorier såsom advertising (reklam), analytics (analyser), social (sociala medier såsom Facebook, Google+ etc) och content (innehåll). 
 
@@ -340,7 +341,7 @@ När svartlistningen av en tracker sker i Disconnect avbryts den normala exekveri
 
 För att samla in vilka cookies som sparas på respektive webbsida har ytterliggare ett webbläsartillägg byggts som triggar ett event varje gång en cookie sparas tillsammans med vilken domän som sparar cookien. Genom att använda samma datakälla som Disconnect använder sig utav, filtreras cookies som inte är relaterade till reklam bort och de som är relevanta skickas vidare till en databas som vi tillhandahar. Filtreringen sker genom att jämföra vilken domän som sparar cookien med de domäner som finns registrerade i datakällan som reklamrelaterade.
 
-\subsubsection{Data Analys}
+\subsubsection{Data-analys}
 För att lagra rådatan som webbläsartilläggen registrerar används ett API byggt i PHP. I botten finns en MySQL databas för lagring som API:et kommunicerar med.  
 
 För att kunna analysera data från databasen i mer lättsmält format behövs en bättre presentation. För att åstadkomma detta används ett JavaScript bibliotek som heter Chart.js \cite{Downie} som grafiskt presenterar rådata i diagram. 
@@ -383,7 +384,6 @@ De metoder som använts är en blandning av kvantitativa och kvalitativa. Creswell
 \begin{quote}
 A mixed methods design is useful to capture the best of both quantitative and qualitative approaches. For example, a researcher may want to both generalize the findings to a population and develop a detailed view of the meaning of a phenomenon or concept for individuals \cite[p. 22]{Creswell}.
 \end{quote}
-
 Den mixade motodologin är effektiv för att utföra det som vår undersökning syftar till, det vill säga: generalisera fynden från en population genom en kvantitativ undersökning och använd dessa fynd för att utföra mer detaljerad analys. I denna undersökningen generaliseras fynden utifrån de trackers som är mest aktiva vid simulerad surfning för att göra en detaljerad analys. 
 
 \section{Resultat}
@@ -393,11 +393,10 @@ Vid undersökning av de fem största trackers som fanns i experimentet framgår det
 
 \subsection{Trackers}
 Nedanstående diagram (se Fig 1) visar antal förekomster av trackers på individuella sidor. Dvs hur många gånger trackers dök upp på de undersökta sidorna. \\\\
-
+\begin{center}
 \includegraphics[width=10cm]{trackers.png} \\
-\textit{Fig 3: Diagram över samtliga trackers}\\
-
-
+\textit{Fig 1: Diagram över samtliga trackers}
+\end{center}
 Det fanns totalt 225 unika trackers över alla sidor som besöktes i experimentet. Av dessa unika trackers valdes de fem största för vidare analys. Värdet som visas bredvid trackernamnet indikerar hur många unika gånger per hemsida trackern observerades bland de 720 sidor som besöktes i experimentet. Detta innebär till exempel att GoogleAnalytics förekom på cirka 50\% av de besökta sidorna (se Tabell 1). Det som bör nämnas är att de fyra största trackersen ägs av Google. 
 
 \begin{table}
@@ -418,9 +417,10 @@ Det fanns totalt 225 unika trackers över alla sidor som besöktes i experimentet.
 \subsection{Cookies}
 Nedanstående diagram (se Fig 2) visar hur många cookies som sparades till tjänsten på de besökta hemsidorna. \\\\
 
+\begin{center}
 \includegraphics[width=10cm]{cookies.png} \\
-\textit{Fig 2: Diagram över samtliga cookies}\\
-
+\textit{Fig 2: Diagram över samtliga cookies}
+\end{center}
 Vid undersökningen av cookies framgår det att de största fem tjänsterna inte finns med bland resultaten. De fem största resultaten bland cookies är istället Spotxchange, Adnxs, Bluekai, Casaledia och Rubiconprojekt.  Alla dessa fem är reklamföretag som inriktar sig på automatiserad reklam och big data analysering. Adnxs är det enda företaget av dessa fem som förekommer bland de 10 största trackersen. Detta reklamföretag är ett dotterföretag till AppNexus som är en stor aktör inom reklammarknaden \cite{Guardian}.
 
 \subsection{Personas}
@@ -503,7 +503,6 @@ ComScore samarbetar också enligt deras certifikationsutvärdering \cite{ComScoreT
 \begin{quote}
 comScore is committed to providing the market with transparency into the methods, methodologies, practices and techniques we use in our measurement. To do so, we continuously engage with third-party auditors around the world to prove the soundness of our measurement methods. \cite{ComScoreThirdParty}
 \end{quote}
-
 Förutom samarbeten med granskningsorgan samarbetar ComScore också med andra aktörer inom reklambranschen. Enligt ett pressutlåtande \cite{ComScorePartner} inleddes 2014 ett samarbete med Google kring ComScores tjänst vCE (Validated Campaign Essentials) som är en tjänst som erbjuder en djupare inblick i kundens reklamkampanj. Enligt pressutlåtandet  innebär samarbetet att användare utav Googles DoubleClick får ta del utav data från vCE för att förbättra mätbarhet kring DoubleClicks reklamkampanjer.
 
 \section{Analys}
@@ -526,10 +525,12 @@ Varför de fem största trackers inte förekom bland resultaten av cookies, då åtmi
 
 Insamlingen av cookies som utförts med hjälp av det modifierade Chrome-tillägget baseras helt utifrån datakällan som Disconnect använder. Eftersom denna datakälla är uppbyggd utifrån trackers innebär detta att resultaten för cookies bara ger utslag om domänerna i datakällan matchar de cookies som sparas på respektive webbplats. Om till exempel DoubleClick använder en domän för sina trackers och en annan för sina cookies så kommer denna reklam företag helt att uteslutas ur resultatet då deras cookies aldrig kommer att passera filtreringen.  
 
-Ett exempel då detta sker är i GoogleAnalytics tjänst då ett besök på www.aftonbladet.se görs sparar följande cookies:\verb|__utma|, \verb|__utmb|,\verb| __utmc|,\verb| __utmt|,\verb| __utmz| och \verb|__ga|. Detta visar alltså att GoogleAnalytics sparar sina cookies på samma domän dvs. www.aftonbladet.se istället för sin egen domän(se Fig 3) \cite{GoogleAnalytics}.  \\\\
+Ett exempel då detta sker är i GoogleAnalytics tjänst då ett besök på www.aftonbladet.se görs sparar följande cookies:\verb|__utma|, \verb|__utmb|,\verb| __utmc|,\verb| __utmt|,\verb| __utmz| och \verb|__ga|. Detta visar alltså att GoogleAnalytics sparar sina cookies på samma domän dvs. www.aftonbladet.se istället för sin egen domän (se Fig 3) \cite{GoogleAnalytics}.  \\\\
 
+\begin{center}
 \includegraphics[width=10cm]{fig2.png} \\
-\textit{Fig 3: Exempel på cookies på samma domän}\\\\
+\textit{Fig 3: Exempel på cookies på samma domän}
+\end{center}
 Eftersom resultaten för cookies i experimentet haft ett väsentligt bortfall har vi i den kvalitativa analysen  valt att fokusera på de största aktörerna för trackers istället.
 
 \subsection{Jämförelse med liknande studier}
@@ -543,7 +544,6 @@ Enligt studien var de 10 största tredjepartsdomänerna som ej är kategoriserade i
 \begin{quote}
 Among the top 10 such domains are: googleadservices.com, google-analytics.com, facebook.net, truste.com, zenfs.com, scorecardresearch.com, quantserve.com, newrelic.com, google.co.uk, and adobe.com [...] \cite[p. 553]{Gomer}.
 \end{quote}
-
 Enligt Scorecard Research \cite{Scorecard} är denna tjänst en del utav ComScore och återfinns bland de 10 högsta resultaten. De 10 största trackers som är kategoriserade som behavourial trageting var i studien:
 
 \begin{quote}
@@ -557,15 +557,13 @@ I ComScores sekretesspolicy framgår det inte vilken typ av data som samlas in ut
 Vid en djupare analys framgår det att ComScore inlett ett samarbete med DoubleClick där de delar insamlad data. Detta innebär att Google potentiellt har möjlighet att behandla data som inte är explicit definierad eftersom ComScore inte anger vilken data de samlar in och parterna har ett sammarbete. 
 
 \subsection{Google}
-Det framgår inte i Googles sekretess och användarvillkor \cite{GooglePrivacyPolicy} i vilken utsträckning den insamlade datan används. Det finns till exempel inget som bevisar att all information som insamlas faktiskt används. Det som anges är ett ställningstagande till vilken information som kommer kunna användas om Google får åtkomst till den via användande av deras tjänster.  
-
+Det framgår inte i Googles sekretess och användarvillkor \cite{GooglePrivacyPolicy} i vilken utsträckning den insamlade datan används. Det finns till exempel inget som bevisar att all information som insamlas faktiskt används. Det som anges är ett ställningstagande till vilken information som kommer kunna användas om Google får åtkomst till den via användande av deras tjänster.\\\\
 Följande delar kan vara speciellt intressanta ur integritetshänsyn: 
 
 \begin{itemize}
 	\item Den uppringdes telefonnummer kommer kunna sparas. 
 	\item Personnummer kan komma att sparas på server utomlands. Detta innebär att t.ex. ditt personnummer eventuellt inte hanteras enligt PUL, personuppgiftslagen.
 \end{itemize}
-
 Det går också i sekrestesspolicyn att läsa: 
 
 \begin{quote}
@@ -616,7 +614,6 @@ Det finns inga indikationer på att insamlandet av användardata kommer att minska
 	\item Standardiserade mekanismer för högre användarintegritet.
 	\item Bättre användning av de standarder som redan finns, huvudsakligen Do Not Track Signal.
 \end{itemize}
-
 Om dessa punkter skulle följas skulle också transparensen bli bättre för slutanvändaren. Resultaten skulle inte nödvändigtvis innebära ett mindre underlag för rekommendationer, utan istället skulle användaren, på ett tydligare sätt, veta vad rekommendationen grundas på. Detta i sin tur kan också innebära att träffsäkra rekommendationer skulle kännas professionella istället för hotande eller integritets-kränkande, något som många företag också skulle tjäna på långsiktigt som ett resultat av etiskt ställningstagande och tillit. 
 
 \subsection{Framtida forskning}
