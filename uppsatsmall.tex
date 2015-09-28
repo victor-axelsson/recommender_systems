@@ -341,7 +341,7 @@ När svartlistningen av en tracker sker i Disconnect avbryts den normala exekveri
 För att samla in vilka cookies som sparas på respektive webbsida har ytterliggare ett webbläsartillägg byggts som triggar ett event varje gång en cookie sparas tillsammans med vilken domän som sparar cookien. Genom att använda samma datakälla som Disconnect använder sig utav, filtreras cookies som inte är relaterade till reklam bort och de som är relevanta skickas vidare till en databas som vi tillhandahar. Filtreringen sker genom att jämföra vilken domän som sparar cookien med de domäner som finns registrerade i datakällan som reklamrelaterade.
 
 \subsubsection{Data Analys}
-På en extern server finns ett API i PHP. Det faktiska serverspråket är egentligen  ointressant och i detta fall valdes det alternativ som på enklaste vis kan byggas ihop fortast. I botten finns en MySQL databas för lagring.  
+För att lagra rådatan som webbläsartilläggen registrerar används ett API byggt i PHP. I botten finns en MySQL databas för lagring som API:et kommunicerar med.  
 
 För att kunna analysera data från databasen i mer lättsmält format behövs en bättre presentation. För att åstadkomma detta används ett JavaScript bibliotek som heter Chart.js \cite{Downie} som grafiskt presenterar rådata i diagram. 
 
