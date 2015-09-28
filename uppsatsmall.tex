@@ -341,46 +341,44 @@ När svartlistningen av en tracker sker i Disconnect avbryts den normala exekveri
 För att samla in vilka cookies som sparas på respektive webbsida har ytterliggare ett webbläsartillägg byggts som triggar ett event varje gång en cookie sparas tillsammans med vilken domän som sparar cookien. Genom att använda samma datakälla som Disconnect använder sig utav, filtreras cookies som inte är relaterade till reklam bort och de som är relevanta skickas vidare till en databas som vi tillhandahar. Filtreringen sker genom att jämföra vilken domän som sparar cookien med de domäner som finns registrerade i datakällan som reklamrelaterade.
 
 \subsubsection{Data Analys}
-På en extern server byggdes ett API i PHP. Det faktiska serverspråket är egentligen  ointressant och i detta fall valdes det alternativ som på enklaste vis kunde byggas ihop fortast. I botten valdes en MySQL databas för lagring.  
+På en extern server finns ett API i PHP. Det faktiska serverspråket är egentligen  ointressant och i detta fall valdes det alternativ som på enklaste vis kan byggas ihop fortast. I botten finns en MySQL databas för lagring.  
 
-För att kunna analysera data från databasen i mer lättsmält format behövdes en bättre presentation. För att åstadkomma detta valdes ett JavaScript bibliotek som heter Chart.js \cite{Downie} som grafiskt presenterar rådata i diagram. 
+För att kunna analysera data från databasen i mer lättsmält format behövs en bättre presentation. För att åstadkomma detta används ett JavaScript bibliotek som heter Chart.js \cite{Downie} som grafiskt presenterar rådata i diagram. 
 
 \subsubsection{Personas och deras beteenden}
-För att samla in kvantitativ data behöver många hemsidor besökas. För att besöka hemsidor utifrån ett användarperspektiv användes personas. Varje persona fick i insamlingen simulera surfperioder där de besökte hemsidor utifrån sina respektive intressen.
+För att samla in kvantitativ data behöver många hemsidor besökas. För att besöka hemsidor utifrån ett användarperspektiv används personas. Varje persona får i insamlingen simulera surfperioder där de besöker hemsidor utifrån sina respektive intressen.
 
 Vid utformning av personas finns det olika tekniker som kan användas. I vissa fall kan personas bli stereotypiska och hårt fokuserade på att uppå ett mål. Detta är något som McGinn \& Kotamaraju \cite{McGinn} nämner som en respons på att personerna som skrivit personas har ett mål som vill uppnås. Detta kan få negativa följder för resultatet eftersom dessa personas inte är skapade på ett objektivt vis. Istället föreslår McGinn \& Kotamaraju \cite{McGinn} i sin artikel att personas kan grundas på statistisk data från riktiga användare för att undvika dessa problem för att på detta vis grunda personas i existerande data.
 
 Faily \& Flechais \cite{Faily} föreslår en metodik där en summering av alla personaförslag ska framläggas, därefter diskuteras alla persondrag och hur dessa passar på personan. Därefter skrivs personan i en berättande form som baseras på tidigare nämnda punkter. Ett fokus på personlighetsdrag framläggs och flera gånger nämns att detta ska avhandlas väl. Just denna metodik är den som valts att användas i utvecklingen av personas. 
 
-Som en del av att samla data om trackers skrevs därmed åtta stycken personas med en kort tillhörande livshistoria. Varje persona fick också två till tre fritidsintressen. Därefter skrevs en mindre konsolapplikation i C\# som gör http-anrop till ett API från Google som heter Custom Search \cite{CustomSearch}. Custom Search API:et fungerar som en vanlig googling fast där svaret kommer tillbaka som JSON istället för i en webbläsare med HTML. De personas som användes i undersökningen går att återfinna i \textit{Bilaga} 1.
+Som en del av att samla data om trackers finns åtta stycken personas med en kort tillhörande livshistoria. Varje persona har två till tre fritidsintressen. Därtill finns en mindre konsolapplikation i C\# som gör http-anrop till ett API från Google som heter Custom Search \cite{CustomSearch}. Custom Search API:et fungerar som en vanlig googling fast där svaret kommer tillbaka som JSON istället för i en webbläsare med HTML. De personas som används i undersökningen går att återfinna i \textit{Bilaga} 1.
 
-För att inte störa sökningarna med svenska resultat användes en proxy i landet där personan uppges komma från och det bör nämnas att det i detta skede inte är uppenbart vilken information som samlas in om personan. Med detta sagt användes också en separat virtuell maskin med Windows 8 och webbläsaren Google Chrome. 
+För att inte störa sökningarna med svenska resultat används en proxy i landet där personan uppges komma från och det bör nämnas att det i detta skede inte är uppenbart vilken information som samlas in om personan. Med detta sagt används en separat virtuell maskin med Windows 8 och webbläsaren Google Chrome. 
 
-Applikationen sökte därefter på de intressen som personan uppges ha och resultatet, i form av http-länkar, sparades ner i en logg fil. På varje persona samlades tre sidor, innehållande 10 sökresultat vardera, in och sparas ner på respektive intresse. Så om en persona har tre intressen medför detta 90 länkar som användaren ska besöka. 
+Applikationen söker därefter på de intressen som personan uppges ha och resultatet, i form av http-länkar, sparas ner i en loggfil. På varje persona samlas tre sidor, innehållande 10 sökresultat vardera, in och sparas på respektive intresse. Så om en persona har tre intressen medför detta 90 länkar som användaren ska besöka. 
 
 När länkarna sparats ner i loggfilen startar C\# applikationen upp flikar i Chrome som besöker dessa hemsidor. För att dels efterlikna ett mer normalt sökbeteende, men också för att inte webbläsaren ska krascha, ställs en timer in på några sekunder mellan varje googling. 
 
-I webbläsaren på den virtuella maskinen finns också vår modifierade version av Disconnect installerad som gör att alla sidor som personan besöker analyseras av webbläsartillägget som skickar vidare all information om trackers till vår analys API. 
+I webbläsaren på den virtuella maskinen finns också vår modifierade version av Disconnect installerad som gör att alla sidor som personan besöker analyseras av webbläsartillägget som skickar vidare all information om trackers till vårt analys API. 
 
 \subsection{Metoddiskussion}
 Syftet med experimentet är att identifiera de största aktörerna inom datainsamling och deras hantering av data. För att göra detta skulle det bästa vara att antingen anställa en stor mängd personer som googlar eller att köpa deras internetinformation. Eftersom resurserna av denna undersökning inte har denna budget är båda metoderna uteslutna. 
 
-För att undersöka hur medvetna användare är kring datainsamling är metoder baserade på enkäter alternativt observationer intressanta. Valet att inte använda denna metod som komplement till de valda metoderna har gjorts utifrån omfattning och tid. Eftersom att en sådan undersökning är tidskrävande valdes det att inte gå vidare med dessa metoder.
+För att undersöka hur medvetna användare är kring datainsamling är metoder baserade på enkäter alternativt observationer intressanta. Valet att inte använda denna metod som komplement till de valda metoderna har gjorts utifrån omfattning och tid. Eftersom en sådan undersökning är tidskrävande valdes det att inte gå vidare med dessa metoder.
 
-Undersökningen försöker istället att utföra kvalificerade gissningar över hur en person använder internet genom Googles sökmotor. Detta beteende försöks sedan efterliknas i applikationer genom simulering. Detta medför också att undersökningen inte blir mer sofistikerad än de gissningar om hur en användare söker på Google. 
+Undersökningen försöker istället att utföra kvalificerade gissningar över hur en person använder internet genom Googles sökmotor. Detta beteende simuleras sedan av en applikation. Detta medför också att undersökningen inte blir mer sofistikerad än de gissningar om hur en användare söker på Google är. 
 
-Eftersom de datainsamlande aktörerna inte tillhandahar fri dataåtkomst kommer detta medföra att resultat inte kan grundas på vilken data som sparats hos aktören.
+Eftersom vi inte har fri dataåtkomst till de tjänster som samlar in data kommer det medföra att resultat inte kan grundas på vilken data som sparats i tjänsten.
 
 Istället ligger fokus på den data som potentiellt kan sparas dvs. den data som skickas från klienten. Genom att undersöka sektresspolicies går det att jämföra hur tydligt det är att datan skickas med vad som uppges i sekretesspolicyn.
 
 \subsection{Valda metoders för- och nackdelar}
-De metoder som valts har utformats för att analysera den information som finns tillgänglig på ett enkelt vis. Den faktiska data som det rör sig om är uteslutande från användarens dator. En nackdel med denna metod är att det inte är möjligt att veta exakt vad som händer i andra delar av systemet. Det går till exempel inte att veta hur företagen som äger tjänsterna hanterar datan som kommer från klienterna. Detta är naturligtvis en nackdel för undersökningen. Samtidigt är det också så att det inte finns möjligheter att få ut samtlig data från dessa tjänster för eget bruk. Därmed vet heller inte tjänsterna att en analys på deras datahantering sker vilket kan ses som en fördel eftersom de då inte heller har någon möjlighet att hantera den annorlunda och påverka undersökningen. 
+De metoder som valts har utformats för att analysera den information som finns tillgänglig på ett enkelt vis. Den faktiska data som det rör sig om är uteslutande från användarens dator. En nackdel med denna metod är att det inte är möjligt att veta exakt vad som händer i andra delar av systemet. Det går till exempel inte att veta hur företagen som äger tjänsterna hanterar datan som kommer från klienterna. Detta är naturligtvis en nackdel för undersökningen. Samtidigt är det också så att det inte finns möjligheter att få ut samtliga data från dessa tjänster för eget bruk. Därmed vet heller inte tjänsterna att en analys på deras datahantering sker vilket kan ses som en fördel eftersom de då inte heller har någon möjlighet att hantera den annorlunda och påverka undersökningen. 
 
-I undersökningen har antagandet gjorts att företagen har möjlighet att insamla allt som står i deras sekretesspolicies. Istället för att se detta som en svaghet för undersökningen går det också att se detta som ett bra underlag för fortsatta studier. Om annan forskning inom området visar att annan data hanteras, kommer den att avvika från vår undersökning. Om detta skulle vara fallet kommer det också innebära att tjänsterna inte följer sina sekretesspolicies vilket i sin tur tyder på dålig transparens och integritetshantering, vilket denna undersökningen också undersöker. 
+I undersökningen har antagandet gjorts att företagen har möjlighet att insamla allt som står i deras sekretesspolicies. Istället för att se detta som en svaghet för undersökningen går det också att se detta som ett bra underlag för fortsatta studier. Om annan forskning inom området visar att annan data hanteras, kommer den att avvika från vår undersökning. Om detta skulle vara fallet kommer det också innebära att tjänsterna inte följer sina sekretesspolicies vilket i sin tur tyder på dålig transparens och integritetshantering, vilket vi också undersöker. 
 
-De metoder som använts är en blandning av kvantitativa och kvalitativa. Creswell \cite{Creswell} definierar denna typ av blandad metodik som mixed methodology som översätts direkt till ``blandad metod'' på svenska. Creswell \cite{Creswell} nämner också att det med fördel går att blanda metoder som ett komplement till varandra. Just i vårt  fall hamnar våra metoder under en så kallad sekventiell blandning där vår kvantitativa undersökning följs av en kvalitativ. Då den kvalitativa undersökningen i denna uppsats syftar till att undersöka kommunikationen mellan datainsamlande företag gentemot användare komplementeras detta utav en kvantitativ undersökning som syftar till att samla in rådata om vilka företag som samlar in data vid surfning.
-
-Cresswell \cite{Creswell} visar tydligt fördelarna med en mixad metodologi: 
+De metoder som använts är en blandning av kvantitativa och kvalitativa. Creswell \cite{Creswell} definierar denna typ av blandad metodik som mixed methodology som översätts direkt till ``blandad metod'' på svenska. Creswell \cite{Creswell} nämner också att det med fördel går att blanda metoder som ett komplement till varandra. Just i vårt  fall hamnar våra metoder under en så kallad sekventiell blandning där vår kvantitativa undersökning följs av en kvalitativ. Då den kvalitativa undersökningen i denna uppsats syftar till att undersöka kommunikationen mellan datainsamlande företag gentemot användare komplementeras detta utav en kvantitativ undersökning som syftar till att samla in rådata om vilka företag som samlar in data vid surfning. Cresswell \cite{Creswell} visar tydligt fördelarna med en mixad metodologi: 
 
 \begin{quote}
 A mixed methods design is useful to capture the best of both quantitative and qualitative approaches. For example, a researcher may want to both generalize the findings to a population and develop a detailed view of the meaning of a phenomenon or concept for individuals \cite[p. 22]{Creswell}.
@@ -389,7 +387,9 @@ A mixed methods design is useful to capture the best of both quantitative and qu
 Den mixade motodologin är effektiv för att utföra det som vår undersökning syftar till, det vill säga: generalisera fynden från en population genom en kvantitativ undersökning och använd dessa fynd för att utföra mer detaljerad analys. I denna undersökningen generaliseras fynden utifrån de trackers som är mest aktiva vid simulerad surfning för att göra en detaljerad analys. 
 
 \section{Resultat}
-I denna del av dokumentet presenteras resultatet av det experiment som utförts. Sammanlagt har 720 hemsidor besökts. Dessa 720 sidor är kopplade till privata intressen av de personas som definierats. En lista på de 30 största trackersen går att finna i \textit{Bilaga 2} och om samtliga cookies som återfanns i undersökningen går att finna i \textit{Bilaga 3}.
+I denna del av dokumentet presenteras resultatet av det experiment som utförts. Sammanlagt har 720 hemsidor besökts. Dessa 720 sidor är kopplade till privata intressen av de personas som definierats. En lista på de 30 största trackers går att finna i \textit{Bilaga 2} och om samtliga cookies som återfanns i undersökningen går att finna i \textit{Bilaga 3}.
+
+Vid undersökning av de fem största trackers som fanns i experimentet framgår det att fyra av dessa tjänster ägs av Google. Detta är tjänsterna: Google Analytics, Google Ad Services, Double Click och Google Syndication. Dessa fyra tjänster ger Google en andel av ca 25\% av marknaden. Den fjärde stora aktören är ComScore som ligger på ca 3\%.
 
 \subsection{Trackers}
 Nedanstående diagram (se Fig 1) visar antal förekomster av trackers på individuella sidor. Dvs hur många gånger trackers dök upp på de undersökta sidorna. \\\\
@@ -398,7 +398,7 @@ Nedanstående diagram (se Fig 1) visar antal förekomster av trackers på individue
 \textit{Fig 3: Diagram över samtliga trackers}\\
 
 
-Det fanns totalt 225 unika trackers över alla sidor som besöktes i experimentet. Av dessa unika trackers togs de fem största ut för att vidare analysera dessa. Värdet som visas bredvid trackernamnet indikerar hur många unika gånger per hemsida trackern observerades bland de 720 sidor som besöktes i experimentet. Detta innebär till exempel att GoogleAnalytics förekom på cirka 50\% av de besökta sidorna (se Tabell 1). Det som bör nämnas är att de fyra största trackersen ägs av Google. 
+Det fanns totalt 225 unika trackers över alla sidor som besöktes i experimentet. Av dessa unika trackers valdes de fem största för vidare analys. Värdet som visas bredvid trackernamnet indikerar hur många unika gånger per hemsida trackern observerades bland de 720 sidor som besöktes i experimentet. Detta innebär till exempel att GoogleAnalytics förekom på cirka 50\% av de besökta sidorna (se Tabell 1). Det som bör nämnas är att de fyra största trackersen ägs av Google. 
 
 \begin{table}
 \begin{center}
@@ -421,7 +421,7 @@ Nedanstående diagram (se Fig 2) visar hur många cookies som sparades till tjänst
 \includegraphics[width=10cm]{cookies.png} \\
 \textit{Fig 2: Diagram över samtliga cookies}\\
 
-Vid undersökningen av cookies framgår det att de största fem tjänsterna inte fanns med bland resultaten. De fem största resultaten bland cookies är istället Spotxchange, Adnxs, Bluekai, Casaledia och Rubiconprojekt.  Alla dessa fem är reklamföretag som inriktar sig på automatiserad reklam och big data analysering. Adnxs är den ända företaget av dessa fem som förekommer bland de 10 största trackersen. Detta reklamföretag är ett dotterföretag till AppNexus som är en stor aktör inom reklammarknaden \cite{Guardian}.
+Vid undersökningen av cookies framgår det att de största fem tjänsterna inte finns med bland resultaten. De fem största resultaten bland cookies är istället Spotxchange, Adnxs, Bluekai, Casaledia och Rubiconprojekt.  Alla dessa fem är reklamföretag som inriktar sig på automatiserad reklam och big data analysering. Adnxs är det enda företaget av dessa fem som förekommer bland de 10 största trackersen. Detta reklamföretag är ett dotterföretag till AppNexus som är en stor aktör inom reklammarknaden \cite{Guardian}.
 
 \subsection{Personas}
 I undersökningen besöktes 90 sidor per persona vilket simluerade en 45 minuters surfperiod. Utslaget på alla 8 personas registrerade 603 trackers i genomsnitt per surfperiod. Dessa registrerade trackers är inte unika tjänster utan visar på hur många trackers totalt som registrerats.
@@ -511,9 +511,7 @@ Valet har gjorts att fokusera på de 5 största tjänsterna. Detta innebär att det 
 
 
 \subsection{Trackers}
-Vid undersökning av de fem största trackers som fanns i experimentet framgår det att fyra av dessa tjänster ägs av Google. Detta är tjänsterna: Google Analytics, Google Ad Services, Double Click och Google Syndication. Dessa fyra tjänster ger Google en andel av ca 25\% av marknaden. Den fjärde stora aktören är ComScore som ligger på ca 3\%.
-
-Med anledning av uppsatsens omfång och storlek har valet gjorts att inte utföra en ytterligare analys kring resterande trackers. Då totalt 225 stycken unika trackers registrerats i undersökningen skulle analys av dessa vara både tidskrävande och svårt att genomföra. Då uppsatsen i första hand inte är en jämförelse mellan olika trackers har beslutet tagits att endast analysera Google och ComScore.
+I undersökningen påträffades totalt 225 stycken unika trackers. Får att få en bättre genomgående och träffsäker analys har valet gjorts att fokusera på en mindre grupp trackers. Då uppsatsen i första hand inte är en jämförelse mellan olika trackers har beslutet tagits att endast analysera Google och ComScore.
 
 Skripten som används för att samla information om användaren finns tillgängliga för analys. Detta grundar sig i det faktum av hur webben fungerar med hänsyn till klient/server arkitekturen \cite{Dale}. All JavaScript på en hemsida körs på klientens egen dator. Detta medför att det är möjligt att analysera tracker-skripten eftersom de fysiskt befinner sig på personans dator. Problemet med dessa skript är att de är minfierade och obfuskerade på grund av prestanda och eventuellt också för att de inte ska vara lättlästa och väl dokumenterade/kommenterade av den anledningen med vilka intressen för denna undersökning omfattar, nämligen analys av vilken data de samlar in. 
 
@@ -524,7 +522,7 @@ Eftersom experimentet utförts med en datakälla bestående av kända trackers och r
 \subsection{Cookies}
 Den främsta slutsatsen som går att dra från resultatet är mängden cookies som sparas vid en 45 minuters surfperiod. Då det genomsnittliga antalet låg på 4456 stycken ges en indikation på mängden information som tredjepartsaktörer sparar.
 
-Varför de fem största trackers inte förekom bland resultaten av cookies, då åtminstone DoubleClick använder sig utav cookies \cite{GuardianDoubleClick}, kan förklaras på flera sätt. Dels är cookies inte den ända tekniken för att spara begränsad data på en klientdator. Local storage är till exempel en teknik som finns i modernare webbläsare och har en lagringskapacitet som är större än cookies \cite{MDN}. Eftersom vi utförde experimentet i Google Chrome v. 42.0.2311.90 där local storage är tillgängligt skulle dessa företag kunna använda sig utav local storage istället.
+Varför de fem största trackers inte förekom bland resultaten av cookies, då åtminstone DoubleClick använder sig utav cookies \cite{GuardianDoubleClick}, kan förklaras på flera sätt. Dels är cookies inte den enda tekniken för att spara begränsad data på en klientdator. Local storage är till exempel en teknik som finns i modernare webbläsare och har en lagringskapacitet som är större än cookies \cite{MDN}.
 
 Insamlingen av cookies som utförts med hjälp av det modifierade Chrome-tillägget baseras helt utifrån datakällan som Disconnect använder. Eftersom denna datakälla är uppbyggd utifrån trackers innebär detta att resultaten för cookies bara ger utslag om domänerna i datakällan matchar de cookies som sparas på respektive webbplats. Om till exempel DoubleClick använder en domän för sina trackers och en annan för sina cookies så kommer denna reklam företag helt att uteslutas ur resultatet då deras cookies aldrig kommer att passera filtreringen.  
 
@@ -535,12 +533,12 @@ Ett exempel då detta sker är i GoogleAnalytics tjänst då ett besök på www.aftonb
 Eftersom resultaten för cookies i experimentet haft ett väsentligt bortfall har vi i den kvalitativa analysen  valt att fokusera på de största aktörerna för trackers istället.
 
 \subsection{Jämförelse med liknande studier}
-I ett studie utförd av Gomer et al. \cite{Gomer} framgick det av experimentet som utförts att en användare kommer med en sannolikhet på 99.5\% att stöta på cookies från någon av de 10 största tredjepartsdomänerna (läs trackers).
+I en studie utförd av Gomer et al. \cite{Gomer} framgick det av experimentet som utförts att en användare kommer, med en sannolikhet på 99.5\%, stöta på cookies från någon av de 10 största tredjepartsdomänerna (läs trackers).
 
 \begin{quote}
 We find that after visiting just 30 search results, the probability of getting cookies from all top 10 third party domains is 99.5\% [...] \cite[p. 553]{Gomer}.
 \end{quote}
-Enligt studien var de 10 största tredjepartsdomäner som ej är kategoriserade i gruppen behavioral targeting:
+Enligt studien var de 10 största tredjepartsdomänerna som ej är kategoriserade i gruppen behavioral targeting:
 
 \begin{quote}
 Among the top 10 such domains are: googleadservices.com, google-analytics.com, facebook.net, truste.com, zenfs.com, scorecardresearch.com, quantserve.com, newrelic.com, google.co.uk, and adobe.com [...] \cite[p. 553]{Gomer}.
@@ -551,14 +549,12 @@ Enligt Scorecard Research \cite{Scorecard} är denna tjänst en del utav ComScore 
 \begin{quote}
 Top 10 companies in this category include: doubleclick.net, googlesyndication.com, gstatic.com, fbcdn.net, tfd.com, invitemedia.com, atdmt.com, ajax.googleapis.com, pinterest.com, and 2mdn.net [...] \cite[p. 553]{Gomer}.
 \end{quote}
-I experimentet utförd i vår undersökning framgår det att de fem högsta resultaten för trackers finns med i dessa två kategorier. Dock så har Gomer et al. \cite{Gomer} använt sig utav en något annorlunda kategorisering än den som används i vår undersökning. 
+I vår undersökning framgår det att de fem högsta resultaten för trackers finns med i dessa två kategorier. Dock så har Gomer et al. \cite{Gomer} använt sig utav en något annorlunda kategorisering än vår. 
 
 \subsection{ComScore}
-I ComScores sekretesspolicy framgår det inte vilken typ av data som samlas in utan de poängterar endast att data inte är personligt identifierbar. Vid jämförelse med Googles sekretesspolicy går det tydligt att se att ComScore har betydligt mindre transparens kring sin insamling. Googles sekretesspolicy är väldigt explicit medan ComScores är mer abstrakt. ComScore är också väldigt måna om att poängtera att de samarbetar med granskningsorgan och att de upprätthåller transparens och sundhet (eng. soundness) kring sina mätningar.
+I ComScores sekretesspolicy framgår det inte vilken typ av data som samlas in utan de poängterar endast att data inte är personligt identifierbar. Vid jämförelse med Googles sekretesspolicy är det tydligt attt ComScore har betydligt sämre transparens kring sin insamling. Googles sekretesspolicy är väldigt explicit medan ComScores är mer abstrakt. ComScore är också väldigt måna om att poängtera att de samarbetar med granskningsorgan och att de upprätthåller transparens och sundhet (eng. soundness) kring sina mätningar.
 
-Vid en djupare analys framgår det att ComScore inlett ett samarbete med DoubleClick där de delar insamlad data. Eftersom att det i sekretesspolicyn inte framgår vilken data som samlas in kan frågeställningen kring vilken data ComScore tillhandahar som visar sig attraktiv för Google vara intressant.
-
-Dessutom går det att ifrågasätta om den personliga identifierbarheten, som ComScore anger att datan ej är, blir lidande av ett sådant samarbete. Då samarbetet i praktiken antagligen innebär att två system samkörs krävs en samkörning av DoubleClicks data och ComScores analytiska information.
+Vid en djupare analys framgår det att ComScore inlett ett samarbete med DoubleClick där de delar insamlad data. Detta innebär att Google potentiellt har möjlighet att behandla data som inte är explicit definierad eftersom ComScore inte anger vilken data de samlar in och parterna har ett sammarbete. 
 
 \subsection{Google}
 Det framgår inte i Googles sekretess och användarvillkor \cite{GooglePrivacyPolicy} i vilken utsträckning den insamlade datan används. Det finns till exempel inget som bevisar att all information som insamlas faktiskt används. Det som anges är ett ställningstagande till vilken information som kommer kunna användas om Google får åtkomst till den via användande av deras tjänster.  
@@ -566,8 +562,8 @@ Det framgår inte i Googles sekretess och användarvillkor \cite{GooglePrivacyPoli
 Följande delar kan vara speciellt intressanta ur integritetshänsyn: 
 
 \begin{itemize}
-	\item Den du ringers telefonnummer kommer kunna sparas. 
-	\item Ditt personnummer kan komma att sparas på en server utomlands. Detta innebär att t.ex. ditt personnummer eventuellt inte hanteras enligt PUL, personuppgiftslagen.
+	\item Den uppringdes telefonnummer kommer kunna sparas. 
+	\item Personnummer kan komma att sparas på server utomlands. Detta innebär att t.ex. ditt personnummer eventuellt inte hanteras enligt PUL, personuppgiftslagen.
 \end{itemize}
 
 Det går också i sekrestesspolicyn att läsa: 
@@ -582,12 +578,12 @@ Enligt Googles sekretesspolicy \cite{GooglePrivacyPolicy} används informationen 
 \begin{quote}
 Vi använder också informationen för att ge dig anpassat innehåll, till exempel sökresultat och annonser som är mer relevanta för dig \cite{GooglePrivacyPolicy}.
 \end{quote}
-Informationen används också för annat syfte såsom Google Analytics och spamdetektering med hjälp av bland annat pixeltaggar.
+Informationen används också för annat syfte såsom Google Analytics och spamdetektering.
 
 \section{Diskussion}
-Eftersom JavaScript körs på klienten finns skripten tillgängliga att undersöka. Det skulle vara av intresse att göra en noggrann analys av vad som händer i skripten. Problemet med denna analys är att skripten är minifierade och obfuskerade, dels för optimeringändamål men även för att göra det svårare att analysera dem. I sammanhanget syftar minifieringen till att skriptfilerna har slagits samman på samma rad och namn gjorts om för att göra filen mindre. Obfuskeringen syftar till att göra om filerna så att koden blir mer svårläst. Detta innebär att det blir väldigt svårt att veta exakt vad som sker när de exekveras. Mängden skript gör det också oerhört svårt att dels undersöka alla, men även att bara hitta  några stycken i mängden som är värda att undersöka är svårt. Därför är istället utgångsläget att hitta företagens officiella uppgifter om vilken data de insamlar. Alla företag delger inte heller på ett enkelt sätt vilken information som används eller sparas. Den största aktören, Google med sin 25\% av alla trackers, har en tydlig sekretesspolicy som visar vad som insamlas även om alla punkter kanske inte gäller alla klienter.
+Eftersom JavaScript körs på klienten finns skripten tillgängliga att undersöka. Det skulle vara av intresse att göra en noggrann analys av vad som händer i skripten. Problemet med denna analys är att skripten är minifierade och obfuskerade, dels för optimeringändamål men även för att göra det svårare att analysera dem. I sammanhanget syftar minifieringen till att skriptfilerna har slagits samman på samma rad och namn gjorts om för att göra filen mindre. Obfuskeringen syftar till att göra om filerna så att koden blir mer svårläst. Detta innebär att det blir väldigt svårt att veta exakt vad som sker när de exekveras. Mängden skript gör det också oerhört svårt att dels undersöka alla, men även att bara hitta  några stycken i mängden som är värda att undersöka är svårt. Därför är istället utgångsläget att hitta företagens officiella uppgifter om vilken data de insamlar. Alla företag delger inte heller på ett enkelt sätt vilken information som används eller sparas. Den största aktören, Google med sina 25\% av alla trackers, har en tydlig sekretesspolicy som visar vad som insamlas även om alla punkter kanske inte gäller alla klienter.
 
-Spårbarhet avseende den insamlade datans ursprung blir problematisk eftersom det finns många aktörer. I undersökningen besöktes 720 hemsidor. Detta motsvarade åtta personer som vardera besökte 90 sidor, eller de första tre sidorna på en googling av tre intressen. Detta resulterade i en stor mängd trackers. Även om Google står för 25\% av de registrerade trackers finns det fortfarande en uppsjö av andra mindre verksamheter som har de resterande 75 procenten. Det är troligt att dessa mindre aktörer över tid kommer att variera och skapa en mängd verksamheter med varierande grad av oklara agendor. Ett intressant exempel på oklar agenda gick att återfinna i källkoden på orginalkoden till Disconnect. Det fanns i svartlistningen vissa hårdkodade undantag för specifika sidor som därmed inte blockeras från tracking även om användaren av Disconnect har detta påslaget. Med detta sagt finns det en uppsjö av mindre aktörer som går i varierande mängd ogranskade förbi. 
+Spårbarhet avseende den insamlade datans ursprung blir problematisk eftersom det finns många aktörer. I undersökningen besöktes 720 hemsidor. Detta motsvarade åtta personer som vardera besökte 90 sidor, eller de första tre sidorna på en googling av tre intressen. Detta resulterade i en stor mängd trackers. Även om Google står för 25\% av de registrerade trackers finns det fortfarande en uppsjö av andra mindre verksamheter som har resterande 75\%. Det är troligt att dessa mindre aktörer över tid kommer att variera och skapa en mängd verksamheter med varierande grad av oklara agendor. Ett intressant exempel på oklar agenda gick att återfinna i källkoden på orginalkoden till Disconnect. Det fanns vissa hårdkodade undantag för specifika sidor som därmed inte blockeras från tracking även om användaren av Disconnect har detta påslaget. Med detta sagt finns det en uppsjö av mindre aktörer som går ogranskade förbi. 
 
 När en användare besöker en hemsida finns det ingenting som visar, som standard, vem som hämtar information om användaren. Det går att använda verktyg som kan ge indikationer på om besökta sidor är aggressiva i inhämtandet och vart informationen skickas. Problematiken är att den vanliga internetanvändaren inte har kännedom om varken informationen som insamlas eller vilka program eller mekanismer som ligger bakom insamlandet. Undersökningen syftar inte till att, i första hand, begränsa insamlandet utan snarare identifiera metoder för att skapa bättre mekanismer för användaren att se vilka aktörer, mängden information och vilken information som hanteras. Det finns i dagsläget en typ av falsk marknadsföring där ett klick inte bara betyder ett klick utan även informationsläckage.  
 
